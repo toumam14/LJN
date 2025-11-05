@@ -1,75 +1,80 @@
 ---
 import "../components/globalStyles.astro";
+import BaseComponent from "../layouts/BaseComponent.astro";
+import Nav from "../layouts/nav.astro";
 ---
 
 <style lang="scss">
+  body {
+    background: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-	body {
-		background: pink;
-	}
-	
-	.coming-soon {	
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		font-family: "League Spartan", sans-serif;
-		font-optical-sizing: auto;
-		font-style: normal;
-		height: 100vh;
-		margin: 0 50px;
-		text-align: center;
+  .coming-soon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "League Spartan", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    height: 100vh;
+    margin: 0 50px;
+    text-align: center;
 
-		h1 {
-			font-weight: 700;
-			font-size: 48px;
-			text-align: center;
-		}
+    h1 {
+      font-weight: 700;
+      font-size: 48px;
+      text-align: center;
+    }
 
-		h2 {
-			font-weight: 400;
-		}
-  	}
-
+    h2 {
+      font-weight: 400;
+    }
+  }
 </style>
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Language Justice Network</title>
-  </head>
-  <body>
-    <section class="coming-soon">
-      <h1>Language Justice Network</h1>
-      <h2>
-        Supporting LGBTQIA+ forcibly displaced <br /> people in accessing services
-        through language services
-      </h2>
+<BaseComponent>
+  <Nav />
+  <section class="coming-soon">
+    <h1>Language Justice Network</h1>
+    <h2>Language is a right, not a privilege</h2>
+    <p>
+      Creating safer, affirming, and culturally grounded language services for
+      lGBTQIA+ forcibly displaced peoople
+    </p>
 
-      <h2>Coming soon</h2>
+    <h2>Our mission</h2>
+    <p>
+      The Language Justice Network (LJN) is a community-led not-for-profit
+      dedicated to ensuring language is never a barrier to safety, care, or
+      belonging. We provide affirming and culturally competent interpreting,
+      translation, training, and advocacy for LGBTQIA+ forcibly displaced people
+      and those who support them. 
+    </p>
+      
+    <p>
+      Our work centres language justice — the belief
+      that everyone has the right to communicate in the language they know best,
+      and to be heard, respected, and understood.
+    </p>
 
-      <p>
-        Want to get in touch? E-mail us at <a href="mailto:admin@ljn.org.au"
-          >admin@ljn.org.au</a
-        >
-      </p>
+    <a href="" class="cta-button">Learn more about us</a>
 
-      <p>
-        For now, keep up with us on Instagram at <a
-          href="https://www.instagram.com/languagejusticenetwork/"
-          target="_blank"
-          rel="noreferrer noopener">@languagejusticenetwork</a
-        >
-      </p>
-    </section>
-  </body>
-</html>
+    <p>
+      Want to get in touch? E-mail us at <a href="mailto:admin@ljn.org.au"
+        >admin@ljn.org.au</a
+      >
+    </p>
+
+    <p>
+      For now, keep up with us on Instagram at <a
+        href="https://www.instagram.com/languagejusticenetwork/"
+        target="_blank"
+        rel="noreferrer noopener">@languagejusticenetwork</a
+      >
+    </p>
+  </section>
+</BaseComponent>
