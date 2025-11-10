@@ -6,16 +6,19 @@ import Nav from "../layouts/Nav.astro";
 
 <style lang="scss">
   body {
-    background: pink;
+    // background: pink;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 1120px;
+    width: 900px;
     justify-content: center;
     margin: 0 auto;
+    p {
+      text-align: left;
+    }
   }
 
-  .coming-soon {
+  .homepage {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,34 +27,64 @@ import Nav from "../layouts/Nav.astro";
     font-optical-sizing: auto;
     font-style: normal;
     margin: 0 50px;
-    text-align: center;
+    // text-align: center;
 
-    h1 {
-      font-weight: 700;
-      font-size: 48px;
-      text-align: center;
+    .hero {      
+      // text-align: center;
+      h1 {
+        text-align: center;
+      }
+
+      p {
+        font-size: var(--font-body-lg);
+        text-align: center;
+      }
     }
 
-    h2 {
-      font-weight: 400;
+    .what-we-do {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      .what-we-do-header {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .info-box-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        .info-box {
+          display: flex;
+          flex-wrap: wrap;
+          width: 350px;
+          flex-direction: row;
+          background-color: var(--subtle-grey);
+          margin: 10px;
+          padding: 15px;
+        }
+      }
     }
   }
 </style>
 
 <BaseComponent>
   <Nav />
-  <div class="coming-soon">
-    <section class="title-page">
-      <h1>Language Justice Network</h1>
-      <h2>Language is a right, not a privilege</h2>
+  <div class="homepage">
+    <section class="hero">
+      <h1>Language is a right, not a privilege</h1>
       <p>
         Creating safer, affirming, and culturally grounded language services for
-        lGBTQIA+ forcibly displaced peoople
+        LGBTQIA+ forcibly displaced peoople
       </p>
     </section>
 
     <section class="our-mission">
-      <h2>Our Mission</h2>
+      <h3>Our Mission</h3>
       <p>
         The Language Justice Network (LJN) is a community-led not-for-profit
         dedicated to ensuring language is never a barrier to safety, care, or
@@ -70,37 +103,42 @@ import Nav from "../layouts/Nav.astro";
     </section>
 
     <section class="what-we-do">
-      <h2>What We Do</h2>
-      <h3>We build bridges through language</h3>
-
-      <div class="info-box">
-        <h4>Interpreting & Translation</h4>
-        <p>
-          Safe, affirming language services delivered by NAATI-certified
-          practitioners
-        </p>
+      <div class="what-we-do-header">
+        <h2>What We Do</h2>
+        <h3>We build bridges through language</h3>
       </div>
 
-      <div class="info-box">
-        <h4>Training & Workshops</h4>
-        <p>
-          For service providers and interpreters on trauma-informed,
-          queer-affirming practices
-        </p>
-      </div>
-      <div class="info-box">
-        <h4>Consulting & Policy Development</h4>
-        <p>
-          Co-designing frameworks that center LGBTQIA+ multilingual communities
-        </p>
-      </div>
-      <div class="info-box">
-        <h4>Capacity Building</h4>
-        <p>
-          supporting bilingual LGBTQIA+ forcibly displaced people to become
-          NAATI-certified interpreters
-        </p>
-      </div>
+      <ul class="info-box-wrapper">
+        <li class="info-box">
+          <h4>Interpreting & Translation</h4>
+          <p>
+            Safe, affirming language services delivered by NAATI-certified
+            practitioners
+          </p>
+        </li>
+
+        <li class="info-box">
+          <h4>Training & Workshops</h4>
+          <p>
+            For service providers and interpreters on trauma-informed,
+            queer-affirming practices
+          </p>
+        </li>
+        <li class="info-box">
+          <h4>Consulting & Policy Development</h4>
+          <p>
+            Co-designing frameworks that center LGBTQIA+ multilingual
+            communities
+          </p>
+        </li>
+        <li class="info-box">
+          <h4>Capacity Building</h4>
+          <p>
+            supporting bilingual LGBTQIA+ forcibly displaced people to become
+            NAATI-certified interpreters
+          </p>
+        </li>
+      </ul>
 
       <a href="">Explore our services</a>
     </section>
@@ -161,9 +199,14 @@ import Nav from "../layouts/Nav.astro";
         refugees and migrants.
       </p>
 
-      <p>Every contribution makes a difference—in someone's voice, safety, and future.</p>
+      <p>
+        Every contribution makes a difference—in someone's voice, safety, and
+        future.
+      </p>
 
-      <a href="">Donate Now</a><a href="">Partner with unsafe</a><a href="">Join the Lived Experience Advisory Group</a>
+      <a href="">Donate Now</a><a href="">Partner with unsafe</a><a href=""
+        >Join the Lived Experience Advisory Group</a
+      >
     </section>
 
     <p>
