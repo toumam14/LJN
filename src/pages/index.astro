@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import heroImage from "../assets/hero-image-compressed.jpg";
 import "../components/globalStyles.astro";
 import BaseComponent from "../layouts/BaseComponent.astro";
 import Nav from "../layouts/Nav.astro";
@@ -6,16 +8,12 @@ import Nav from "../layouts/Nav.astro";
 
 <style lang="scss">
   body {
-    // background: pink;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 900px;
+    width: 1024px;
     justify-content: center;
     margin: 0 auto;
-    p {
-      text-align: left;
-    }
   }
 
   .homepage {
@@ -27,25 +25,43 @@ import Nav from "../layouts/Nav.astro";
     font-optical-sizing: auto;
     font-style: normal;
     margin: 0 50px;
-    // text-align: center;
 
-    .hero {      
-      // text-align: center;
-      h1 {
-        text-align: center;
+    .hero {
+      display: flex;
+      align-items: center;
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        p {
+          font-size: var(--font-body-lg);
+        }
       }
 
-      p {
-        font-size: var(--font-body-lg);
-        text-align: center;
+      .hero-image {
+        position: relative;
+        img {
+          border: 4px solid var(--primary-color);          
+        }
+        &::after {
+          content: " ";
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          border: 4px dashed var(--primary-color);
+          top: 7px;
+          left: 12px;
+          z-index: -1;
+        }
       }
     }
 
     .what-we-do {
       display: flex;
       align-items: center;
-      justify-content: center;
       flex-wrap: wrap;
+      text-align: left;
 
       .what-we-do-header {
         display: flex;
@@ -63,7 +79,8 @@ import Nav from "../layouts/Nav.astro";
           flex-wrap: wrap;
           width: 350px;
           flex-direction: row;
-          background-color: var(--subtle-grey);
+          background-color: var(--secondary-color);
+          border-radius: var(--border-radius-lg);
           margin: 10px;
           padding: 15px;
         }
@@ -76,11 +93,19 @@ import Nav from "../layouts/Nav.astro";
   <Nav />
   <div class="homepage">
     <section class="hero">
-      <h1>Language is a right, not a privilege</h1>
-      <p>
-        Creating safer, affirming, and culturally grounded language services for
-        LGBTQIA+ forcibly displaced peoople
-      </p>
+      <div class="hero-content">
+        <h1>Language is a right, not a privilege</h1>
+        <p>
+          At Language Justice Network (LJN), we're creating safer, affirming, and culturally grounded language services
+          for LGBTQIA+ forcibly displaced peoople
+        </p>
+
+        <a href="#" class="button">Get involved</a>
+      </div>
+
+      <div class="hero-image">
+        <Image src={heroImage} alt="" width="420" quality="max" />
+      </div>
     </section>
 
     <section class="our-mission">
@@ -99,7 +124,7 @@ import Nav from "../layouts/Nav.astro";
         respected, and understood.
       </p>
 
-      <a href="" class="cta-button">Learn more about us</a>
+      <a href="" class="button">Learn more about us</a>
     </section>
 
     <section class="what-we-do">
@@ -134,13 +159,13 @@ import Nav from "../layouts/Nav.astro";
         <li class="info-box">
           <h4>Capacity Building</h4>
           <p>
-            supporting bilingual LGBTQIA+ forcibly displaced people to become
+            Supporting bilingual LGBTQIA+ forcibly displaced people to become
             NAATI-certified interpreters
           </p>
         </li>
       </ul>
 
-      <a href="">Explore our services</a>
+      <a href="" class="button">Explore our services</a>
     </section>
 
     <section class="community-impact">
