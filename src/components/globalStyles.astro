@@ -202,18 +202,19 @@
         --subtle-grey: #EFEFEF; */
     --primary-color: #6246ea;
     --secondary-color: #d1d1e9;
-    --background-color: #fffffe;
+    --tertiary-color: #f7f7ff;
     --font-color: #2b2c34;
     --button-color: #6246ea;
     --button-text: #fffffe;
+    --button-hover: #4330a3;
     --link-color: #6246ea;
-    
+    --page-background: #ffffff;
+
     /* border styles */
     --border-radius-sm: 4px;
     --border-radius-md: 8px;
     --border-radius-lg: 12px;
   }
-
 
   section {
     margin: 20px 0;
@@ -233,7 +234,7 @@
   h1,
   h2,
   h3,
-  h4, {
+  h4 {
     /* font-family: "Libre Baskerville", serif; */
     margin: 12px 0;
     font-weight: 700;
@@ -246,6 +247,7 @@
 
   h2 {
     font-size: var(--font-title-md);
+    margin-bottom: 0;
   }
 
   h3 {
@@ -261,22 +263,45 @@
     font-size: var(--font-body-md);
     font-weight: 300;
     margin: 8px 0;
+    line-height: 1.5;
   }
 
   p,
   a,
   button {
-    
   }
 
   .button {
-    background-color: var(--button-color);
-    color: var(--button-text);
     text-decoration: none;
     padding: 15px 30px;
     margin-top: 15px;
-    font-size: var(--font-body-md);
+    font-size: var(--font-body-sm);
     border-radius: var(--border-radius-sm);
+    transition: background-color 0.15s ease-in-out;
+    
+    &:focus-visible {
+      outline: 2px solid #000;
+      outline-offset: 2px;
+    }
+  }
+
+  .button-primary {
+    background-color: var(--button-color);
+    color: var(--button-text);
+
+    &:hover {
+      background-color: var(--button-hover);
+    }
+  }
+
+  .button-secondary {
+    background-color: var(--page-background);
+    color: var(--button-color);
+    border: 1px solid var(--primary-color);
+
+    &:hover {
+      background-color: var(--secondary-color);
+    }
   }
 
   body {
