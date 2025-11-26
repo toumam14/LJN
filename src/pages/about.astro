@@ -1,0 +1,429 @@
+---
+import "../components/globalStyles.astro";
+import BaseComponent from "../layouts/BaseComponent.astro";
+import Nav from "../components/Nav.astro";
+---
+
+<style lang="scss">
+  .about-page {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+    font-family: "League Spartan", system-ui, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+  }
+
+  // ---------- HERO ----------
+
+  .about-hero {
+    margin-top: 20px;
+    padding: 32px 24px;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--secondary-color);
+    background: var(--tertiary-color);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .about-hero-heading {
+    max-width: 34rem;
+  }
+
+  .about-hero-subheading {
+    max-width: 48rem;
+  }
+
+  .about-hero-actions {
+    margin-top: 8px;
+  }
+
+  // ---------- WHO WE ARE ----------
+
+  .who-we-are {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .who-we-are-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .who-we-are-visual {
+    border-radius: var(--border-radius-lg);
+    border: 1px dashed var(--secondary-color);
+    background: var(--tertiary-color);
+    padding: 16px 18px;
+    font-size: var(--font-body-sm);
+  }
+
+  .who-we-are-visual p {
+    margin: 0;
+  }
+
+  // ---------- OUR STORY ----------
+
+  .our-story {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .our-story p {
+    // max-width: 70ch;
+  }
+
+  // ---------- OUR PRINCIPLES ----------
+
+  .our-principles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .principles-intro {
+    // max-width: 60ch;
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .principle-card {
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--secondary-color);
+    background: var(--tertiary-color);
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .principle-icon {
+    font-size: 24px;
+  }
+
+  .principle-title {
+    font-size: var(--font-body-md);
+    font-weight: 600;
+  }
+
+  .principle-text {
+    font-size: var(--font-body-sm);
+  }
+
+  .principles-actions {
+    margin-top: 4px;
+  }
+
+  // ---------- OUR TEAM ----------
+
+  .our-team {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .our-team p {
+    // max-width: 70ch;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .team-card {
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--secondary-color);
+    background: var(--tertiary-color);
+    padding: 16px 18px;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .team-card-placeholder {
+    font-size: var(--font-body-sm);
+    opacity: 0.8;
+  }
+
+  .our-team-actions {
+    margin-top: 4px;
+  }
+
+  // ---------- ACKNOWLEDGEMENT ----------
+
+  .acknowledgement {
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--secondary-color);
+    background: var(--tertiary-color);
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .acknowledgement p {
+    // max-width: 70ch;
+  }
+
+  .ack-tagline {
+    font-weight: 600;
+    font-size: var(--font-body-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  // ---------- RESPONSIVE ----------
+
+  @media (max-width: 900px) {
+    .who-we-are {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .principles-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .team-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .about-page {
+      padding-inline: 16px;
+    }
+
+    .principles-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .team-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>
+
+<BaseComponent>
+  <Nav />
+
+  <main class="about-page">
+    <!-- HERO -->
+    <section class="about-hero">
+      <div class="about-hero-heading">
+        <h1>
+          Building language equity through community, care, and connection.
+        </h1>
+      </div>
+
+      <p class="about-hero-subheading">
+        We are a collective of queer and trans interpreters, translators, and
+        community members working to ensure that language is never a barrier to
+        safety, healing, or belonging.
+      </p>
+
+      <div class="about-hero-actions">
+        <a href="/about#our-team" class="button button-primary">Meet Our Team</a
+        >
+      </div>
+    </section>
+
+    <!-- WHO WE ARE -->
+    <section class="who-we-are" id="who-we-are">
+      <div class="who-we-are-text">
+        <h2>Who We Are</h2>
+        <p>
+          The Language Justice Network (LJN) is a not-for-profit organisation
+          providing safe, queer-affirming, and culturally appropriate language
+          services, capacity building, training, and consulting. Our work is led
+          by and for LGBTQIA+ individuals from culturally and linguistically
+          diverse (CALD) backgrounds — especially forcibly displaced people and
+          trans and gender diverse communities.
+        </p>
+        <p>
+          We exist to bridge the gap between language access and inclusion. By
+          offering specialised interpreting and translation services, and by
+          training service providers and interpreters to work affirmatively and
+          ethically, we’re building a world where communication is rooted in
+          dignity, solidarity, and justice.
+        </p>
+
+        <a href="/services" class="button button-primary"
+          >Learn More About Our Work</a
+        >
+      </div>
+
+      <aside class="who-we-are-visual" aria-hidden="true">
+        <p>
+          [Future visual: photo or video thumbnail of an interpreter and a
+          community member in conversation, with subtitles introducing LJN’s
+          mission.]
+        </p>
+      </aside>
+    </section>
+
+    <!-- OUR STORY -->
+    <section class="our-story" id="our-story">
+      <h2>Our Story</h2>
+      <p>
+        LJN emerged from the lived experience of interpreters and community
+        members who witnessed the harm caused by unsafe or uninformed language
+        practices — particularly for queer refugees and people seeking asylum.
+        Too often, interpreters lacked training to navigate intersectional
+        realities of gender, sexuality, and trauma, leaving community members
+        vulnerable to misrepresentation or retraumatisation.
+      </p>
+      <p>
+        What began as a grassroots network of interpreters sharing ethical
+        reflections and solidarity practices has evolved into a structured
+        organisation dedicated to systemic change.
+      </p>
+      <p>
+        Through partnerships, training, and co-designed initiatives, LJN
+        continues to reimagine what language access can look like: not
+        transactional, but relational; not neutral, but grounded in justice and
+        care.
+      </p>
+    </section>
+
+    <!-- OUR PRINCIPLES -->
+    <section class="our-principles" id="our-principles">
+      <h2>Our Principles</h2>
+      <p class="principles-intro">
+        Our work is grounded in a set of interwoven principles that reflect our
+        ethics, methodology, and community roots.
+      </p>
+
+      <div class="principles-grid">
+        <article class="principle-card">
+          <div class="principle-icon" aria-hidden="true">⚖️</div>
+          <div class="principle-title">Language Justice</div>
+          <p class="principle-text">
+            Everyone has the right to communicate in the language they know best
+            — with respect, dignity, and understanding.
+          </p>
+        </article>
+
+        <article class="principle-card">
+          <div class="principle-icon" aria-hidden="true">🌈</div>
+          <div class="principle-title">Queer &amp; Feminist Ethics</div>
+          <p class="principle-text">
+            We honour fluidity, intersectionality, and collective care in our
+            practice.
+          </p>
+        </article>
+
+        <article class="principle-card">
+          <div class="principle-icon" aria-hidden="true">🌏</div>
+          <div class="principle-title">Decolonial Practice</div>
+          <p class="principle-text">
+            We challenge systems that privilege English and centre Western
+            knowledge, uplifting community-based and multilingual wisdoms.
+          </p>
+        </article>
+
+        <article class="principle-card">
+          <div class="principle-icon" aria-hidden="true">🤝</div>
+          <div class="principle-title">Solidarity, Not Charity</div>
+          <p class="principle-text">
+            We collaborate across differences and work with, not for,
+            communities.
+          </p>
+        </article>
+
+        <article class="principle-card">
+          <div class="principle-icon" aria-hidden="true">🧠</div>
+          <div class="principle-title">Trauma-Informed Practice</div>
+          <p class="principle-text">
+            We prioritise emotional safety, transparency, and accountability in
+            every interaction.
+          </p>
+        </article>
+
+        <article class="principle-card">
+          <div class="principle-icon" aria-hidden="true">🗣️</div>
+          <div class="principle-title">Lived Experience Leadership</div>
+          <p class="principle-text">
+            Our programs are co-designed with community members through our
+            Lived Experience Advisory Group (LEAG).
+          </p>
+        </article>
+      </div>
+
+      <div class="principles-actions">
+        <a href="/services" class="button button-primary"
+          >Explore Our Services</a
+        >
+      </div>
+    </section>
+
+    <!-- OUR TEAM -->
+    <section class="our-team" id="our-team">
+      <h2>Our Team</h2>
+      <p>
+        LJN is powered by interpreters, community advocates, and allies with
+        lived experience of forced displacement, queerness, and multilingualism.
+        Our team includes NAATI-certified practitioners, cultural consultants,
+        and language justice trainers who bring compassion and professional
+        expertise to every space.
+      </p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <p class="team-card-placeholder">
+            Team member profile coming soon — board, staff, or LEAG member.
+          </p>
+        </div>
+        <div class="team-card">
+          <p class="team-card-placeholder">
+            Team member profile coming soon — board, staff, or LEAG member.
+          </p>
+        </div>
+        <div class="team-card">
+          <p class="team-card-placeholder">
+            Team member profile coming soon — board, staff, or LEAG member.
+          </p>
+        </div>
+      </div>
+
+      <div class="our-team-actions">
+        <a href="/get-involved" class="button button-primary"
+          >Join Our Network</a
+        >
+      </div>
+    </section>
+
+    <!-- ACKNOWLEDGEMENT OF COUNTRY -->
+    <section class="acknowledgement" id="acknowledgement">
+      <h2>In Solidarity with First Nations Communities</h2>
+      <p>
+        LJN operates on the unceded lands of the Wurundjeri Woi-wurrung people
+        of the Kulin Nation. We honour their lands, skies, waters, and
+        languages, and pay respect to Elders past and present.
+      </p>
+      <p>
+        We acknowledge the more than 250 First Nations languages across this
+        continent — some sleeping, many spoken — and express gratitude to the
+        Language Keepers and Revivalists whose work inspires our own.
+      </p>
+      <p>
+        We stand in solidarity with First Nations communities here and globally
+        in struggles for sovereignty, language, and justice.
+      </p>
+      <p class="ack-tagline">Always Was, Always Will Be, Aboriginal Land.</p>
+    </section>
+  </main>
+</BaseComponent>

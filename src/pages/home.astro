@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import heroImage from "../assets/hero-image-compressed.jpg";
 import "../components/globalStyles.astro";
+import Nav from "../components/Nav.astro";
 ---
 
 <style lang="scss">
@@ -82,8 +83,9 @@ import "../components/globalStyles.astro";
     .info-box {
       width: 400px;
       height: 180px;
-      background-color: var(--secondary-color);
+      background-color: var(--tertiary-color);
       border-radius: var(--border-radius-lg);
+      border: 1px solid var(--secondary-color);
       padding: 16px 18px;
       display: flex;
       flex-direction: column;
@@ -213,174 +215,173 @@ import "../components/globalStyles.astro";
   }
 </style>
 
-  <main class="homepage">
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Language is a right, not a privilege</h1>
-        <p>
-          At Language Justice Network (LJN), we're creating safer, affirming,
-          and culturally grounded language services for LGBTQIA+ forcibly
-          displaced people.
-        </p>
-
-        <a href="#" class="button button-primary">Get involved</a>
-      </div>
-
-      <div class="hero-image">
-        <Image src={heroImage} alt="" width="420" quality="max" />
-      </div>
-    </section>
-
-    <section class="our-mission">
-      <h2>Our Mission</h2>
+<Nav />
+<main class="homepage">
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Language is a right, not a privilege</h1>
       <p>
-        The Language Justice Network (LJN) is a community-led not-for-profit
-        dedicated to ensuring language is never a barrier to safety, care, or
-        belonging. We provide affirming and culturally competent interpreting,
-        translation, training, and advocacy for LGBTQIA+ forcibly displaced
-        people and those who support them.
+        At Language Justice Network (LJN), we're creating safer, affirming, and
+        culturally grounded language services for LGBTQIA+ forcibly displaced
+        people.
       </p>
 
+      <a href="#" class="button button-primary">Get involved</a>
+    </div>
+
+    <div class="hero-image">
+      <Image src={heroImage} alt="" width="420" quality="max" />
+    </div>
+  </section>
+
+  <section class="our-mission">
+    <h2>Our Mission</h2>
+    <p>
+      The Language Justice Network (LJN) is a community-led not-for-profit
+      dedicated to ensuring language is never a barrier to safety, care, or
+      belonging. We provide affirming and culturally competent interpreting,
+      translation, training, and advocacy for LGBTQIA+ forcibly displaced people
+      and those who support them.
+    </p>
+
+    <p>
+      Our work centres language justice — the belief that everyone has the right
+      to communicate in the language they know best, and to be heard, respected,
+      and understood.
+    </p>
+
+    <a href="" class="button button-primary">Learn more about us</a>
+  </section>
+
+  <section class="what-we-do">
+    <div class="what-we-do-header">
+      <h2>What We Do</h2>
       <p>
-        Our work centres language justice — the belief that everyone has the
-        right to communicate in the language they know best, and to be heard,
-        respected, and understood.
-      </p>
-
-      <a href="" class="button button-primary">Learn more about us</a>
-    </section>
-
-    <section class="what-we-do">
-      <div class="what-we-do-header">
-        <h2>What We Do</h2>
-        <p>
-          At LJN, we build bridges through language. We offer several services
-          that range from and include the following:
-        </p>
-      </div>
-
-      <ul class="info-box-wrapper">
-        <li class="info-box">
-          <h4>Interpreting &amp; Translation</h4>
-          <p>
-            Safe, affirming language services delivered by NAATI-certified
-            practitioners.
-          </p>
-        </li>
-
-        <li class="info-box">
-          <h4>Training &amp; Workshops</h4>
-          <p>
-            For service providers and interpreters on trauma-informed,
-            queer-affirming practices.
-          </p>
-        </li>
-
-        <li class="info-box">
-          <h4>Consulting &amp; Policy Development</h4>
-          <p>
-            Co-designing frameworks that centre LGBTQIA+ multilingual
-            communities.
-          </p>
-        </li>
-
-        <li class="info-box">
-          <h4>Capacity Building</h4>
-          <p>
-            Supporting bilingual LGBTQIA+ forcibly displaced people to become
-            NAATI-certified interpreters.
-          </p>
-        </li>
-      </ul>
-
-      <a href="" class="button button-primary">Explore our services</a>
-    </section>
-
-    <section class="community-impact">
-      <div class="impact-info-wrapper">
-        <h2>Community Impact</h2>
-        <p>Building connection, one conversation at a time.</p>
-        <p>
-          Every word interpreted safely can mean access to housing, healthcare,
-          justice, or belonging. Our work supports queer refugees and people
-          seeking asylum to express themselves freely and access the support
-          they deserve.
-        </p>
-      </div>
-
-      <div class="impact-supporting-wrapper">
-        <div>
-          <blockquote>
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos
-              ipsum ab excepturi illum autem reiciendis modi, eaque provident
-              commodi perferendis.
-            </p>
-          </blockquote>
-          <p>—Community member, <cite>LJN</cite></p>
-        </div>
-      </div>
-      <a href="" class="button button-secondary">Read our impact report</a>
-    </section>
-
-    <section class="matters">
-      <h2>Why Language Justice Matters</h2>
-      <p>When language is safe, <em>everything changes.</em></p>
-
-      <p>
-        For LGBTQIA+ forcibly displaced people, language is more than
-        communication—it’s survival, identity, and healing. Yet, too often,
-        unsafe interpreting practices lead to harm, misgendering, or cultural
-        erasure.
-      </p>
-
-      <p>
-        LJN is working to transform how interpreting and translation are
-        understood—not as neutral transactions, but as relational, ethical, and
-        community-driven acts of solidarity.
-      </p>
-
-      <a href="" class="button button-primary">Learn about Language Justice</a>
-    </section>
-
-    <section class="get-involved">
-      <h2>Get Involved</h2>
-      <p>Join us in building a world where everyone is heard.</p>
-      <p>
-        Your support helps us train interpreters, develop inclusive language
-        frameworks, and provide accessible, affirming services for LGBTQIA+
-        refugees and migrants.
-      </p>
-
-      <p>
-        Every contribution makes a difference—in someone’s voice, safety, and
-        future.
-      </p>
-
-      <div class="actions">
-        <a href="" class="button button-primary">Donate now</a>
-        <a href="" class="button button-secondary">Partner with us</a>
-        <a href="" class="button button-secondary"
-          >Join the Lived Experience Advisory Group</a
-        >
-      </div>
-    </section>
-
-    <div class="contact-blocks">
-      <p>
-        Want to get in touch? Email us at
-        <a href="mailto:admin@ljn.org.au">admin@ljn.org.au</a>
-      </p>
-
-      <p>
-        For now, keep up with us on Instagram at
-        <a
-          href="https://www.instagram.com/languagejusticenetwork/"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          @languagejusticenetwork
-        </a>
+        At LJN, we build bridges through language. We offer several services
+        that range from and include the following:
       </p>
     </div>
-  </main>
+
+    <ul class="info-box-wrapper">
+      <li class="info-box">
+        <h4>Interpreting &amp; Translation</h4>
+        <p>
+          Safe, affirming language services delivered by NAATI-certified
+          practitioners.
+        </p>
+      </li>
+
+      <li class="info-box">
+        <h4>Training &amp; Workshops</h4>
+        <p>
+          For service providers and interpreters on trauma-informed,
+          queer-affirming practices.
+        </p>
+      </li>
+
+      <li class="info-box">
+        <h4>Consulting &amp; Policy Development</h4>
+        <p>
+          Co-designing frameworks that centre LGBTQIA+ multilingual communities.
+        </p>
+      </li>
+
+      <li class="info-box">
+        <h4>Capacity Building</h4>
+        <p>
+          Supporting bilingual LGBTQIA+ forcibly displaced people to become
+          NAATI-certified interpreters.
+        </p>
+      </li>
+    </ul>
+
+    <a href="" class="button button-primary">Explore our services</a>
+  </section>
+
+  <section class="community-impact">
+    <div class="impact-info-wrapper">
+      <h2>Community Impact</h2>
+      <p>Building connection, one conversation at a time.</p>
+      <p>
+        Every word interpreted safely can mean access to housing, healthcare,
+        justice, or belonging. Our work supports queer refugees and people
+        seeking asylum to express themselves freely and access the support they
+        deserve.
+      </p>
+    </div>
+
+    <div class="impact-supporting-wrapper">
+      <div>
+        <blockquote>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos ipsum
+            ab excepturi illum autem reiciendis modi, eaque provident commodi
+            perferendis.
+          </p>
+        </blockquote>
+        <p>—Community member, <cite>LJN</cite></p>
+      </div>
+    </div>
+    <a href="" class="button button-secondary">Read our impact report</a>
+  </section>
+
+  <section class="matters">
+    <h2>Why Language Justice Matters</h2>
+    <p>When language is safe, <em>everything changes.</em></p>
+
+    <p>
+      For LGBTQIA+ forcibly displaced people, language is more than
+      communication—it’s survival, identity, and healing. Yet, too often, unsafe
+      interpreting practices lead to harm, misgendering, or cultural erasure.
+    </p>
+
+    <p>
+      LJN is working to transform how interpreting and translation are
+      understood—not as neutral transactions, but as relational, ethical, and
+      community-driven acts of solidarity.
+    </p>
+
+    <a href="" class="button button-primary">Learn about Language Justice</a>
+  </section>
+
+  <section class="get-involved">
+    <h2>Get Involved</h2>
+    <p>Join us in building a world where everyone is heard.</p>
+    <p>
+      Your support helps us train interpreters, develop inclusive language
+      frameworks, and provide accessible, affirming services for LGBTQIA+
+      refugees and migrants.
+    </p>
+
+    <p>
+      Every contribution makes a difference—in someone’s voice, safety, and
+      future.
+    </p>
+
+    <div class="actions">
+      <a href="" class="button button-primary">Donate now</a>
+      <a href="" class="button button-secondary">Partner with us</a>
+      <a href="" class="button button-secondary"
+        >Join the Lived Experience Advisory Group</a
+      >
+    </div>
+  </section>
+
+  <div class="contact-blocks">
+    <p>
+      Want to get in touch? Email us at
+      <a href="mailto:admin@ljn.org.au">admin@ljn.org.au</a>
+    </p>
+
+    <p>
+      For now, keep up with us on Instagram at
+      <a
+        href="https://www.instagram.com/languagejusticenetwork/"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        @languagejusticenetwork
+      </a>
+    </p>
+  </div>
+</main>
