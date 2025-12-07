@@ -2,19 +2,11 @@
 import { Image } from "astro:assets";
 import heroImage from "../assets/hero-image-compressed.jpg";
 import "../components/globalStyles.astro";
+import Nav from "../components/Nav.astro";
+import BaseComponent from "../layouts/BaseComponent.astro";
 ---
 
 <style lang="scss">
-  .homepage {
-    width: 100%;
-    max-width: 1040px;
-    margin: 0 auto;
-    font-family: "League Spartan", system-ui, sans-serif;
-    display: flex;
-    flex-direction: column;
-    gap: 56px;
-  }
-
   // ---------- HERO ----------
 
   .hero {
@@ -82,8 +74,9 @@ import "../components/globalStyles.astro";
     .info-box {
       width: 400px;
       height: 180px;
-      background-color: var(--secondary-color);
+      background-color: var(--tertiary-color);
       border-radius: var(--border-radius-lg);
+      border: 1px solid var(--secondary-color);
       padding: 16px 18px;
       display: flex;
       flex-direction: column;
@@ -212,6 +205,8 @@ import "../components/globalStyles.astro";
     }
   }
 </style>
+
+<BaseComponent>
 
   <main class="homepage">
     <section class="hero">
@@ -384,3 +379,4 @@ import "../components/globalStyles.astro";
       </p>
     </div>
   </main>
+</BaseComponent>
