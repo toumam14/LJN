@@ -1,3 +1,7 @@
+---
+import Nav from "../components/Nav.astro"
+---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -9,10 +13,12 @@
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
     <title>Language Justice Network</title>
   </head>
   <body>
+    <Nav />
     <slot />
   </body>
 </html>
+
+

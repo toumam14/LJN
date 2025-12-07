@@ -5,67 +5,24 @@ import Nav from "../components/Nav.astro";
 ---
 
 <style lang="scss">
-  .about-page {
-    width: 100%;
-    max-width: 1040px;
-    margin: 0 auto;
-    padding-bottom: 40px;
-    font-family: "League Spartan", system-ui, sans-serif;
-    display: flex;
-    flex-direction: column;
-    gap: 56px;
-  }
-
   // ---------- HERO ----------
 
   .about-hero {
-    margin-top: 20px;
-    padding: 32px 24px;
+    padding: 24px 22px;
     border-radius: var(--border-radius-lg);
     border: 1px solid var(--secondary-color);
     background: var(--tertiary-color);
     display: flex;
     flex-direction: column;
-    gap: 16px;
-  }
-
-  .about-hero-heading {
-    max-width: 34rem;
-  }
-
-  .about-hero-subheading {
-    max-width: 48rem;
-  }
-
-  .about-hero-actions {
-    margin-top: 8px;
+    align-items: flex-start;
   }
 
   // ---------- WHO WE ARE ----------
 
   .who-we-are {
-    display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-    gap: 32px;
-    align-items: flex-start;
-  }
-
-  .who-we-are-text {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-  }
-
-  .who-we-are-visual {
-    border-radius: var(--border-radius-lg);
-    border: 1px dashed var(--secondary-color);
-    background: var(--tertiary-color);
-    padding: 16px 18px;
-    font-size: var(--font-body-sm);
-  }
-
-  .who-we-are-visual p {
-    margin: 0;
+    align-items: flex-start;
   }
 
   // ---------- OUR STORY ----------
@@ -73,11 +30,6 @@ import Nav from "../components/Nav.astro";
   .our-story {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-  }
-
-  .our-story p {
-    // max-width: 70ch;
   }
 
   // ---------- OUR PRINCIPLES ----------
@@ -86,43 +38,35 @@ import Nav from "../components/Nav.astro";
     display: flex;
     flex-direction: column;
     gap: 20px;
-  }
+    
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    
+    .principle-card {
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--secondary-color);
+      background: var(--tertiary-color);
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    
+    .principle-icon {
+      font-size: 24px;
+    }
+    
+    h4 {
+      font-size: var(--font-body-md);
+      font-weight: 600;
+    }
 
-  .principles-intro {
-    // max-width: 60ch;
-  }
-
-  .principles-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  .principle-card {
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--secondary-color);
-    background: var(--tertiary-color);
-    padding: 16px 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .principle-icon {
-    font-size: 24px;
-  }
-
-  .principle-title {
-    font-size: var(--font-body-md);
-    font-weight: 600;
-  }
-
-  .principle-text {
-    font-size: var(--font-body-sm);
-  }
-
-  .principles-actions {
-    margin-top: 4px;
+    .button {
+      align-self: flex-start;
+    }
   }
 
   // ---------- OUR TEAM ----------
@@ -131,36 +75,32 @@ import Nav from "../components/Nav.astro";
     display: flex;
     flex-direction: column;
     gap: 16px;
-  }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    
+    .team-card {
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--secondary-color);
+      background: var(--tertiary-color);
+      padding: 16px 18px;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    
+    .team-card-placeholder {
+      font-size: var(--font-body-sm);
+      opacity: 0.8;
+    }
 
-  .our-team p {
-    // max-width: 70ch;
-  }
-
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  .team-card {
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--secondary-color);
-    background: var(--tertiary-color);
-    padding: 16px 18px;
-    min-height: 120px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .team-card-placeholder {
-    font-size: var(--font-body-sm);
-    opacity: 0.8;
-  }
-
-  .our-team-actions {
-    margin-top: 4px;
+    a {
+      align-self: flex-start;
+    }
   }
 
   // ---------- ACKNOWLEDGEMENT ----------
@@ -175,15 +115,10 @@ import Nav from "../components/Nav.astro";
     gap: 10px;
   }
 
-  .acknowledgement p {
-    // max-width: 70ch;
-  }
-
   .ack-tagline {
     font-weight: 600;
     font-size: var(--font-body-sm);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
   }
 
   // ---------- RESPONSIVE ----------
@@ -218,7 +153,6 @@ import Nav from "../components/Nav.astro";
 </style>
 
 <BaseComponent>
-  <Nav />
 
   <main class="about-page">
     <!-- HERO -->
@@ -226,7 +160,7 @@ import Nav from "../components/Nav.astro";
       <div class="about-hero-heading">
         <h1>
           Building language equity through community, care, and connection.
-        </h1>
+        </h1> 
       </div>
 
       <p class="about-hero-subheading">
@@ -235,15 +169,14 @@ import Nav from "../components/Nav.astro";
         safety, healing, or belonging.
       </p>
 
-      <div class="about-hero-actions">
+      
         <a href="/about#our-team" class="button button-primary">Meet Our Team</a
         >
-      </div>
+      
     </section>
 
     <!-- WHO WE ARE -->
     <section class="who-we-are" id="who-we-are">
-      <div class="who-we-are-text">
         <h2>Who We Are</h2>
         <p>
           The Language Justice Network (LJN) is a not-for-profit organisation
@@ -264,15 +197,6 @@ import Nav from "../components/Nav.astro";
         <a href="/services" class="button button-primary"
           >Learn More About Our Work</a
         >
-      </div>
-
-      <aside class="who-we-are-visual" aria-hidden="true">
-        <p>
-          [Future visual: photo or video thumbnail of an interpreter and a
-          community member in conversation, with subtitles introducing LJN’s
-          mission.]
-        </p>
-      </aside>
     </section>
 
     <!-- OUR STORY -->
@@ -309,8 +233,8 @@ import Nav from "../components/Nav.astro";
 
       <div class="principles-grid">
         <article class="principle-card">
-          <div class="principle-icon" aria-hidden="true">⚖️</div>
-          <div class="principle-title">Language Justice</div>
+          <span class="principle-icon" aria-hidden="true">⚖️</span>
+          <h4>Language Justice</h4>
           <p class="principle-text">
             Everyone has the right to communicate in the language they know best
             — with respect, dignity, and understanding.
@@ -318,8 +242,8 @@ import Nav from "../components/Nav.astro";
         </article>
 
         <article class="principle-card">
-          <div class="principle-icon" aria-hidden="true">🌈</div>
-          <div class="principle-title">Queer &amp; Feminist Ethics</div>
+          <span class="principle-icon" aria-hidden="true">🌈</span>
+          <h4>Queer &amp; Feminist Ethics</h4>
           <p class="principle-text">
             We honour fluidity, intersectionality, and collective care in our
             practice.
@@ -327,8 +251,8 @@ import Nav from "../components/Nav.astro";
         </article>
 
         <article class="principle-card">
-          <div class="principle-icon" aria-hidden="true">🌏</div>
-          <div class="principle-title">Decolonial Practice</div>
+          <span class="principle-icon" aria-hidden="true">🌏</span>
+          <h4>Decolonial Practice</h4>
           <p class="principle-text">
             We challenge systems that privilege English and centre Western
             knowledge, uplifting community-based and multilingual wisdoms.
@@ -336,8 +260,8 @@ import Nav from "../components/Nav.astro";
         </article>
 
         <article class="principle-card">
-          <div class="principle-icon" aria-hidden="true">🤝</div>
-          <div class="principle-title">Solidarity, Not Charity</div>
+          <span class="principle-icon" aria-hidden="true">🤝</span>
+          <h4>Solidarity, Not Charity</h4>
           <p class="principle-text">
             We collaborate across differences and work with, not for,
             communities.
@@ -345,8 +269,8 @@ import Nav from "../components/Nav.astro";
         </article>
 
         <article class="principle-card">
-          <div class="principle-icon" aria-hidden="true">🧠</div>
-          <div class="principle-title">Trauma-Informed Practice</div>
+          <span class="principle-icon" aria-hidden="true">🧠</span>
+          <h4>Trauma-Informed Practice</h4>
           <p class="principle-text">
             We prioritise emotional safety, transparency, and accountability in
             every interaction.
@@ -354,8 +278,8 @@ import Nav from "../components/Nav.astro";
         </article>
 
         <article class="principle-card">
-          <div class="principle-icon" aria-hidden="true">🗣️</div>
-          <div class="principle-title">Lived Experience Leadership</div>
+          <span class="principle-icon" aria-hidden="true">🗣️</span>
+          <h4>Lived Experience Leadership</h4>
           <p class="principle-text">
             Our programs are co-designed with community members through our
             Lived Experience Advisory Group (LEAG).
@@ -363,11 +287,9 @@ import Nav from "../components/Nav.astro";
         </article>
       </div>
 
-      <div class="principles-actions">
         <a href="/services" class="button button-primary"
           >Explore Our Services</a
         >
-      </div>
     </section>
 
     <!-- OUR TEAM -->
@@ -399,11 +321,9 @@ import Nav from "../components/Nav.astro";
         </div>
       </div>
 
-      <div class="our-team-actions">
         <a href="/get-involved" class="button button-primary"
           >Join Our Network</a
         >
-      </div>
     </section>
 
     <!-- ACKNOWLEDGEMENT OF COUNTRY -->
