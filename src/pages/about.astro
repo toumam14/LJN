@@ -15,6 +15,10 @@ import Nav from "../components/Nav.astro";
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @media (max-width: 560px) {
+      align-items: center;
+    }
   }
 
   // ---------- WHO WE ARE ----------
@@ -23,6 +27,14 @@ import Nav from "../components/Nav.astro";
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @media (max-width: 900px) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    @media (max-width: 560px) {
+      align-items: center;
+    }
   }
 
   // ---------- OUR STORY ----------
@@ -38,13 +50,26 @@ import Nav from "../components/Nav.astro";
     display: flex;
     flex-direction: column;
     gap: 20px;
-    
+    align-items: flex-start;
+
+    @media (max-width: 560px) {
+      align-items: center;
+    }
+
     .principles-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
+
+      @media (max-width: 850px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 560px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
-    
+
     .principle-card {
       border-radius: var(--border-radius-lg);
       border: 1px solid var(--secondary-color);
@@ -54,11 +79,11 @@ import Nav from "../components/Nav.astro";
       flex-direction: column;
       gap: 6px;
     }
-    
+
     .principle-icon {
       font-size: 24px;
     }
-    
+
     h4 {
       font-size: var(--font-body-md);
       font-weight: 600;
@@ -66,6 +91,10 @@ import Nav from "../components/Nav.astro";
 
     .button {
       align-self: flex-start;
+
+      @media (max-width: 560px) {
+        align-self: center;
+      }
     }
   }
 
@@ -75,13 +104,26 @@ import Nav from "../components/Nav.astro";
     display: flex;
     flex-direction: column;
     gap: 16px;
-    
+    align-items: flex-start;
+
+    @media (max-width: 560px) {
+      align-items: center;
+    }
+
     .team-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
+
+      @media (max-width: 900px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @media (max-width: 640px) {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
-    
+
     .team-card {
       border-radius: var(--border-radius-lg);
       border: 1px solid var(--secondary-color);
@@ -92,7 +134,7 @@ import Nav from "../components/Nav.astro";
       flex-direction: column;
       gap: 4px;
     }
-    
+
     .team-card-placeholder {
       font-size: var(--font-body-sm);
       opacity: 0.8;
@@ -100,6 +142,10 @@ import Nav from "../components/Nav.astro";
 
     a {
       align-self: flex-start;
+
+      @media (max-width: 560px) {
+        align-self: center;
+      }
     }
   }
 
@@ -121,82 +167,54 @@ import Nav from "../components/Nav.astro";
     text-transform: uppercase;
   }
 
-  // ---------- RESPONSIVE ----------
-
-  @media (max-width: 900px) {
-    .who-we-are {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    .principles-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .team-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  @media (max-width: 640px) {
-    .about-page {
+  .about-page {
+    @media (max-width: 640px) {
       padding-inline: 16px;
-    }
-
-    .principles-grid {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    .team-grid {
-      grid-template-columns: minmax(0, 1fr);
     }
   }
 </style>
 
 <BaseComponent>
-
   <main class="about-page">
     <!-- HERO -->
     <section class="about-hero">
       <div class="about-hero-heading">
         <h1>
           Building language equity through community, care, and connection.
-        </h1> 
+        </h1>
       </div>
 
-      <p class="about-hero-subheading">
+      <p class="hero-subheading">
         We are a collective of queer and trans interpreters, translators, and
         community members working to ensure that language is never a barrier to
         safety, healing, or belonging.
       </p>
 
-      
-        <a href="/about#our-team" class="button button-primary">Meet Our Team</a
-        >
-      
+      <a href="/about#our-team" class="button button-primary">Meet Our Team</a>
     </section>
 
     <!-- WHO WE ARE -->
     <section class="who-we-are" id="who-we-are">
-        <h2>Who We Are</h2>
-        <p>
-          The Language Justice Network (LJN) is a not-for-profit organisation
-          providing safe, queer-affirming, and culturally appropriate language
-          services, capacity building, training, and consulting. Our work is led
-          by and for LGBTQIA+ individuals from culturally and linguistically
-          diverse (CALD) backgrounds — especially forcibly displaced people and
-          trans and gender diverse communities.
-        </p>
-        <p>
-          We exist to bridge the gap between language access and inclusion. By
-          offering specialised interpreting and translation services, and by
-          training service providers and interpreters to work affirmatively and
-          ethically, we’re building a world where communication is rooted in
-          dignity, solidarity, and justice.
-        </p>
+      <h2>Who We Are</h2>
+      <p>
+        The Language Justice Network (LJN) is a not-for-profit organisation
+        providing safe, queer-affirming, and culturally appropriate language
+        services, capacity building, training, and consulting. Our work is led
+        by and for LGBTQIA+ individuals from culturally and linguistically
+        diverse (CALD) backgrounds — especially forcibly displaced people and
+        trans and gender diverse communities.
+      </p>
+      <p>
+        We exist to bridge the gap between language access and inclusion. By
+        offering specialised interpreting and translation services, and by
+        training service providers and interpreters to work affirmatively and
+        ethically, we’re building a world where communication is rooted in
+        dignity, solidarity, and justice.
+      </p>
 
-        <a href="/services" class="button button-primary"
-          >Learn More About Our Work</a
-        >
+      <a href="/services" class="button button-primary"
+        >Learn More About Our Work</a
+      >
     </section>
 
     <!-- OUR STORY -->
@@ -287,9 +305,7 @@ import Nav from "../components/Nav.astro";
         </article>
       </div>
 
-        <a href="/services" class="button button-primary"
-          >Explore Our Services</a
-        >
+      <a href="/services" class="button button-primary">Explore Our Services</a>
     </section>
 
     <!-- OUR TEAM -->
@@ -321,9 +337,7 @@ import Nav from "../components/Nav.astro";
         </div>
       </div>
 
-        <a href="/get-involved" class="button button-primary"
-          >Join Our Network</a
-        >
+      <a href="/get-involved" class="button button-primary">Join Our Network</a>
     </section>
 
     <!-- ACKNOWLEDGEMENT OF COUNTRY -->

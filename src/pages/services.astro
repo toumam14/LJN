@@ -1,0 +1,655 @@
+---
+import "../components/globalStyles.astro";
+import BaseComponent from "../layouts/BaseComponent.astro";
+---
+
+<style lang="scss">
+
+  .services-hero {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 24px 22px;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--secondary-color);
+    background: var(--tertiary-color);
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    @media (max-width: 640px) {
+      padding: 18px 16px;
+    }
+
+    .hero-copy {
+      flex: 1.3;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-image-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .hero-image-placeholder {
+      width: 100%;
+      min-height: 220px;
+      border-radius: var(--border-radius-lg);
+      border: 1px dashed var(--secondary-color);
+      background: var(--tertiary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 16px;
+      font-size: var(--font-body-sm);
+    }
+  }
+
+  .what-we-offer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @media (max-width: 560px) {
+      align-items: center;
+    }
+  }
+
+  .service-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @media (max-width: 560px) {
+      align-items: center;
+    }
+  }
+
+  .service-block.interpreting {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: stretch;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .service-text {
+        display: flex;
+        flex-direction: column;
+
+        .key-points {
+        list-style: disc;
+        padding-left: 20px;
+        font-size: var(--font-body-md);
+        line-height: 1.5;
+        }
+    }
+
+    .service-visual {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+
+        .service-image-placeholder {
+        width: 100%;
+        min-height: 220px;
+        border-radius: var(--border-radius-lg);
+        border: 1px dashed var(--secondary-color);
+        background: var(--tertiary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        text-align: center;
+        font-size: var(--font-body-sm);
+        }
+    }
+
+    .button {
+        align-self: flex-start;
+
+        @media (max-width: 560px) {
+          align-self: center;
+        }
+    }
+  }
+
+  .service-block.training {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .service-header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .training-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+
+      @media (max-width: 1024px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      @media (max-width: 768px) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .training-card {
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--secondary-color);
+      background: var(--tertiary-color);
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+
+    }
+
+    .button {
+      align-self: flex-start;
+
+      @media (max-width: 560px) {
+        align-self: center;
+      }
+    }
+  }
+
+  .service-block.consulting {
+    .consulting-inner {
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--secondary-color);
+      background: var(--tertiary-color);
+      padding: 20px 22px;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+      gap: 24px;
+      align-items: stretch;
+
+      @media (max-width: 1024px) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .consulting-text {
+      display: flex;
+      flex-direction: column;
+
+      .process-list {
+        margin: 0;
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        font-size: var(--font-body-md);
+        line-height: 1.5;
+      }
+
+      .button-wrapper {
+        display: flex;
+        align-self: flex-start;
+
+        @media (max-width: 560px) {
+          align-self: center;
+        }
+      }
+    }
+
+    .consulting-quote {
+      border-radius: var(--border-radius-md);
+      border: 1px solid var(--secondary-color);
+      background: var(--page-background);
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+
+      .quote-text {
+        font-style: italic;
+      }
+    }
+
+    .button {
+      margin-top: 8px;
+      align-self: flex-start;
+    }
+  }
+
+  .service-block.capacity {
+    .capacity-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: flex-start;
+
+      @media (max-width: 1024px) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .capacity-text {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+
+      .key-points {
+        list-style: disc;
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+
+    .capacity-timeline {
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--secondary-color);
+      background: var(--tertiary-color);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      @media (max-width: 640px) {
+        padding: 16px;
+      }
+
+      h3 {
+        font-size: var(--font-body-md);
+      }
+
+      .timeline-steps {
+        margin: 0;
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: var(--font-body-sm);
+        line-height: 1.5;
+
+        li {
+          .step-label {
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .button {
+      margin-top: 8px;
+      align-self: flex-start;
+
+      @media (max-width: 560px) {
+        align-self: center;
+      }
+    }
+  }
+
+  .service-block.testimonials {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+
+      @media (max-width: 768px) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .testimonial-card {
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--secondary-color);
+      background: var(--tertiary-color);
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      blockquote {
+        margin: 0;
+        font-size: var(--font-body-sm);
+        line-height: 1.5;
+      }
+
+      figcaption {
+        font-size: var(--font-body-xs);
+      }
+    }
+
+    .button {
+      align-self: flex-start;
+
+      @media (max-width: 560px) {
+        align-self: center;
+      }
+    }
+  }
+
+  .service-block.final-cta {
+    .final-cta-inner {
+      border-radius: var(--border-radius-lg);
+      border: 1px solid var(--secondary-color);
+      background: var(--tertiary-color);
+
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .cta-text {
+      max-width: 620px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .secondary-button {
+      /* Assuming your global .button style exists; this just nudges hierarchy */
+      opacity: 0.9;
+    }
+  }
+
+  .services-page {
+    @media (max-width: 640px) {
+      padding-inline: 16px;
+    }
+  }
+</style>
+
+<BaseComponent>
+  <main class="services-page">
+    <section class="services-hero">
+      <div class="hero-copy">
+        <h1>Language access, reimagined through justice and care.</h1>
+        <p class="hero-subheading">
+          Our work combines professional excellence, cultural humility, and
+          lived experience to create language services that are safe, affirming
+          and community driven.
+        </p>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <!-- Placeholder: swap this for an <Image /> when you have assets -->
+        <div class="hero-image-placeholder">
+          <p>Interpreter in session – image coming soon</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="what-we-offer">
+      <h2>What We Offer</h2>
+      <p>
+        The Language Justice Network (LJN) delivers interpreting, translation,
+        training, consulting, and capacity-building programs designed to make
+        language services safer and more inclusive for LGBTIQA+ forcibly
+        displaced people.
+      </p>
+      <p>
+        All our services are grounded in language justice, trauma-informed
+        practice, and community co-design — led by NAATI-certified practitioners
+        who work in solidarity with communities.
+      </p>
+    </section>
+
+    <section class="service-block interpreting">
+      <div class="service-text">
+        <h2>Interpreting &amp; Translation</h2>
+        <p>
+          Our interpreting and translation services are delivered by
+          NAATI-certified practitioners trained in queer-affirming,
+          trauma-informed, and culturally sensitive practice. We provide
+          language support across a range of sectors — including health, legal,
+          community, settlement, and mental health services — ensuring
+          communication is accurate, ethical, and affirming.
+        </p>
+        <p>
+          We prioritise community safety by carefully matching interpreters with
+          the right context, avoiding on-demand allocation systems that may
+          place LGBTQIA+ refugees at risk of harm or outing.
+        </p>
+
+        <h3>Our interpreters are:</h3>
+        <ul class="key-points">
+          <li>Professionally certified and experienced</li>
+          <li>Trained in queer and feminist ethics</li>
+          <li>Guided by the AUSIT Code of Ethics</li>
+          <li>
+            Supported through ongoing peer supervision and community networks
+          </li>
+        </ul>
+
+        <a href="/contact" class="button button-primary">Request a Booking</a>
+      </div>
+
+      <div class="service-visual">
+        <div class="service-image-placeholder">
+          <p>Interpreter &amp; client visual – image coming soon</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-block training">
+      <div class="service-header">
+        <h2>Training &amp; Workshops</h2>
+        <p>
+          We deliver sector-specific training to help service providers, social
+          workers, mental health care workers, clinicians, and fellow
+          interpreters work more safely and inclusively with LGBTIQA+ forcibly
+          displaced people. Our sessions are co-designed with our Lived
+          Experience Advisory Group (LEAG) and delivered by NAATI-certified
+          trainers with lived experience.
+        </p>
+        <h3>Our suite of offerings includes:</h3>
+      </div>
+
+      <div class="training-grid">
+        <article class="training-card">
+          <h4>Working with Interpreters</h4>
+          <p>
+            Practical guidance for collaborating with interpreters to support
+            ethical, accurate, and affirming communication.
+          </p>
+        </article>
+
+        <article class="training-card">
+          <h4>Collaborating with Interpreters</h4>
+          <p>
+            Building strong partnerships between practitioners and interpreters
+            in complex, multilingual service environments.
+          </p>
+        </article>
+
+        <article class="training-card">
+          <h4>Queer and Feminist Ethics in Language Work</h4>
+          <p>
+            Exploring power, positionality, and accountability in interpreting
+            and translation practice.
+          </p>
+        </article>
+
+        <article class="training-card">
+          <h4>Trauma-Informed &amp; Culturally Safe Practice</h4>
+          <p>
+            Supporting LGBTIQA+ forcibly displaced people through care-centred,
+            intersectional approaches to language work.
+          </p>
+        </article>
+      </div>
+
+      <div class="training-format">
+        <p>
+          Workshops are offered in-person or online and can be tailored for
+          organisations, community groups, and educational institutions.
+        </p>
+      </div>
+
+      <a href="/contact" class="button button-primary">Book a Workshop</a>
+    </section>
+
+    <section class="service-block consulting">
+      <div class="consulting-inner">
+        <div class="consulting-text">
+          <h2>Consulting &amp; Policy Development</h2>
+          <p>
+            LJN provides consultation and policy co-design services for
+            organisations looking to embed language justice into their work. We
+            help build internal capacity to deliver inclusive, affirming, and
+            culturally responsive services.
+          </p>
+          <p>Our consultancy process includes:</p>
+
+          <ol class="process-list">
+            <li>
+              <strong>Needs Assessment</strong> — understanding your service context
+              and client demographics.
+            </li>
+            <li>
+              <strong>Policy Co-Design</strong> — collaborating with your team to
+              develop ethical, inclusive frameworks.
+            </li>
+            <li>
+              <strong>Training &amp; Implementation</strong> — delivering workshops
+              and resources for staff integration.
+            </li>
+          </ol>
+
+          <div class="button-wrapper">
+            <a href="/contact" class="button button-secondary">Work With Us</a>
+          </div>
+        </div>
+
+        <aside class="consulting-quote">
+          <p class="quote-text">
+            “Language justice isn’t an add-on — it’s the foundation of equitable
+            care.”
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="service-block capacity">
+      <div class="capacity-inner">
+        <div class="capacity-text">
+          <h2>Capacity Building: Certification Pathways</h2>
+          <p>
+            Our Certification Capacity Building Program supports bilingual
+            LGBTQIA+ refugees and asylum seekers to become NAATI-certified
+            interpreters and translators.
+          </p>
+          <p>
+            The program removes financial and systemic barriers by covering
+            course and test fees, delivering supplementary workshops on queer
+            ethics and trauma-informed practice, and offering mentorship from
+            NAATI-certified interpreters.
+          </p>
+
+          <ul class="key-points">
+            <li>Financial support for RMIT interpreting/translation courses</li>
+            <li>Peer mentoring and supervision</li>
+            <li>“Found in Translation” forums for ethical dialogue</li>
+            <li>
+              Supplementary workshops on queer, feminist, and trauma-informed
+              ethics
+            </li>
+          </ul>
+        </div>
+
+        <div class="capacity-timeline">
+          <h3>Program Pathway</h3>
+          <ol class="timeline-steps">
+            <li>
+              <span class="step-label">Training</span>
+              <p>Foundational study and preparatory workshops.</p>
+            </li>
+            <li>
+              <span class="step-label">Certification</span>
+              <p>Support to sit NAATI accreditation and related assessments.</p>
+            </li>
+            <li>
+              <span class="step-label">Mentorship</span>
+              <p>
+                Ongoing peer supervision, mentoring, and community connection.
+              </p>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <a href="/contact" class="button button-primary">Join the Program</a>
+    </section>
+
+    <section class="service-block testimonials">
+      <h2>What People Are Saying</h2>
+
+      <div class="testimonials-grid">
+        <figure class="testimonial-card">
+          <blockquote>
+            “Interpreting through LJN made me feel seen for the first time — not
+            just as a professional, but as part of my community.”
+          </blockquote>
+          <figcaption>Participant, Capacity Building Program</figcaption>
+        </figure>
+
+        <figure class="testimonial-card">
+          <blockquote>
+            “Having an interpreter who understands our community’s language and
+            culture changes everything.”
+          </blockquote>
+          <figcaption>
+            Service Provider, LGBTQIA+ Refugee Health Program
+          </figcaption>
+        </figure>
+      </div>
+
+      <a href="/about" class="button button-primary">Read Our Impact</a>
+    </section>
+
+    <section class="service-block final-cta">
+      <div class="final-cta-inner">
+        <div class="cta-text">
+          <h2>Ready to work with us?</h2>
+          <p>
+            Get in touch to book a service, commission training, or collaborate
+            on a policy initiative. Together, we can create safer, more
+            inclusive communication across every language.
+          </p>
+        </div>
+
+        <div class="cta-actions">
+          <a href="/contact" class="button button-secondary">Contact Us</a>
+          <a href="/donate" class="button button-secondary"
+            >Donate to Support Our Work</a
+          >
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseComponent>
