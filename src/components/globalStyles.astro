@@ -266,9 +266,17 @@
     line-height: 1.5;
   }
 
-  p,
-  a,
-  button {
+  li {
+    font-size: var(--font-body-md);
+    font-weight: 300;
+  }
+
+  .hero-subheading {
+    font-size: var(--font-body-lg);
+
+    @media (max-width: 560px) {
+      font-size: var(--font-body-md);
+    }
   }
 
   .button {
@@ -313,6 +321,11 @@
     display: flex;
     flex-direction: column;
     gap: 56px;
+    padding-inline: 25px;
+
+    @media (max-width: 560px) {
+      padding-inline: 16px;
+    }
   }
 
   body {

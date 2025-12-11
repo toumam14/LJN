@@ -21,10 +21,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
-    p {
-      font-size: var(--font-body-lg);
-    }
   }
 
   .hero-image {
@@ -54,6 +50,10 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @media (max-width: 560px) {
+      align-items: center;
+    }
   }
 
   // ---------- WHAT WE DO ----------
@@ -125,6 +125,10 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @media (max-width: 560px) {
+      align-items: center;
+    }
 
     em {
       font-weight: 500;
@@ -212,7 +216,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     <section class="hero">
       <div class="hero-content">
         <h1>Language is a right, not a privilege</h1>
-        <p>
+        <p class="hero-subheading">
           At Language Justice Network (LJN), we're creating safer, affirming,
           and culturally grounded language services for LGBTQIA+ forcibly
           displaced people.
