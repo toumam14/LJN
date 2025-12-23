@@ -1,4 +1,6 @@
-<style is:global>
+<style is:global lang="scss">
+  @import "../styles/variables";
+
   article,
   aside,
   details,
@@ -150,6 +152,7 @@
   ul {
     list-style: none;
     padding: 0;
+    margin: 0;
   }
 
   .clearfix:after {
@@ -197,9 +200,6 @@
     /* --font-xxl */
 
     /* Colors */
-    /* --primary-red: #FF0000;
-        --primary-color: #0A2463;
-        --subtle-grey: #EFEFEF; */
     --primary-color: #6246ea;
     --secondary-color: #d1d1e9;
     --tertiary-color: #f7f7ff;
@@ -274,7 +274,7 @@
   .hero-subheading {
     font-size: var(--font-body-lg);
 
-    @media (max-width: 560px) {
+    @media (max-width: $breakpoint-sm) {
       font-size: var(--font-body-md);
     }
   }
@@ -323,7 +323,7 @@
     gap: 56px;
     padding-inline: 25px;
 
-    @media (max-width: 560px) {
+    @media (max-width: $breakpoint-sm) {
       padding-inline: 16px;
     }
   }
