@@ -10,7 +10,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     display: flex;
     align-items: stretch;
     justify-content: space-between;
-    gap: 40px;
+    gap: var(--gap-3xl);
     padding: 24px 22px;
     border-radius: var(--border-radius-lg);
     border: 1px solid var(--secondary-color);
@@ -20,7 +20,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       flex: 1.3;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: var(--gap-base);
     }
 
     .hero-image-wrapper {
@@ -76,7 +76,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
   .service-block.interpreting {
     display: grid;
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-    gap: 32px;
+    gap: var(--gap-2xl);
     align-items: stretch;
 
     .service-text {
@@ -129,18 +129,18 @@ import BaseComponent from "../layouts/BaseComponent.astro";
   .service-block.training {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--gap-lg);
 
     .service-header {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: var(--gap-md);
     }
 
     ul {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
+      gap: var(--gap-base);
     }
 
     li {
@@ -150,7 +150,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       padding: 16px 18px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: var(--gap-xs);
     }
 
     .button {
@@ -184,7 +184,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       padding: 20px 22px;
       display: grid;
       grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
-      gap: 24px;
+      gap: var(--gap-xl);
       align-items: stretch;
     }
 
@@ -244,21 +244,21 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     .capacity-inner {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 24px;
+      gap: var(--gap-xl);
       align-items: flex-start;
     }
 
     .capacity-text {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: var(--gap-md);
 
       .key-points {
         list-style: disc;
         padding-left: 20px;
         display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: var(--gap-xs);
       }
     }
 
@@ -269,7 +269,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       padding: 18px 20px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: var(--gap-md);
 
       h3 {
         font-size: var(--font-body-md);
@@ -280,7 +280,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
         padding-left: 20px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: var(--gap-md);
         font-size: var(--font-body-sm);
         line-height: 1.5;
 
@@ -319,12 +319,12 @@ import BaseComponent from "../layouts/BaseComponent.astro";
   .service-block.testimonials {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: var(--gap-lg);
 
     .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: var(--gap-base);
     }
 
     .testimonial-card {
@@ -334,7 +334,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       padding: 16px 18px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: var(--gap-sm);
 
       blockquote {
         margin: 0;
@@ -385,7 +385,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     .cta-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: var(--gap-md);
     }
 
     @media (max-width: $breakpoint-lg) {
