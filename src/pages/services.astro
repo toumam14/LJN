@@ -4,6 +4,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
 ---
 
 <style lang="scss">
+  @import "../styles/variables";
 
   .services-hero {
     display: flex;
@@ -14,14 +15,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     border-radius: var(--border-radius-lg);
     border: 1px solid var(--secondary-color);
     background: var(--tertiary-color);
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-    }
-
-    @media (max-width: 640px) {
-      padding: 18px 16px;
-    }
 
     .hero-copy {
       flex: 1.3;
@@ -50,6 +43,14 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       padding: 16px;
       font-size: var(--font-body-sm);
     }
+
+    @media (max-width: $breakpoint-lg) {
+      flex-direction: column;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      padding: 18px 16px;
+    }
   }
 
   .what-we-offer {
@@ -57,7 +58,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     flex-direction: column;
     align-items: flex-start;
 
-    @media (max-width: 560px) {
+    @media (max-width: $breakpoint-sm) {
       align-items: center;
     }
   }
@@ -67,7 +68,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     flex-direction: column;
     align-items: flex-start;
 
-    @media (max-width: 560px) {
+    @media (max-width: $breakpoint-sm) {
       align-items: center;
     }
   }
@@ -78,28 +79,24 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     gap: 32px;
     align-items: stretch;
 
-    @media (max-width: 1024px) {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
     .service-text {
-        display: flex;
-        flex-direction: column;
+      display: flex;
+      flex-direction: column;
 
-        .key-points {
+      .key-points {
         list-style: disc;
         padding-left: 20px;
         font-size: var(--font-body-md);
         line-height: 1.5;
-        }
+      }
     }
 
     .service-visual {
-        display: flex;
-        align-items: stretch;
-        justify-content: center;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
 
-        .service-image-placeholder {
+      .service-image-placeholder {
         width: 100%;
         min-height: 220px;
         border-radius: var(--border-radius-lg);
@@ -111,15 +108,21 @@ import BaseComponent from "../layouts/BaseComponent.astro";
         padding: 16px;
         text-align: center;
         font-size: var(--font-body-sm);
-        }
+      }
     }
 
     .button {
-        align-self: flex-start;
+      align-self: flex-start;
+    }
 
-        @media (max-width: 560px) {
-          align-self: center;
-        }
+    @media (max-width: $breakpoint-2xl) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      .button {
+        align-self: center;
+      }
     }
   }
 
@@ -134,21 +137,13 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       gap: 12px;
     }
 
-    .training-grid {
+    ul {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 16px;
-
-      @media (max-width: 1024px) {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      @media (max-width: 768px) {
-        grid-template-columns: minmax(0, 1fr);
-      }
     }
 
-    .training-card {
+    li {
       border-radius: var(--border-radius-lg);
       border: 1px solid var(--secondary-color);
       background: var(--tertiary-color);
@@ -156,13 +151,26 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       display: flex;
       flex-direction: column;
       gap: 6px;
-
     }
 
     .button {
       align-self: flex-start;
+    }
 
-      @media (max-width: 560px) {
+    @media (max-width: $breakpoint-2xl) {
+      ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: $breakpoint-lg) {
+      ul {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      .button {
         align-self: center;
       }
     }
@@ -178,10 +186,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
       gap: 24px;
       align-items: stretch;
-
-      @media (max-width: 1024px) {
-        grid-template-columns: minmax(0, 1fr);
-      }
     }
 
     .consulting-text {
@@ -200,10 +204,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       .button-wrapper {
         display: flex;
         align-self: flex-start;
-
-        @media (max-width: 560px) {
-          align-self: center;
-        }
       }
     }
 
@@ -224,6 +224,20 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       margin-top: 8px;
       align-self: flex-start;
     }
+
+    @media (max-width: $breakpoint-2xl) {
+      .consulting-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      .consulting-text {
+        .button-wrapper {
+          align-self: center;
+        }
+      }
+    }
   }
 
   .service-block.capacity {
@@ -232,10 +246,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
       gap: 24px;
       align-items: flex-start;
-
-      @media (max-width: 1024px) {
-        grid-template-columns: minmax(0, 1fr);
-      }
     }
 
     .capacity-text {
@@ -261,10 +271,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       flex-direction: column;
       gap: 12px;
 
-      @media (max-width: 640px) {
-        padding: 16px;
-      }
-
       h3 {
         font-size: var(--font-body-md);
       }
@@ -289,8 +295,22 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     .button {
       margin-top: 8px;
       align-self: flex-start;
+    }
 
-      @media (max-width: 560px) {
+    @media (max-width: $breakpoint-2xl) {
+      .capacity-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: $breakpoint-md) {
+      .capacity-timeline {
+        padding: 16px;
+      }
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      .button {
         align-self: center;
       }
     }
@@ -305,10 +325,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
-
-      @media (max-width: 768px) {
-        grid-template-columns: minmax(0, 1fr);
-      }
     }
 
     .testimonial-card {
@@ -322,47 +338,48 @@ import BaseComponent from "../layouts/BaseComponent.astro";
 
       blockquote {
         margin: 0;
-        font-size: var(--font-body-sm);
+        font-size: var(--font-body-md);
         line-height: 1.5;
       }
 
       figcaption {
-        font-size: var(--font-body-xs);
+        font-size: var(--font-body-sm);
       }
     }
 
     .button {
       align-self: flex-start;
+    }
 
-      @media (max-width: 560px) {
+    @media (max-width: $breakpoint-lg) {
+      .testimonials-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      .button {
         align-self: center;
       }
     }
   }
 
-  .service-block.final-cta {
-    .final-cta-inner {
+  .service-block.ready-to-work {
+    .ready-to-work-inner {
       border-radius: var(--border-radius-lg);
       border: 1px solid var(--secondary-color);
       background: var(--tertiary-color);
-
+        width: 100%;
       padding: 22px 24px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
       justify-content: space-between;
-      gap: 20px;
-
-      @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
 
     .cta-text {
-      max-width: 620px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
     }
 
     .cta-actions {
@@ -371,14 +388,16 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       gap: 10px;
     }
 
-    .secondary-button {
-      /* Assuming your global .button style exists; this just nudges hierarchy */
-      opacity: 0.9;
+    @media (max-width: $breakpoint-lg) {
+      .ready-to-work-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   }
 
   .services-page {
-    @media (max-width: 640px) {
+    @media (max-width: $breakpoint-md) {
       padding-inline: 16px;
     }
   }
@@ -413,9 +432,11 @@ import BaseComponent from "../layouts/BaseComponent.astro";
         displaced people.
       </p>
       <p>
-        All our services are grounded in language justice, trauma-informed
-        practice, and community co-design — led by NAATI-certified practitioners
-        who work in solidarity with communities.
+        <strong>
+          All our services are grounded in language justice, trauma-informed
+          practice, and community co-design
+        </strong> — led by NAATI-certified practitioners who work in solidarity with
+        communities.
       </p>
     </section>
 
@@ -423,11 +444,11 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       <div class="service-text">
         <h2>Interpreting &amp; Translation</h2>
         <p>
-          Our interpreting and translation services are delivered by
-          NAATI-certified practitioners trained in queer-affirming,
-          trauma-informed, and culturally sensitive practice. We provide
-          language support across a range of sectors — including health, legal,
-          community, settlement, and mental health services — ensuring
+          Our interpreting and translation services are delivered <strong>
+            by NAATI-certified practitioners
+          </strong> trained in queer-affirming, trauma-informed, and culturally sensitive
+          practice. We provide language support across a range of sectors — including
+          health, legal, community, settlement, and mental health services — ensuring
           communication is accurate, ethical, and affirming.
         </p>
         <p>
@@ -440,7 +461,9 @@ import BaseComponent from "../layouts/BaseComponent.astro";
         <ul class="key-points">
           <li>Professionally certified and experienced</li>
           <li>Trained in queer and feminist ethics</li>
-          <li>Guided by the AUSIT Code of Ethics</li>
+          <li>
+            Guided by the <a href="https://ausit.org/code-of-ethics/"  target="_blank" rel="noreferrer noopener"> AUSIT Code of Ethics</a>
+          </li>
           <li>
             Supported through ongoing peer supervision and community networks
           </li>
@@ -470,39 +493,39 @@ import BaseComponent from "../layouts/BaseComponent.astro";
         <h3>Our suite of offerings includes:</h3>
       </div>
 
-      <div class="training-grid">
-        <article class="training-card">
+      <ul>
+        <li>
           <h4>Working with Interpreters</h4>
           <p>
             Practical guidance for collaborating with interpreters to support
             ethical, accurate, and affirming communication.
           </p>
-        </article>
+        </li>
 
-        <article class="training-card">
+        <li>
           <h4>Collaborating with Interpreters</h4>
           <p>
             Building strong partnerships between practitioners and interpreters
             in complex, multilingual service environments.
           </p>
-        </article>
+        </li>
 
-        <article class="training-card">
+        <li>
           <h4>Queer and Feminist Ethics in Language Work</h4>
           <p>
             Exploring power, positionality, and accountability in interpreting
             and translation practice.
           </p>
-        </article>
+        </li>
 
-        <article class="training-card">
+        <li>
           <h4>Trauma-Informed &amp; Culturally Safe Practice</h4>
           <p>
             Supporting LGBTIQA+ forcibly displaced people through care-centred,
             intersectional approaches to language work.
           </p>
-        </article>
-      </div>
+        </li>
+      </ul>
 
       <div class="training-format">
         <p>
@@ -560,9 +583,11 @@ import BaseComponent from "../layouts/BaseComponent.astro";
         <div class="capacity-text">
           <h2>Capacity Building: Certification Pathways</h2>
           <p>
-            Our Certification Capacity Building Program supports bilingual
-            LGBTQIA+ refugees and asylum seekers to become NAATI-certified
-            interpreters and translators.
+            <strong>Our Certification Capacity Building Program</strong> supports bilingual
+            LGBTQIA+ refugees and asylum seekers to become <strong>
+                NAATI-certified
+                interpreters and translators
+            </strong>.
           </p>
           <p>
             The program removes financial and systemic barriers by covering
@@ -632,8 +657,8 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       <a href="/about" class="button button-primary">Read Our Impact</a>
     </section>
 
-    <section class="service-block final-cta">
-      <div class="final-cta-inner">
+    <section class="service-block ready-to-work">
+      <div class="ready-to-work-inner">
         <div class="cta-text">
           <h2>Ready to work with us?</h2>
           <p>
