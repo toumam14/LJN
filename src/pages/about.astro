@@ -159,24 +159,6 @@ import Nav from "../components/Nav.astro";
     }
   }
 
-  // ---------- ACKNOWLEDGEMENT ----------
-
-  .acknowledgement {
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--secondary-color);
-    background: var(--tertiary-color);
-    padding: 24px 22px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-md);
-  }
-
-  .ack-tagline {
-    font-weight: 600;
-    font-size: var(--font-body-sm);
-    text-transform: uppercase;
-  }
-
   .about-page {
     @media (max-width: $breakpoint-md) {
       padding-inline: 16px;
@@ -348,26 +330,6 @@ import Nav from "../components/Nav.astro";
       </ul>
 
       <a href="/get-involved" class="button button-primary">Join Our Network</a>
-    </section>
-
-    <!-- ACKNOWLEDGEMENT OF COUNTRY -->
-    <section class="acknowledgement" id="acknowledgement">
-      <h2>In Solidarity with First Nations Communities</h2>
-      <p>
-        LJN operates on the unceded lands of the Wurundjeri Woi-wurrung people
-        of the Kulin Nation. We honour their lands, skies, waters, and
-        languages, and pay respect to Elders past and present.
-      </p>
-      <p>
-        We acknowledge the more than 250 First Nations languages across this
-        continent — some sleeping, many spoken — and express gratitude to the
-        Language Keepers and Revivalists whose work inspires our own.
-      </p>
-      <p>
-        We stand in solidarity with First Nations communities here and globally
-        in struggles for sovereignty, language, and justice.
-      </p>
-      <p class="ack-tagline">Always Was, Always Will Be, Aboriginal Land.</p>
     </section>
   </main>
 </BaseComponent>

@@ -278,44 +278,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     }
   }
 
-  // ---------- CONTACT & ACKNOWLEDGEMENT ----------
-
-  .contact-acknowledgement {
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--secondary-color);
-    background: var(--tertiary-color);
-    padding: 24px 22px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-base);
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-xs);
-
-      .contact-detail {
-        font-size: var(--font-body-md);
-        margin: 2px 0;
-      }
-
-      a {
-        color: var(--link-color);
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-
-    .acknowledgement-text {
-      margin-top: 8px;
-      font-weight: 600;
-      font-size: var(--font-body-sm);
-    }
-  }
-
   .resources-page {
     @media (max-width: $breakpoint-md) {
       padding-inline: 16px;
@@ -635,30 +597,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
         could support our work, we'd love to collaborate.
       </p>
       <a href="/contact" class="button button-primary">Submit a Resource</a>
-    </section>
-
-    <!-- CONTACT & ACKNOWLEDGEMENT -->
-    <section class="contact-acknowledgement" id="contact">
-      <h2>Need Help Finding Something?</h2>
-      <p>
-        If you can't find the resource you're looking for or would like tailored
-        training for your organisation, please reach out to us.
-      </p>
-
-      <div class="contact-info">
-        <p class="contact-detail">
-          📧 <a href="mailto:admin@ljn.org.au">admin@ljn.org.au</a>
-        </p>
-        <p class="contact-detail">
-          📍 Based in Naarm (Melbourne) — operating nationally
-        </p>
-      </div>
-
-      <p class="acknowledgement-text">
-        LJN operates on the unceded lands of the Wurundjeri Woi-wurrung people.
-        We honour the languages, ancestors, and sovereignty of First Nations
-        communities.
-      </p>
     </section>
   </main>
 </BaseComponent>

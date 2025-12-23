@@ -372,25 +372,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     }
   }
 
-  // ---------- FOOTER ACKNOWLEDGEMENT ----------
-
-  .footer-acknowledgement {
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--secondary-color);
-    background: var(--tertiary-color);
-    padding: 24px 22px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-md);
-
-    .ack-tagline {
-      font-weight: 600;
-      font-size: var(--font-body-sm);
-      text-transform: uppercase;
-      margin-top: var(--gap-sm);
-    }
-  }
-
   .get-involved-page {
     @media (max-width: $breakpoint-md) {
       padding-inline: 16px;
@@ -624,21 +605,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
           <p>"Language justice begins when we listen."</p>
         </div>
       </div>
-    </section>
-
-    <!-- FOOTER ACKNOWLEDGEMENT -->
-    <section class="footer-acknowledgement">
-      <h2>Acknowledgement of Country</h2>
-      <p>
-        LJN operates on the unceded lands of the Wurundjeri Woi-wurrung people
-        of the Kulin Nation. We honour their languages, ancestors, and
-        sovereignty.
-      </p>
-      <p>
-        We extend solidarity to First Nations peoples globally in struggles for
-        land, language, and justice.
-      </p>
-      <p class="ack-tagline">Always Was, Always Will Be, Aboriginal Land.</p>
     </section>
   </main>
 </BaseComponent>

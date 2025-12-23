@@ -90,8 +90,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     }
 
     .info-box {
-      width: 400px;
-      height: 180px;
       background-color: var(--tertiary-color);
       border-radius: var(--border-radius-lg);
       border: 1px solid var(--secondary-color);
@@ -100,8 +98,10 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       flex-direction: column;
     }
 
-    .button {
-      align-self: center;
+    @media (max-width: $breakpoint-xl) {
+      .button {
+        align-self: center;
+      }
     }
 
     @media (max-width: $breakpoint-lg) {
@@ -190,16 +190,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
         justify-content: center;
         white-space: normal;
       }
-    }
-  }
-
-  // ---------- CONTACT LOOSE BLOCK ----------
-
-  .contact-blocks {
-    padding-bottom: 40px;
-    a {
-      color: var(--link-color);
-      text-decoration: underline;
     }
   }
 
@@ -366,23 +356,5 @@ import BaseComponent from "../layouts/BaseComponent.astro";
         >
       </div>
     </section>
-
-    <div class="contact-blocks">
-      <p>
-        Want to get in touch? Email us at
-        <a href="mailto:admin@ljn.org.au">admin@ljn.org.au</a>
-      </p>
-
-      <p>
-        For now, keep up with us on Instagram at
-        <a
-          href="https://www.instagram.com/languagejusticenetwork/"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          @languagejusticenetwork
-        </a>
-      </p>
-    </div>
   </main>
 </BaseComponent>
