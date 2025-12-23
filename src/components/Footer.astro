@@ -1,0 +1,245 @@
+<style lang="scss">
+  @import "../styles/variables";
+
+  footer {
+    background: var(--tertiary-color);
+    border-top: 1px solid var(--secondary-color);
+    margin-top: var(--gap-4xl);
+    padding: var(--gap-3xl) 0 var(--gap-xl);
+  }
+
+  .footer-container {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-inline: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gap-3xl);
+
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--gap-2xl);
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: minmax(0, 1fr);
+      padding-inline: 16px;
+      gap: var(--gap-xl);
+    }
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+
+    h3 {
+      font-size: var(--font-body-lg);
+      margin: 0 0 var(--gap-xs) 0;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      h3 {
+        font-size: var(--font-body-md);
+      }
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-sm);
+
+    a {
+      color: var(--font-color);
+      text-decoration: none;
+      font-size: var(--font-body-md);
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--link-color);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-xs);
+
+      .contact-label {
+        font-size: var(--font-body-sm);
+        font-weight: 600;
+        opacity: 0.7;
+      }
+
+      .contact-value {
+        font-size: var(--font-body-md);
+
+        a {
+          color: var(--link-color);
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .social-links {
+    display: flex;
+    gap: var(--gap-md);
+    margin-top: var(--gap-sm);
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+      font-size: var(--font-body-md);
+      padding: var(--gap-sm) var(--gap-md);
+      border: 1px solid var(--secondary-color);
+      border-radius: var(--border-radius-sm);
+      transition: background-color 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        background-color: var(--secondary-color);
+      }
+    }
+  }
+
+  .acknowledgement {
+    grid-column: 1 / -1;
+    padding-top: var(--gap-xl);
+    margin-top: var(--gap-xl);
+    border-top: 1px solid var(--secondary-color);
+
+    h3 {
+      font-size: var(--font-body-lg);
+      margin: 0 0 var(--gap-md) 0;
+    }
+
+    p {
+      font-size: var(--font-body-md);
+      margin: var(--gap-sm) 0;
+      line-height: 1.6;
+    }
+
+    .ack-tagline {
+      font-weight: 600;
+      font-size: var(--font-body-sm);
+      text-transform: uppercase;
+      margin-top: var(--gap-md);
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      h3 {
+        font-size: var(--font-body-md);
+      }
+
+      p,
+      .ack-tagline {
+        font-size: var(--font-body-sm);
+      }
+    }
+  }
+
+  .footer-bottom {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding-top: var(--gap-lg);
+    margin-top: var(--gap-lg);
+    border-top: 1px solid var(--secondary-color);
+    font-size: var(--font-body-sm);
+    color: var(--font-color);
+    opacity: 0.7;
+  }
+</style>
+
+<footer>
+  <div class="footer-container">
+    <!-- Quick Links Section -->
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <nav class="footer-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/services">Services</a>
+        <a href="/resources">Resources</a>
+        <a href="/get-involved">Get Involved</a>
+        <a href="/get-involved#contact-form">Contact Us</a>
+      </nav>
+    </div>
+
+    <!-- Get Involved Section -->
+    <div class="footer-section">
+      <h3>Get Involved</h3>
+      <nav class="footer-links">
+        <a href="/get-involved#partnership">Partner With Us</a>
+        <a href="/get-involved#leag">Join LEAG</a>
+        <a href="/get-involved#donate">Volunteer</a>
+        <a href="/get-involved#donate">Donate</a>
+      </nav>
+    </div>
+
+    <!-- Contact Details Section -->
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <div class="contact-details">
+        <div class="contact-item">
+          <p class="contact-label">Email</p>
+          <p class="contact-value">
+            <a href="mailto:info@languagejusticenetwork.org.au"
+              >info@languagejusticenetwork.org.au</a
+            >
+          </p>
+        </div>
+
+        <div class="contact-item">
+          <p class="contact-label">Location</p>
+          <p class="contact-value">
+            Naarm / Melbourne<br />Operating nationally across Australia
+          </p>
+        </div>
+      </div>
+
+      <div class="social-links">
+        <a
+          href="https://www.instagram.com/languagejusticenetwork/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Follow us on Instagram"
+        >
+          Instagram
+        </a>
+      </div>
+    </div>
+
+    <!-- Acknowledgement of Country -->
+    <div class="acknowledgement">
+      <h3>Acknowledgement of Country</h3>
+      <p>
+        LJN operates on the unceded lands of the Wurundjeri Woi-wurrung people
+        of the Kulin Nation. We honour their languages, ancestors, and
+        sovereignty.
+      </p>
+      <p>
+        We extend solidarity to First Nations peoples globally in struggles for
+        land, language, and justice.
+      </p>
+      <p class="ack-tagline">Always Was, Always Will Be, Aboriginal Land.</p>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>&copy; {new Date().getFullYear()} Language Justice Network. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
