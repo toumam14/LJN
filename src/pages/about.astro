@@ -5,6 +5,8 @@ import Nav from "../components/Nav.astro";
 ---
 
 <style lang="scss">
+  @import "../styles/variables";
+
   // ---------- HERO ----------
 
   .about-hero {
@@ -16,7 +18,7 @@ import Nav from "../components/Nav.astro";
     flex-direction: column;
     align-items: flex-start;
 
-    @media (max-width: 560px) {
+    @media (max-width: $breakpoint-sm) {
       align-items: center;
     }
   }
@@ -28,11 +30,11 @@ import Nav from "../components/Nav.astro";
     flex-direction: column;
     align-items: flex-start;
 
-    @media (max-width: 900px) {
+    @media (max-width: $breakpoint-xl) {
       grid-template-columns: minmax(0, 1fr);
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: $breakpoint-sm) {
       align-items: center;
     }
   }
@@ -52,25 +54,13 @@ import Nav from "../components/Nav.astro";
     gap: 20px;
     align-items: flex-start;
 
-    @media (max-width: 560px) {
-      align-items: center;
-    }
-
-    .principles-grid {
+    ul {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
-
-      @media (max-width: 850px) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @media (max-width: 560px) {
-        grid-template-columns: repeat(1, 1fr);
-      }
     }
 
-    .principle-card {
+    li {
       border-radius: var(--border-radius-lg);
       border: 1px solid var(--secondary-color);
       background: var(--tertiary-color);
@@ -91,8 +81,24 @@ import Nav from "../components/Nav.astro";
 
     .button {
       align-self: flex-start;
+    }
 
-      @media (max-width: 560px) {
+    @media (max-width: $breakpoint-xl) {
+      ul {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: $breakpoint-lg) {
+      ul {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      align-items: center;
+
+      .button {
         align-self: center;
       }
     }
@@ -106,25 +112,13 @@ import Nav from "../components/Nav.astro";
     gap: 16px;
     align-items: flex-start;
 
-    @media (max-width: 560px) {
-      align-items: center;
-    }
-
-    .team-grid {
+    ul {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
-
-      @media (max-width: 900px) {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      @media (max-width: 640px) {
-        grid-template-columns: minmax(0, 1fr);
-      }
     }
 
-    .team-card {
+    li {
       border-radius: var(--border-radius-lg);
       border: 1px solid var(--secondary-color);
       background: var(--tertiary-color);
@@ -142,8 +136,24 @@ import Nav from "../components/Nav.astro";
 
     a {
       align-self: flex-start;
+    }
 
-      @media (max-width: 560px) {
+    @media (max-width: $breakpoint-xl) {
+      ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: $breakpoint-lg) {
+      ul {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      align-items: center;
+
+      a {
         align-self: center;
       }
     }
@@ -168,7 +178,7 @@ import Nav from "../components/Nav.astro";
   }
 
   .about-page {
-    @media (max-width: 640px) {
+    @media (max-width: $breakpoint-md) {
       padding-inline: 16px;
     }
   }
@@ -249,61 +259,61 @@ import Nav from "../components/Nav.astro";
         ethics, methodology, and community roots.
       </p>
 
-      <div class="principles-grid">
-        <article class="principle-card">
+      <ul>
+        <li>
           <span class="principle-icon" aria-hidden="true">⚖️</span>
           <h4>Language Justice</h4>
           <p class="principle-text">
             Everyone has the right to communicate in the language they know best
             — with respect, dignity, and understanding.
           </p>
-        </article>
+        </li>
 
-        <article class="principle-card">
+        <li>
           <span class="principle-icon" aria-hidden="true">🌈</span>
           <h4>Queer &amp; Feminist Ethics</h4>
           <p class="principle-text">
             We honour fluidity, intersectionality, and collective care in our
             practice.
           </p>
-        </article>
+        </li>
 
-        <article class="principle-card">
+        <li>
           <span class="principle-icon" aria-hidden="true">🌏</span>
           <h4>Decolonial Practice</h4>
           <p class="principle-text">
             We challenge systems that privilege English and centre Western
             knowledge, uplifting community-based and multilingual wisdoms.
           </p>
-        </article>
+        </li>
 
-        <article class="principle-card">
+        <li>
           <span class="principle-icon" aria-hidden="true">🤝</span>
           <h4>Solidarity, Not Charity</h4>
           <p class="principle-text">
             We collaborate across differences and work with, not for,
             communities.
           </p>
-        </article>
+        </li>
 
-        <article class="principle-card">
+        <li>
           <span class="principle-icon" aria-hidden="true">🧠</span>
           <h4>Trauma-Informed Practice</h4>
           <p class="principle-text">
             We prioritise emotional safety, transparency, and accountability in
             every interaction.
           </p>
-        </article>
+        </li>
 
-        <article class="principle-card">
+        <li>
           <span class="principle-icon" aria-hidden="true">🗣️</span>
           <h4>Lived Experience Leadership</h4>
           <p class="principle-text">
             Our programs are co-designed with community members through our
             Lived Experience Advisory Group (LEAG).
           </p>
-        </article>
-      </div>
+        </li>
+      </ul>
 
       <a href="/services" class="button button-primary">Explore Our Services</a>
     </section>
@@ -319,23 +329,23 @@ import Nav from "../components/Nav.astro";
         expertise to every space.
       </p>
 
-      <div class="team-grid">
-        <div class="team-card">
+      <ul>
+        <li>
           <p class="team-card-placeholder">
             Team member profile coming soon — board, staff, or LEAG member.
           </p>
-        </div>
-        <div class="team-card">
+        </li>
+        <li>
           <p class="team-card-placeholder">
             Team member profile coming soon — board, staff, or LEAG member.
           </p>
-        </div>
-        <div class="team-card">
+        </li>
+        <li>
           <p class="team-card-placeholder">
             Team member profile coming soon — board, staff, or LEAG member.
           </p>
-        </div>
-      </div>
+        </li>
+      </ul>
 
       <a href="/get-involved" class="button button-primary">Join Our Network</a>
     </section>
