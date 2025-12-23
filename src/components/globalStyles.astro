@@ -214,6 +214,17 @@
     --border-radius-sm: 4px;
     --border-radius-md: 8px;
     --border-radius-lg: 12px;
+
+    /* spacing / gap values */
+    --gap-xs: 4px;
+    --gap-sm: 8px;
+    --gap-md: 12px;
+    --gap-base: 16px;
+    --gap-lg: 20px;
+    --gap-xl: 24px;
+    --gap-2xl: 32px;
+    --gap-3xl: 40px;
+    --gap-4xl: 56px;
   }
 
   section {
@@ -320,7 +331,7 @@
     font-family: "League Spartan", system-ui, sans-serif;
     display: flex;
     flex-direction: column;
-    gap: 56px;
+    gap: var(--gap-4xl);
     padding-inline: 25px;
 
     @media (max-width: $breakpoint-sm) {

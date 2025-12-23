@@ -15,7 +15,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: var(--gap-3xl);
 
     @media (max-width: $breakpoint-xl) {
       flex-direction: column;
@@ -79,13 +79,13 @@ import BaseComponent from "../layouts/BaseComponent.astro";
   .what-we-do {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--gap-xl);
     align-items: flex-start;
 
     .info-box-wrapper {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: var(--gap-lg);
       margin: 0 auto;
     }
 
@@ -122,7 +122,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
   .community-impact {
     display: grid;
     grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-    gap: 28px;
+    gap: var(--gap-xl);
     align-items: flex-start;
 
     .button {
@@ -175,12 +175,12 @@ import BaseComponent from "../layouts/BaseComponent.astro";
   .get-involved {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--gap-md);
 
     .actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: var(--gap-md);
     }
 
     @media (max-width: $breakpoint-sm) {
