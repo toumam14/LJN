@@ -7,7 +7,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
 ---
 
 <style lang="scss">
-  @import "../styles/variables";
+  @use "../styles/variables" as *;
 
   // ---------- HERO ----------
 
@@ -203,7 +203,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
 </style>
 
 <BaseComponent>
-
   <main class="homepage">
     <section class="hero">
       <div class="hero-content">

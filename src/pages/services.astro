@@ -4,7 +4,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
 ---
 
 <style lang="scss">
-  @import "../styles/variables";
+  @use "../styles/variables" as *;
 
   .services-hero {
     display: flex;
@@ -369,7 +369,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       border-radius: var(--border-radius-lg);
       border: 1px solid var(--secondary-color);
       background: var(--tertiary-color);
-        width: 100%;
+      width: 100%;
       padding: 22px 24px;
       display: flex;
       flex-direction: column;
@@ -462,14 +462,22 @@ import BaseComponent from "../layouts/BaseComponent.astro";
           <li>Professionally certified and experienced</li>
           <li>Trained in queer and feminist ethics</li>
           <li>
-            Guided by the <a href="https://ausit.org/code-of-ethics/"  target="_blank" rel="noreferrer noopener"> AUSIT Code of Ethics</a>
+            Guided by the <a
+              href="https://ausit.org/code-of-ethics/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              AUSIT Code of Ethics</a
+            >
           </li>
           <li>
             Supported through ongoing peer supervision and community networks
           </li>
         </ul>
 
-        <a href="/contact" class="button button-primary">Request a Booking</a>
+        <a href="/get-involved#contact-form" class="button button-primary"
+          >Request a Booking</a
+        >
       </div>
 
       <div class="service-visual">
@@ -534,7 +542,9 @@ import BaseComponent from "../layouts/BaseComponent.astro";
         </p>
       </div>
 
-      <a href="/contact" class="button button-primary">Book a Workshop</a>
+      <a href="/get-involved#contact-form" class="button button-primary"
+        >Book a Workshop</a
+      >
     </section>
 
     <section class="service-block consulting">
@@ -565,7 +575,9 @@ import BaseComponent from "../layouts/BaseComponent.astro";
           </ol>
 
           <div class="button-wrapper">
-            <a href="/contact" class="button button-secondary">Work With Us</a>
+            <a href="/get-involved#contact-form" class="button button-secondary"
+              >Work With Us</a
+            >
           </div>
         </div>
 
@@ -583,10 +595,9 @@ import BaseComponent from "../layouts/BaseComponent.astro";
         <div class="capacity-text">
           <h2>Capacity Building: Certification Pathways</h2>
           <p>
-            <strong>Our Certification Capacity Building Program</strong> supports bilingual
-            LGBTQIA+ refugees and asylum seekers to become <strong>
-                NAATI-certified
-                interpreters and translators
+            <strong>Our Certification Capacity Building Program</strong> supports
+            bilingual LGBTQIA+ refugees and asylum seekers to become <strong>
+              NAATI-certified interpreters and translators
             </strong>.
           </p>
           <p>
@@ -628,7 +639,9 @@ import BaseComponent from "../layouts/BaseComponent.astro";
         </div>
       </div>
 
-      <a href="/contact" class="button button-primary">Join the Program</a>
+      <a href="/get-involved#contact-form" class="button button-primary"
+        >Join the Program</a
+      >
     </section>
 
     <section class="service-block testimonials">
@@ -669,7 +682,9 @@ import BaseComponent from "../layouts/BaseComponent.astro";
         </div>
 
         <div class="cta-actions">
-          <a href="/contact" class="button button-secondary">Contact Us</a>
+          <a href="/get-involved#contact-form" class="button button-secondary"
+            >Contact Us</a
+          >
           <a href="/donate" class="button button-secondary"
             >Donate to Support Our Work</a
           >
