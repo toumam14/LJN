@@ -1,42 +1,250 @@
 ---
-
+import burgerMenu from "../assets/burger-menu.svg";
+import closeIcon from "../assets/close.svg";
 ---
 
 <style lang="scss">
+  @use "../styles/variables" as *;
+
   .navigation {
     margin: 0 auto 60px;
-    padding-top: 20px;
+    padding: 20px;
     background: var(--primary-color);
     width: 100%;
     text-align: center;
     display: flex;
     justify-content: center;
+    position: relative;
+
+    @media (max-width: $breakpoint-md) {
+      height: 70px;
+    }
   }
 
-  .list-wrapper {
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1002;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @media (max-width: $breakpoint-md) {
+      display: block;
+    }
+
+    img {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+  }
+
+  .close-button {
+    display: none;
+
+    @media (max-width: $breakpoint-md) {
+      display: block;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1002;
+
+      img {
+        width: 28px;
+        height: 28px;
+        display: block;
+      }
+    }
+  }
+
+  .desktop-menu {
     display: flex;
     list-style: none;
-    padding: 20px;
+    padding: 0;
+    margin: 0;
 
-    .list-item {
-      margin-right: 20px;
+    @media (max-width: $breakpoint-md) {
+      display: none;
+    }
+  }
+
+  .mobile-menu {
+    display: none;
+
+    @media (max-width: $breakpoint-md) {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 300px;
+      height: 100vh;
+      background: var(--primary-color);
+      flex-direction: column;
+      padding: 80px 20px 20px;
+      transition: right 0.3s ease;
+      z-index: 1001;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+
+      &.active {
+        right: 0;
+      }
+
+      &.closing {
+        right: -100%;
+      }
+    }
+  }
+
+  .list-item {
+    margin-right: 20px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    a {
+      font-size: var(--font-body-md);
+      text-decoration: none;
+      color: var(--button-text);
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .mobile-menu .list-item {
+    @media (max-width: $breakpoint-md) {
+      margin-right: 0;
+      margin-bottom: 20px;
+      text-align: left;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
       a {
-        font-size: var(--font-body-md);
-        text-decoration: none;
-        color: var(--button-text);
+        font-size: var(--font-body-lg);
+      }
+    }
+  }
+
+  .overlay {
+    display: none;
+
+    @media (max-width: $breakpoint-md) {
+      display: block;
+      border: none;
+      padding: 0;
+      background: rgba(0, 0, 0, 0.5);
+      max-width: 100%;
+      max-height: 100%;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+      transition: opacity 0.3s ease;
+
+      &::backdrop {
+        display: none;
+      }
+
+      &:not([open]) {
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      &[open] {
+        opacity: 1;
+      }
+
+      &.closing {
+        opacity: 0;
       }
     }
   }
 </style>
 
+<nav class="navigation">
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <img src={burgerMenu.src} alt="Open menu" />
+  </button>
 
-  <nav class="navigation">
-    <ul class="list-wrapper">
+  <!-- Desktop menu -->
+  <ul class="desktop-menu">
+    <li class="list-item"><a href="/">Home</a></li>
+    <li class="list-item"><a href="/about">About</a></li>
+    <li class="list-item"><a href="/services">Services</a></li>
+    <li class="list-item"><a href="/resources">Resources</a></li>
+    <li class="list-item"><a href="/get-involved">Get involved</a></li>
+  </ul>
+
+  <!-- Mobile menu in dialog -->
+  <dialog class="overlay" id="overlay">
+    <button class="close-button" id="close-button" aria-label="Close menu">
+      <img src={closeIcon.src} alt="Close menu" />
+    </button>
+    <ul class="mobile-menu" id="mobile-menu">
       <li class="list-item"><a href="/">Home</a></li>
       <li class="list-item"><a href="/about">About</a></li>
       <li class="list-item"><a href="/services">Services</a></li>
       <li class="list-item"><a href="/resources">Resources</a></li>
       <li class="list-item"><a href="/get-involved">Get involved</a></li>
     </ul>
-  </nav>
+  </dialog>
+</nav>
 
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const closeButton = document.getElementById("close-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("overlay") as HTMLDialogElement;
+
+  function openMenu() {
+    mobileMenu?.classList.remove("closing");
+    mobileMenu?.classList.add("active");
+    overlay?.classList.remove("closing");
+    overlay?.showModal();
+  }
+
+  function closeMenu() {
+    // Add closing class to trigger animation
+    mobileMenu?.classList.add("closing");
+    mobileMenu?.classList.remove("active");
+    overlay?.classList.add("closing");
+
+    // Wait for animation to complete before actually closing
+    setTimeout(() => {
+      overlay?.close();
+    }, 300); // Match the CSS transition duration
+  }
+
+  hamburger?.addEventListener("click", openMenu);
+  closeButton?.addEventListener("click", closeMenu);
+
+  // Close dialog when clicking outside (on the backdrop)
+  overlay?.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      closeMenu();
+    }
+  });
+
+  // Close menu when clicking a link
+  const menuLinks = mobileMenu?.querySelectorAll("a");
+  menuLinks?.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+</script>
