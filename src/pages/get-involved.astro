@@ -578,9 +578,8 @@ import BaseComponent from "../layouts/BaseComponent.astro";
           name="contact-us"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="form-name" value="contact-us" />
-          <input type="hidden" name="subject" value="New Contact Form Submission" />
+          action="/get-involved?success=true#contact-form"
+        >         
           <input type="hidden" name="redirect" value="/get-involved?success=true#contact-form" />
           <p class="hidden">
             <label>
