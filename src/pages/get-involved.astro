@@ -1,10 +1,27 @@
 ---
 import "../components/globalStyles.astro";
 import BaseComponent from "../layouts/BaseComponent.astro";
+
+export const prerender = false; // Not needed in 'server' mode
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("name");
+    const email = data.get("email");
+    const organisation = data.get("organisation");
+    const message = data.get("message");
+    // Do something with the data
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
 ---
 
 <style lang="scss">
-  @import "../styles/variables";
+  @use "../styles/variables" as *;
 
   // ---------- HERO BANNER ----------
 
@@ -64,7 +81,9 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       display: flex;
       flex-direction: column;
       gap: var(--gap-md);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 
       &:hover {
         transform: translateY(-2px);
@@ -257,6 +276,16 @@ import BaseComponent from "../layouts/BaseComponent.astro";
       display: flex;
       flex-direction: column;
       gap: var(--gap-base);
+
+      .hidden {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
 
       .form-field {
         display: flex;
@@ -478,8 +507,7 @@ import BaseComponent from "../layouts/BaseComponent.astro";
           Partnering with LJN means embedding equity, safety, and cultural
           responsiveness into your organisational systems and service delivery.
         </p>
-        <a href="#contact-form" class="button button-primary"
-          >Partner With Us</a
+        <a href="#contact-form" class="button button-primary">Partner With Us</a
         >
       </div>
 
@@ -544,7 +572,20 @@ import BaseComponent from "../layouts/BaseComponent.astro";
           hear from you.
         </p>
 
-        <form>
+        <!-- Netlify form information: https://www.netlify.com/blog/deploy-an-astro-site-with-forms-serverless-functions-and-redirects/#netlify-forms -->
+        <form
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot
+          name="contact-us"
+          netlify
+        >
+          <p class="hidden">
+            <label>
+              Don’t fill this out if you’re human: <input name="bot-field" />
+            </label>
+          </p>
+          <input type="hidden" name="form-name" value="feedback" />
           <div class="form-field">
             <label for="name">Name <span aria-label="required">*</span></label>
             <input type="text" id="name" name="name" required />
@@ -571,14 +612,12 @@ import BaseComponent from "../layouts/BaseComponent.astro";
           <div class="checkbox-field">
             <input type="checkbox" id="contact-type" name="contact-type" />
             <label for="contact-type">
-              I'm contacting as a service provider / community member / volunteer
-              / other
+              I'm contacting as a service provider / community member /
+              volunteer / other
             </label>
           </div>
 
-          <button type="submit" class="button button-primary">
-            Send Message
-          </button>
+          <button type="submit" class="button button-primary"> Submit </button>
         </form>
       </div>
 
