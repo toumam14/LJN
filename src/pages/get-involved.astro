@@ -1,23 +1,6 @@
 ---
 import "../components/globalStyles.astro";
 import BaseComponent from "../layouts/BaseComponent.astro";
-
-export const prerender = false; // Not needed in 'server' mode
-
-if (Astro.request.method === "POST") {
-  try {
-    const data = await Astro.request.formData();
-    const name = data.get("name");
-    const email = data.get("email");
-    const organisation = data.get("organisation");
-    const message = data.get("message");
-    // Do something with the data
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    }
-  }
-}
 ---
 
 <style lang="scss">
@@ -341,6 +324,23 @@ if (Astro.request.method === "POST") {
         align-self: flex-start;
         margin-top: var(--gap-sm);
       }
+
+      .success-message {
+        padding: 16px 18px;
+        border-radius: var(--border-radius-md);
+        background: var(--success-green);
+        border: 2px solid var(--success-green-border);
+        // color: #155724;
+        font-size: var(--font-body-md);
+        margin-top: var(--gap-base);
+        display: none;
+        align-items: center;
+        gap: var(--gap-sm);
+
+        &.show {
+          display: flex;
+        }
+      }
     }
 
     .contact-details {
@@ -575,17 +575,18 @@ if (Astro.request.method === "POST") {
         <!-- Netlify form information: https://www.netlify.com/blog/deploy-an-astro-site-with-forms-serverless-functions-and-redirects/#netlify-forms -->
         <form
           method="POST"
-          data-netlify="true"
-          netlify-honeypot
           name="contact-us"
-          netlify
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
         >
+          <input type="hidden" name="form-name" value="contact-us" />
+          <input type="hidden" name="subject" value="New Contact Form Submission" />
+          <input type="hidden" name="redirect" value="/get-involved?success=true#contact-form" />
           <p class="hidden">
             <label>
-              Don’t fill this out if you’re human: <input name="bot-field" />
+              Don't fill this out if you're human: <input name="bot-field" />
             </label>
           </p>
-          <input type="hidden" name="form-name" value="feedback" />
           <div class="form-field">
             <label for="name">Name <span aria-label="required">*</span></label>
             <input type="text" id="name" name="name" required />
@@ -619,6 +620,11 @@ if (Astro.request.method === "POST") {
 
           <button type="submit" class="button button-primary"> Submit </button>
         </form>
+
+        <div class="success-message" id="success-message">
+          <span>✓</span>
+          <p>Your form has been submitted! We'll get back to you soon.</p>
+        </div>
       </div>
 
       <div class="contact-details">
@@ -646,4 +652,14 @@ if (Astro.request.method === "POST") {
       </div>
     </section>
   </main>
+
+  <script>
+    // Check if the URL has the success parameter and show the message
+    if (window.location.search.includes("success=true")) {
+      const successMessage = document.getElementById("success-message");
+      if (successMessage) {
+        successMessage.classList.add("show");
+      }
+    }
+  </script>
 </BaseComponent>
