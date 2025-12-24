@@ -1,23 +1,6 @@
 ---
 import "../components/globalStyles.astro";
 import BaseComponent from "../layouts/BaseComponent.astro";
-
-export const prerender = false; // Not needed in 'server' mode
-
-if (Astro.request.method === "POST") {
-  try {
-    const data = await Astro.request.formData();
-    const name = data.get("name");
-    const email = data.get("email");
-    const organisation = data.get("organisation");
-    const message = data.get("message");
-    // Do something with the data
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    }
-  }
-}
 ---
 
 <style lang="scss">
@@ -575,17 +558,16 @@ if (Astro.request.method === "POST") {
         <!-- Netlify form information: https://www.netlify.com/blog/deploy-an-astro-site-with-forms-serverless-functions-and-redirects/#netlify-forms -->
         <form
           method="POST"
-          data-netlify="true"
-          netlify-honeypot
           name="contact-us"
           netlify
+          netlify-honeypot="bot-field"
         >
+          <input type="hidden" name="form-name" value="contact-us" />
           <p class="hidden">
             <label>
-              Don’t fill this out if you’re human: <input name="bot-field" />
+              Don't fill this out if you're human: <input name="bot-field" />
             </label>
           </p>
-          <input type="hidden" name="form-name" value="feedback" />
           <div class="form-field">
             <label for="name">Name <span aria-label="required">*</span></label>
             <input type="text" id="name" name="name" required />
