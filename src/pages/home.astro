@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import heroImage from "../assets/hero-image-compressed.jpg";
+// import heroImage from "../assets/hero-image-compressed.jpg";
 import "../components/globalStyles.astro";
-import Nav from "../components/Nav.astro";
+// import Nav from "../components/Nav.astro";
 import BaseComponent from "../layouts/BaseComponent.astro";
 ---
 
@@ -32,7 +32,8 @@ import BaseComponent from "../layouts/BaseComponent.astro";
     flex: 1.2;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
 
     @media (max-width: $breakpoint-sm) {
       p {
@@ -213,10 +214,11 @@ import BaseComponent from "../layouts/BaseComponent.astro";
           displaced people.
         </p>
 
-        <a href="#" class="button button-primary">Get involved</a>
+        <h2>Coming soon...</h2>
+        <!-- <a href="#" class="button button-primary">Get involved</a> -->
       </div>
 
-      <div class="hero-image">
+      <!-- <div class="hero-image">
         <Image src={heroImage} alt="" width="420" quality="max" />
       </div>
     </section>
@@ -354,6 +356,6 @@ import BaseComponent from "../layouts/BaseComponent.astro";
           >Join the Lived Experience Advisory Group</a
         >
       </div>
-    </section>
+    </section> -->
   </main>
 </BaseComponent>
