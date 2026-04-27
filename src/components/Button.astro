@@ -1,0 +1,58 @@
+---
+import arrowSrc from '../assets/button-arrow.svg?url';
+
+interface Props {
+  href: string;
+  label: string;
+  external?: boolean;
+}
+const { href, label, external = false } = Astro.props;
+---
+
+<a
+  href={href}
+  class="button"
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+>
+  <span class="button-label">{label}</span>
+  <span class="button-arrow">
+    <img src={arrowSrc} width="9" height="9" alt="" aria-hidden="true" />
+  </span>
+</a>
+
+<style lang="scss">
+  .button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-xl);
+    transition: opacity 0.15s ease-in-out;
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--button-text);
+      outline-offset: 2px;
+    }
+  }
+
+  .button-label {
+    font-family: "Roboto Mono", monospace;
+    font-size: var(--font-body-button);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .button-arrow {
+    margin-left: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+</style>

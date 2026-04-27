@@ -206,7 +206,7 @@
     // Red theme
     --red-theme-primary: #740026;
     --red-theme-secondary: #eb5a5d;
-    --red-theme-tertiary: #eb5a5d;
+    --red-theme-tertiary: #fcb5b2;
     --red-theme-pale: #fdeeef;
 
     // Purple theme
@@ -225,13 +225,13 @@
     --green-theme-primary: #022b23;
     --green-theme-secondary: #47a62c;
     --green-theme-tertiary: #afe680;
-    --green-theme-pale: #EDF6EA;
-    
-    
+    --green-theme-pale: #edf6ea;
+
     // Border radius
     --border-radius-sm: 4px;
     --border-radius-md: 8px;
     --border-radius-lg: 12px;
+    --border-radius-xl: 20px;
 
     // Max widths
     --max-width-page: 1200px;
@@ -250,8 +250,10 @@
     --spacing-xs: 5px;
     --spacing-sm: 10px;
     --spacing-md: 15px;
-    --spacing-lg: 30px;
-    --spacing-xl: 50px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --spacing-2xl: 40px;
+    --spacing-3xl: 50px;
   }
 
   main {
@@ -262,5 +264,21 @@
     @media (max-width: $breakpoint-sm) {
       padding-inline: var(--spacing-page-mobile);
     }
+  }
+
+  // Theme classes — applied to <body> per page
+  .theme-brown {
+    --button-bg: var(--brown-theme-secondary);
+    --button-text: var(--brown-theme-primary);
+  }
+
+  .theme-blue {
+    --button-bg: var(--blue-theme-tertiary);
+    --button-text: var(--blue-theme-primary);
+  }
+
+  .theme-green {
+    --button-bg: var(--green-theme-tertiary);
+    --button-text: var(--green-theme-primary);
   }
 </style>
