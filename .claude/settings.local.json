@@ -3,7 +3,8 @@
     "allow": [
       "Skill(update-config)",
       "Skill(update-config:*)",
-      "Bash(xargs ls *)"
+      "Bash(xargs ls *)",
+      "mcp__figma__get_design_context"
     ]
   }
 }

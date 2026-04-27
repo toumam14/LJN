@@ -1,12 +1,25 @@
 ---
-// import Nav from "../components/Nav.astro"
+import Nav from "../components/Nav.astro";
 import GlobalStyles from "../components/globalStyles.astro";
 import Footer from "../components/Footer.astro";
+import blueLogoUrl from '../assets/blue-logo.png?url';
+import greenLogoUrl from '../assets/green-logo.png?url';
+import purpleLogoUrl from '../assets/purple-logo.png?url';
+import redLogoUrl from '../assets/red-logo.png?url';
 
 interface Props {
   theme?: string;
 }
 const { theme = "theme-brown" } = Astro.props;
+
+const logoMap: Record<string, string> = {
+  'theme-blue': blueLogoUrl,
+  'theme-green': greenLogoUrl,
+  'theme-purple': purpleLogoUrl,
+  'theme-red': redLogoUrl,
+};
+
+const desktopLogo = logoMap[theme];
 ---
 
 <html lang="en">
@@ -24,7 +37,7 @@ const { theme = "theme-brown" } = Astro.props;
   </head>
   <body class={theme}>
     <GlobalStyles />
-    <!-- <Nav /> -->
+    <Nav logo={desktopLogo} />
     <slot />
     <Footer />
   </body>
