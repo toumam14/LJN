@@ -1,0 +1,54 @@
+---
+import Button from "./Button.astro";
+---
+
+<div class="contact-callout">
+  <p class="contact-callout-eyebrow eyebrow-text">Get in touch</p>
+  <h2 class="contact-callout-heading intro-text">
+    Have a partnership idea, want to contribute, or interested in learning more
+    about how to get involved?
+  </h2>
+  <p class="contact-callout-body intro-text">
+    Reach out and let us know what you're interested in.
+  </p>
+  <div class="contact-callout-cta">
+    <Button
+      href="mailto:admin@ljn.org.au"
+      label="admin@ljn.org.au"
+      variant="primary"
+    />
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .contact-callout {
+    background-color: var(--nav-bg);
+    border-radius: 30px;
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    max-width: var(--max-width-content);
+  }
+
+  .contact-callout-eyebrow {
+    color: var(--color-white);
+    margin: 0;
+  }
+
+  .contact-callout-heading {
+    color: var(--color-white);
+    margin: 0;
+  }
+
+  .contact-callout-body {
+    color: var(--color-white);
+    margin: 0;
+  }
+
+  .contact-callout-cta {
+    display: flex;
+  }
+</style>

@@ -1,0 +1,256 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  logo?: string;
+}
+const { logo } = Astro.props;
+---
+
+<footer class="footer">
+  <div class="footer-inner">
+    <!-- 1. Logo -->
+    <div class="footer-logo-wrap">
+      <a href="/">
+        {
+          logo && (
+            <img
+              src={logo}
+              alt="Language Justice Network"
+              class="footer-logo"
+            />
+          )
+        }
+      </a>
+    </div>
+
+    <!-- 2. Nav columns (desktop: beside logo / mobile: after subscribe) -->
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <ul class="footer-nav-col">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/resources">Resources</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+      </ul>
+      <ul class="footer-nav-col">
+        <li><a href="/get-involved">Get Involved</a></li>
+        <li><a href="/get-involved#partner">Partner With Us</a></li>
+        <li><a href="/get-involved#leag">Join LEAG</a></li>
+        <li><a href="/get-involved#volunteer">Volunteer</a></li>
+        <li><a href="/get-involved#donate">Donate</a></li>
+      </ul>
+      <div class="footer-contact">
+        <p class="eyebrow-text">Contact</p>
+        <p class="eyebrow-text">
+          Email<br />
+          <a href="mailto:admin@ljn.org.au">admin@ljn.org.au</a>
+        </p>
+        <p class="eyebrow-text">
+          Instagram<br />
+          <a
+            href="https://instagram.com/languagejusticenetwork"
+            target="_blank"
+            rel="noopener noreferrer">@languagejusticenetwork</a
+          >
+        </p>
+        <p class="eyebrow-text">
+          Location<br />
+          Naarm / Melbourne<br />
+          Operating nationally<br />
+          across Australia
+        </p>
+      </div>
+    </nav>
+
+    <!-- 3. Subscribe button (desktop: below nav / mobile: after logo) -->
+    <div class="footer-subscribe">
+      <Button
+        href="#newsletter"
+        label="Subscribe to our newsletter"
+        variant="secondary"
+      />
+    </div>
+
+    <!-- 4. Acknowledgement of country -->
+    <p class="footer-acknowledgement body-text">
+      LJN operates on the unceded lands of the Wurundjeri Woi-wurrung people of
+      the Kulin Nation. We honour their languages, ancestors, and sovereignty.
+      We extend solidarity to First Nations peoples globally in struggles for
+      land, language, and justice.<br />
+      Always Was, Always Will Be, Aboriginal Land.
+    </p>
+
+    <!-- 5. Credits + copyright -->
+    <div class="footer-bottom">
+      <p>Website design by Claudia.<br />Developed by Reem.</p>
+      <p>© Language Justice Network. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .footer {
+    background-color: var(--nav-bg);
+    width: 100%;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: var(--spacing-xl) var(--spacing-3xl);
+    row-gap: var(--spacing-xl);
+  }
+
+  // ---- Logo ----
+
+  .footer-logo-wrap {
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  .footer-logo {
+    width: 250px;
+    height: auto;
+    display: block;
+  }
+
+  // ---- Nav columns (desktop: order 2, beside logo / mobile: order 3, after button) ----
+
+  .footer-nav {
+    order: 2;
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 74px;
+  }
+
+  .footer-nav-col {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li + li {
+      margin-top: var(--spacing-sm);
+    }
+
+    a {
+      font-family: "Roboto Mono", monospace;
+      font-size: var(--font-body-button);
+      font-weight: 400;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--color-white);
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      color: var(--color-white);
+      margin: 0;
+      line-height: var(--line-height-body);
+    }
+
+    p + p {
+      margin-top: var(--spacing-sm);
+    }
+
+    a {
+      color: var(--color-white);
+      text-decoration: none;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  // ---- Subscribe (desktop: order 3, full width / mobile: order 2, after logo) ----
+
+  .footer-subscribe {
+    order: 3;
+    flex: 0 0 100%;
+  }
+
+  // ---- Acknowledgement ----
+
+  .footer-acknowledgement {
+    order: 4;
+    flex: 0 0 100%;
+    color: var(--color-white);
+    line-height: var(--line-height-tight);
+    margin: 0;
+  }
+
+  // ---- Bottom row ----
+
+  .footer-bottom {
+    order: 5;
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      font-family: "Work Sans", system-ui, sans-serif;
+      font-size: var(--font-body-button);
+      font-weight: 400;
+      color: var(--color-white);
+      margin: 0;
+      line-height: var(--line-height-body);
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    .footer-inner {
+      flex-direction: column;
+      width: 100%;
+      padding: var(--spacing-xl) var(--spacing-xl);
+    }
+
+    .footer-logo-wrap {
+      width: 100%;
+    }
+
+    .footer-logo {
+      width: 100%;
+    }
+
+    .footer-nav {
+      flex-direction: column;
+      gap: var(--spacing-xl);
+    }
+
+    .footer-nav-col {
+      a {
+        font-size: var(--font-body-main);
+      }
+    }
+
+    .footer-subscribe {
+      order: 1;
+      // width: 100%;
+
+      .button {
+        width: 100%;
+      }
+    }
+
+    .footer-bottom {
+      align-items: flex-start;
+      flex-direction: column;  
+    }
+  }
+</style>

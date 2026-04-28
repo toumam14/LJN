@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 // import Nav from "../components/Nav.astro";
 import BaseComponent from "../layouts/BaseComponent.astro";
 import Button from "../components/Button.astro";
+import ContactCallout from "../components/ContactCallout.astro";
 ---
 
 <style lang="scss">
@@ -16,7 +17,6 @@ import Button from "../components/Button.astro";
     align-items: center;
     justify-content: space-between;
     gap: var(--gap-3xl);
-    background: red;
 
     @media (max-width: $breakpoint-xl) {
       flex-direction: column;
@@ -206,6 +206,10 @@ import Button from "../components/Button.astro";
 
 <BaseComponent theme="theme-brown">
   <main class="homepage">
-    <Button href="https://www.reemify.dev" label="Well howdy!"/>
+    <Button href="https://www.reemify.dev" label="Well howdy!" />
+    <ContactCallout
+      heading="Have a partnership idea, want to contribute, or interested in learning more about how to get involved?"
+      body="Reach out and let us know what you're interested in."
+    />;
   </main>
 </BaseComponent>

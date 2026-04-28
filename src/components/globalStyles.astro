@@ -195,6 +195,9 @@
     --font-body-main: 18px;
     --font-body-button: 14px;
 
+    --color-white: #ffffff;
+    --color-black: #000000;
+
     // Theme colors
 
     // Brown theme
@@ -254,6 +257,10 @@
     --spacing-xl: 30px;
     --spacing-2xl: 40px;
     --spacing-3xl: 50px;
+
+    // Line heights
+    --line-height-tight: 1.2;
+    --line-height-body: 1.6;
   }
 
   main {
@@ -304,5 +311,34 @@
 
   body {
     background-color: var(--page-bg);
+  }
+
+  // ---- Typography utility classes ----
+
+  .eyebrow-text {
+    font-family: "Roboto Mono", monospace;
+    font-size: var(--font-title-subheading);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .intro-text {
+    font-family: "Work Sans", system-ui, sans-serif;
+    font-size: var(--font-body-intro);
+    font-weight: 700;
+  }
+
+  .body-text {
+    font-family: "Work Sans", system-ui, sans-serif;
+    font-size: var(--font-body-main);
+    font-weight: 400;
+  }
+
+  .small-title {
+    font-family: "Roboto Mono", monospace;
+    font-size: var(--font-title-subheading);
+    font-weight: 400;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--brown-theme-secondary);
   }
 </style>
