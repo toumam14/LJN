@@ -2,10 +2,11 @@
 import Nav from "../components/Nav.astro";
 import GlobalStyles from "../components/globalStyles.astro";
 import Footer from "../components/Footer.astro";
-import blueLogoUrl from '../assets/blue-logo.png?url';
-import greenLogoUrl from '../assets/green-logo.png?url';
-import purpleLogoUrl from '../assets/purple-logo.png?url';
-import redLogoUrl from '../assets/red-logo.png?url';
+import brownLogo from '../assets/brown-logo.png';
+import blueLogo from '../assets/blue-logo.png';
+import greenLogo from '../assets/green-logo.png';
+import purpleLogo from '../assets/purple-logo.png';
+import redLogo from '../assets/red-logo.png';
 
 interface Props {
   theme?: string;
@@ -13,10 +14,11 @@ interface Props {
 const { theme = "theme-brown" } = Astro.props;
 
 const logoMap: Record<string, string> = {
-  'theme-blue': blueLogoUrl,
-  'theme-green': greenLogoUrl,
-  'theme-purple': purpleLogoUrl,
-  'theme-red': redLogoUrl,
+  'theme-brown': brownLogo.src,
+  'theme-blue': blueLogo.src,
+  'theme-green': greenLogo.src,
+  'theme-purple': purpleLogo.src,
+  'theme-red': redLogo.src,
 };
 
 const desktopLogo = logoMap[theme];
