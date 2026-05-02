@@ -2,11 +2,17 @@
 import Nav from "../components/Nav.astro";
 import GlobalStyles from "../components/globalStyles.astro";
 import Footer from "../components/Footer.astro";
+import Sidebar from "../components/Sidebar.astro";
 import brownLogo from '../assets/brown-logo.png';
 import blueLogo from '../assets/blue-logo.png';
 import greenLogo from '../assets/green-logo.png';
 import purpleLogo from '../assets/purple-logo.png';
 import redLogo from '../assets/red-logo.png';
+import brownSoundwave from '../assets/soundwave-brown.svg';
+import blueSoundwave from '../assets/soundwave-blue.svg';
+import greenSoundwave from '../assets/soundwave-green.svg';
+import purpleSoundwave from '../assets/soundwave-purple.svg';
+import redSoundwave from '../assets/soundwave-red.svg';
 
 interface Props {
   theme?: string;
@@ -22,6 +28,16 @@ const logoMap: Record<string, string> = {
 };
 
 const desktopLogo = logoMap[theme];
+
+const soundwaveMap: Record<string, string> = {
+  'theme-brown': brownSoundwave.src,
+  'theme-blue': blueSoundwave.src,
+  'theme-green': greenSoundwave.src,
+  'theme-purple': purpleSoundwave.src,
+  'theme-red': redSoundwave.src,
+};
+
+const soundwave = soundwaveMap[theme];
 ---
 
 <html lang="en">
@@ -40,7 +56,12 @@ const desktopLogo = logoMap[theme];
   <body class={theme}>
     <GlobalStyles />
     <Nav logo={desktopLogo} />
-    <slot />
+    <div class="page-outer">
+      <Sidebar soundwave={soundwave} />
+      <div class="page-layout">
+        <slot />
+      </div>
+    </div>
     <Footer logo={desktopLogo} />
   </body>
 </html>

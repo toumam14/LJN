@@ -263,10 +263,17 @@
     --line-height-body: 1.6;
   }
 
-  main {
+  .page-outer {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .page-layout {
+    flex: 1;
+    min-width: 0;
     max-width: var(--max-width-page);
-    margin: 0 auto;
     padding-inline: var(--spacing-page-desktop);
+    margin: var(--spacing-2xl) auto;
 
     @media (max-width: $breakpoint-sm) {
       padding-inline: var(--spacing-page-mobile);
@@ -320,6 +327,7 @@
     font-size: var(--font-title-subheading);
     font-weight: 400;
     text-transform: uppercase;
+    margin-top: 0;
   }
 
   .intro-text {

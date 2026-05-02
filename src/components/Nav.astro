@@ -8,9 +8,10 @@ interface Props {
 
 const { logo } = Astro.props;
 const pathname = Astro.url.pathname;
-const isActive = (href: string) => pathname.startsWith(href);
+const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
 
 const navLinks = [
+  { href: '/', label: 'Home'},
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/resources', label: 'Resources' },
