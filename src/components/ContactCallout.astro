@@ -1,22 +1,28 @@
 ---
 import Button from "./Button.astro";
+import helpingHand from "../assets/helping-hand.png";
 ---
 
 <div class="contact-callout">
-  <p class="contact-callout-eyebrow eyebrow-text">Get in touch</p>
-  <h2 class="contact-callout-heading intro-text">
-    Have a partnership idea, want to contribute, or interested in learning more
-    about how to get involved?
-  </h2>
-  <p class="contact-callout-body intro-text">
-    Reach out and let us know what you're interested in.
-  </p>
-  <div class="contact-callout-cta">
-    <Button
-      href="mailto:admin@ljn.org.au"
-      label="admin@ljn.org.au"
-      variant="primary"
-    />
+  <div class="contact-callout-wrapper">
+    <img src={helpingHand.src} alt="" />
+    <div class="contact-callout-text-wrapper">
+      <p class="contact-callout-eyebrow eyebrow-text">Get in touch</p>
+      <h2 class="contact-callout-heading intro-text">
+        Have a partnership idea, want to contribute, or interested in learning
+        more about how to get involved?
+      </h2>
+      <p class="contact-callout-body intro-text">
+        Reach out and let us know what you're interested in.
+      </p>
+      <div class="contact-callout-cta">
+        <Button
+          href="mailto:admin@ljn.org.au"
+          label="admin@ljn.org.au"
+          variant="primary"
+        />
+      </div>
+    </div>
   </div>
 </div>
 
@@ -31,6 +37,18 @@ import Button from "./Button.astro";
     flex-direction: column;
     gap: var(--spacing-xl);
     max-width: var(--max-width-content);
+    margin: 0 auto;
+  }
+
+  .contact-callout-wrapper {
+    display: flex;
+  }
+
+  .contact-callout-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: var(--spacing-page-desktop);
   }
 
   .contact-callout-eyebrow {
