@@ -5,7 +5,10 @@ interface Props {
 const { soundwave } = Astro.props;
 ---
 
-<aside class="sidebar" style={soundwave ? `--soundwave-url: url('${soundwave}')` : ''}>
+<aside
+  class="sidebar"
+  style={soundwave ? `--soundwave-url: url('${soundwave}')` : ""}
+>
   <nav class="sidebar-nav" id="sidebarNav"></nav>
 </aside>
 
@@ -13,19 +16,23 @@ const { soundwave } = Astro.props;
   @use "../styles/variables" as *;
 
   .sidebar {
-    width: 220px;
     flex-shrink: 0;
     position: sticky;
     top: var(--spacing-xl);
     padding-left: var(--spacing-page-desktop);
     margin: var(--spacing-2xl);
+    margin-right: 0;
     background-image: var(--soundwave-url);
     height: 100vh;
     width: 400px;
     background-repeat: no-repeat;
     background-size: cover;
 
-    @media (max-width: $breakpoint-lg) {
+    @media (max-width: $breakpoint-3xl) {
+      width: 200px;
+    }
+
+    @media (max-width: $breakpoint-md) {
       display: none;
     }
   }

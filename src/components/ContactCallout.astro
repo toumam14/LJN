@@ -42,6 +42,11 @@ import helpingHand from "../assets/helping-hand.png";
 
   .contact-callout-wrapper {
     display: flex;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
   }
 
   .contact-callout-text-wrapper {
@@ -54,19 +59,53 @@ import helpingHand from "../assets/helping-hand.png";
   .contact-callout-eyebrow {
     color: var(--color-white);
     margin: 0;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
   }
 
   .contact-callout-heading {
     color: var(--color-white);
     margin: 0;
+    margin-bottom: var(--spacing-md);
   }
 
   .contact-callout-body {
     color: var(--color-white);
     margin: 0;
+    margin-bottom: var(--spacing-md);
   }
 
   .contact-callout-cta {
     display: flex;
+  }
+
+  @media (max-width: $breakpoint-xl) and (min-width: $breakpoint-md) {
+    .contact-callout-wrapper img {
+      display: none;
+    }
+
+    .contact-callout-text-wrapper {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    .contact-callout {
+      padding: var(--spacing-md);
+    }
+
+    .contact-callout-wrapper {
+      flex-direction: column;
+    }
+
+    .contact-callout-wrapper > img:first-child {
+      border-radius: var(--border-radius-xl);
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .contact-callout-text-wrapper {
+      margin-left: 0;
+    }
   }
 </style>
