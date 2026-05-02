@@ -5,214 +5,94 @@ import { Image } from "astro:assets";
 import BaseComponent from "../layouts/BaseComponent.astro";
 import Button from "../components/Button.astro";
 import ContactCallout from "../components/ContactCallout.astro";
+import ContentCallout from "../components/ContentCallout.astro";
 ---
 
 <style lang="scss">
   @use "../styles/variables" as *;
 
   // ---------- HERO ----------
-
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--gap-3xl);
-
-    @media (max-width: $breakpoint-xl) {
-      flex-direction: column;
-      text-align: center;
-
-      .hero-image,
-      .button {
-        align-self: center;
-      }
-    }
-  }
-
-  .hero-content {
-    flex: 1.2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    @media (max-width: $breakpoint-sm) {
-      p {
-        font-size: var(--font-body-md);
-      }
-    }
-  }
-
-  .hero-image {
-    position: relative;
-
-    img {
-      display: block;
-      max-width: 420px;
-      width: 100%;
-    }
-  }
-
-  // ---------- SECTION WRAPPERS ----------
-
-  .our-mission,
-  .community-impact,
-  .get-involved {
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--secondary-color);
-    background: var(--tertiary-color);
-    padding: 24px 22px;
-  }
-
-  // ---------- OUR MISSION -----------
-
-  .our-mission {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-    }
-  }
-
-  // ---------- WHAT WE DO ----------
-
-  .what-we-do {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-xl);
-    align-items: flex-start;
-
-    .info-box-wrapper {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--gap-lg);
-      margin: 0 auto;
-    }
-
-    .info-box {
-      background-color: var(--tertiary-color);
-      border-radius: var(--border-radius-lg);
-      border: 1px solid var(--secondary-color);
-      padding: 16px 18px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    @media (max-width: $breakpoint-xl) {
-      .button {
-        align-self: center;
-      }
-    }
-
-    @media (max-width: $breakpoint-lg) {
-      .info-box-wrapper {
-        grid-template-columns: repeat(1, 1fr);
-      }
-    }
-
-    @media (max-width: $breakpoint-xs) {
-      .info-box {
-        width: 280px;
-        height: 240px;
-      }
-    }
-  }
-  // ---------- COMMUNITY IMPACT ----------
-
-  .community-impact {
-    display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-    gap: var(--gap-xl);
-    align-items: flex-start;
-
-    .button {
-      text-align: center;
-    }
-
-    @media (max-width: $breakpoint-xl) {
-      grid-template-columns: minmax(0, 1fr);
-    }
-  }
-
-  .impact-supporting-wrapper {
-    display: flex;
-    flex-direction: column;
-
-    blockquote {
-      margin: 0;
-      padding: 14px 16px;
-      border-left: 4px solid var(--primary-color);
-      background: var(--page-background);
-      border-radius: var(--border-radius-md);
-      font-size: var(--font-body-sm);
-      line-height: 1.5;
-    }
-
-    cite {
-      font-style: normal;
-      font-weight: 600;
-    }
-  }
-
-  // ---------- WHY LANGUAGE JUSTICE MATTERS ----------
-
-  .matters {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-    }
-
-    em {
-      font-weight: 500;
-    }
-  }
-
-  // ---------- GET INVOLVED ----------
-
-  .get-involved {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-md);
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--gap-md);
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      .actions a {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-        white-space: normal;
-      }
-    }
-  }
-
-  // ---------- PAGE WRAPPER ----------
-
-  .homepage {
-    @media (max-width: $breakpoint-sm) {
-      padding-inline: 16px;
-    }
-  }
 </style>
 
 <BaseComponent theme="theme-brown">
   <main class="homepage">
-    <h2 class="eyebrow-text sidebar-entry" id="services">
-      testing
-    </h2>
-    <Button href="https://www.reemify.dev" label="Well howdy!" />
-    <ContactCallout
-      heading="Have a partnership idea, want to contribute, or interested in learning more about how to get involved?"
-      body="Reach out and let us know what you're interested in."
-    />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="mission">
+        Our mission & vision
+      </h2>
+      <h3 class="heading-text">
+        The Language Justice Network (LJN) is a community-led not-for-profit
+        organization working to ensure language is never a barrier to safety,
+        care, or participation.
+      </h3>
+      <p class="intro-text">
+        We provide interpreting and translation, training and workshops,
+        consulting and policy development, and sector capacity building designed
+        with and for LGBTQIA+ forcibly displaced people.
+      </p>
+      <p class="body-text">
+        Our work responds to a simple but urgent reality: many systems rely on
+        language services, but very few are designed with the safety,
+        complexity, and lived realities of multilingual queer communities in
+        mind. Too often, language support is treated as administrative or
+        secondary, even when the stakes are high. In practice, communication
+        shapes whether a person can access healthcare, navigate legal systems,
+        understand their rights, disclose harm, or feel recognised in their
+        identity.
+      </p>
+      <p class="body-text">
+        LJN exists to close that gap. We bring together language practitioners,
+        trainers, community members, and organisations to build language
+        practices that are safer, more accountable, and more grounded in lived
+        experience.
+      </p>
+    </section>
+
+    <hr />
+
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="services">What we do</h2>
+      <p class="intro-text">
+        LJN works across several interconnected areas. Each part of our work
+        strengthens the others, allowing us to support individual clients,
+        organisations, practitioners, and the broader sector.
+      </p>
+
+      <Button href="/services" label="Explore our Services" />
+    </section>
+
+    <hr />
+
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="why-this-works">
+        Why Language Justice matters
+      </h2>
+      <p class="intro-text">
+        For many people, language is bound up with safety, memory, identity, and
+        survival. For LGBTQIA+ forcibly displaced people, that is especially
+        true. People may be navigating trauma, stigma, migration systems,
+        service settings, and identity-based harm all at once, often through
+        languages that institutions do not understand well and systems that were
+        not built with them in mind.
+      </p>
+      <p class="body-text">
+        When language support is unsafe, rushed, poorly matched, or disconnected
+        from context, the consequences can be significant. People can be
+        misunderstood, misgendered, pressured, silenced, or left without the
+        information they need to make decisions. They may avoid disclosing
+        important information, disengage from services, or lose trust in systems
+        entirely.
+      </p>
+      <p class="body-text">
+        Language justice asks a different question: what does communication look
+        like when it is designed around dignity, trust, and shared
+        understanding? LJN works toward that vision by strengthening both the
+        quality of language services and the systems around them.
+      </p>
+      <!-- <ContentCallout
+      title="Interpreting & Translation"
+      body="Professional language services delivered with care, context, and attention to safety."
+    /> -->
+    </section>
   </main>
 </BaseComponent>

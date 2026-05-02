@@ -1,0 +1,63 @@
+---
+interface Props {
+  title: string;
+  body: string;
+}
+
+const { title, body } = Astro.props;
+
+import helpingHand from "../assets/helping-hand.png";
+---
+
+<div class="content-callout">
+  <img src={helpingHand.src} alt="" />
+  <div class="content-callout-text">
+    <p class="small-title">{title}</p>
+    <p class="body-text">{body}</p>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .content-callout {
+    background-color: var(--light-color);
+    display: flex; 
+    overflow: hidden;
+    gap: var(--spacing-lg);
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-2xl) var(--spacing-lg);
+  }
+
+  .content-callout img {
+    width: 300px;
+    height: 150px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: var(--border-radius-lg);
+  }
+
+  .content-callout-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+
+    .small-title,
+    .body-text {
+      margin: 0;
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    .content-callout {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .content-callout img {
+      width: 100%;
+      height: 180px;
+      border-radius: var(--border-radius-xl);
+    }
+  }
+</style>
