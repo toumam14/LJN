@@ -1,250 +1,271 @@
 ---
-import burgerMenu from "../assets/burger-menu.svg";
-import closeIcon from "../assets/close.svg";
+import iconLogo from '../assets/icon-logo.svg';
+const iconLogoUrl = iconLogo.src;
+
+interface Props {
+  logo?: string;
+}
+
+const { logo } = Astro.props;
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
+
+const navLinks = [
+  { href: '/', label: 'Home'},
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/resources', label: 'Resources' },
+  { href: '/get-involved', label: 'Get Involved' },
+];
 ---
+
+<header class="nav">
+
+  <!-- Desktop -->
+  <div class="nav-desktop">
+    <a href="/" class="nav-logo-link">
+      {logo && <img src={logo} alt="Language Justice Network" class="nav-logo" />}
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        {navLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class:list={['nav-link', { 'nav-link--active': isActive(link.href) }]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Mobile bar -->
+  <div class="nav-mobile">
+    <a href="/" class="nav-logo-link">
+      <img src={iconLogoUrl} alt="Language Justice Network" class="nav-icon" />
+    </a>
+    <button class="nav-menu-btn" id="navMenuBtn" aria-expanded="false" aria-controls="navOverlay">
+      Menu
+    </button>
+  </div>
+
+  <!-- Mobile overlay -->
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true">
+    <div class="nav-overlay-top">
+      <a href="/" class="nav-logo-link">
+        {logo
+          ? <img src={logo} alt="Language Justice Network" class="nav-logo" />
+          : <img src={iconLogoUrl} alt="Language Justice Network" class="nav-icon" />
+        }
+      </a>
+      <button class="nav-close-btn" id="navCloseBtn">Close</button>
+    </div>
+    <nav aria-label="Mobile navigation">
+      <ul class="nav-overlay-links">
+        {navLinks.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class:list={['nav-overlay-link', { 'nav-overlay-link--active': isActive(link.href) }]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+
+</header>
 
 <style lang="scss">
   @use "../styles/variables" as *;
 
-  .navigation {
-    margin: 0 auto 60px;
-    padding: 20px;
-    background: var(--primary-color);
+  .nav {
+    background-color: var(--nav-bg);
     width: 100%;
-    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-logo-link {
     display: flex;
-    justify-content: center;
-    position: relative;
+    align-items: center;
+    padding: var(--spacing-lg) 0;
 
-    @media (max-width: $breakpoint-md) {
-      height: 70px;
+    @media (max-width: $breakpoint-lg) {
+      padding: unset;
     }
   }
 
-  .hamburger {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-    z-index: 1002;
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-
-    @media (max-width: $breakpoint-md) {
-      display: block;
-    }
-
-    img {
-      width: 28px;
-      height: 28px;
-      display: block;
-    }
+  .nav-logo {
+    height: 60px;
+    width: auto;
+    display: block;
   }
 
-  .close-button {
-    display: none;
-
-    @media (max-width: $breakpoint-md) {
-      display: block;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 8px;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1002;
-
-      img {
-        width: 28px;
-        height: 28px;
-        display: block;
-      }
-    }
+  .nav-icon {
+    height: 70px;
+    width: auto;
+    display: block;
   }
 
-  .desktop-menu {
+  // ---- Desktop ----
+
+  .nav-desktop {
     display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--spacing-3xl);
 
-    @media (max-width: $breakpoint-md) {
+    @media (max-width: $breakpoint-lg) {
       display: none;
     }
   }
 
-  .mobile-menu {
-    display: none;
+  .nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-    @media (max-width: $breakpoint-md) {
+    li + li {
+      margin-left: var(--spacing-2xl);
+    }
+  }
+
+  .nav-link {
+    font-family: "Roboto Mono", monospace;
+    font-size: var(--font-body-button);
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    padding: var(--spacing-lg) 0;
+    display: block;
+
+    &--active {
+      font-weight: 600;
+      border-bottom: 1px solid white;
+    }
+
+    &:hover:not(&--active) {
+      opacity: 0.75;
+    }
+  }
+
+  // ---- Mobile bar ----
+
+  .nav-mobile {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    padding:  var(--spacing-sm) var(--spacing-xl);
+
+    @media (max-width: $breakpoint-lg) {
       display: flex;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 70%;
-      max-width: 300px;
-      height: 100vh;
-      background: var(--primary-color);
-      flex-direction: column;
-      padding: 80px 20px 20px;
-      transition: right 0.3s ease;
-      z-index: 1001;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-
-      &.active {
-        right: 0;
-      }
-
-      &.closing {
-        right: -100%;
-      }
+      padding-block: 0;
     }
   }
 
-  .list-item {
-    margin-right: 20px;
+  .nav-menu-btn,
+  .nav-close-btn {
+    font-family: "Roboto Mono", monospace;
+    font-size: var(--font-body-button);
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--button-text);
+    background-color: var(--button-bg);
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--border-radius-xl);
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.15s ease-in-out;
 
-    &:last-child {
-      margin-right: 0;
-    }
-
-    a {
-      font-size: var(--font-body-md);
-      text-decoration: none;
-      color: var(--button-text);
-      transition: opacity 0.2s ease;
-
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-  }
-
-  .mobile-menu .list-item {
-    @media (max-width: $breakpoint-md) {
-      margin-right: 0;
-      margin-bottom: 20px;
-      text-align: left;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      a {
-        font-size: var(--font-body-lg);
-      }
+    &:hover {
+      opacity: 0.85;
     }
   }
 
-  .overlay {
+  // ---- Mobile overlay ----
+
+  .nav-overlay {
     display: none;
+    position: fixed;
+    inset: 0;
+    background-color: var(--nav-bg);
+    z-index: 200;
+    flex-direction: column;
 
-    @media (max-width: $breakpoint-md) {
-      display: block;
-      border: none;
-      padding: 0;
-      background: rgba(0, 0, 0, 0.5);
-      max-width: 100%;
-      max-height: 100%;
-      width: 100%;
-      height: 100%;
-      z-index: 999;
-      transition: opacity 0.3s ease;
+    &.is-open {
+      display: flex;
+    }
+  }
 
-      &::backdrop {
-        display: none;
-      }
+  .nav-overlay-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-xl);
+  }
 
-      &:not([open]) {
-        pointer-events: none;
-        opacity: 0;
-      }
+  .nav-overlay-links {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0 var(--spacing-xl);
+  }
 
-      &[open] {
-        opacity: 1;
-      }
+  .nav-overlay-link {
+    font-family: "Roboto Mono", monospace;
+    font-size: var(--font-title-heading);
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding-bottom: var(--spacing-lg);
 
-      &.closing {
-        opacity: 0;
-      }
+    &--active {
+      font-weight: 600;
+    }
+
+    &:hover:not(&--active) {
+      opacity: 0.75;
+    }
+
+    li:last-child & {
+      padding-bottom: 0;
     }
   }
 </style>
 
-<nav class="navigation">
-  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-    <img src={burgerMenu.src} alt="Open menu" />
-  </button>
-
-  <!-- Desktop menu -->
-  <ul class="desktop-menu">
-    <li class="list-item"><a href="/">Home</a></li>
-    <li class="list-item"><a href="/about">About</a></li>
-    <li class="list-item"><a href="/services">Services</a></li>
-    <li class="list-item"><a href="/resources">Resources</a></li>
-    <li class="list-item"><a href="/get-involved">Get involved</a></li>
-  </ul>
-
-  <!-- Mobile menu in dialog -->
-  <dialog class="overlay" id="overlay">
-    <button class="close-button" id="close-button" aria-label="Close menu">
-      <img src={closeIcon.src} alt="Close menu" />
-    </button>
-    <ul class="mobile-menu" id="mobile-menu">
-      <li class="list-item"><a href="/">Home</a></li>
-      <li class="list-item"><a href="/about">About</a></li>
-      <li class="list-item"><a href="/services">Services</a></li>
-      <li class="list-item"><a href="/resources">Resources</a></li>
-      <li class="list-item"><a href="/get-involved">Get involved</a></li>
-    </ul>
-  </dialog>
-</nav>
-
 <script>
-  const hamburger = document.getElementById("hamburger");
-  const closeButton = document.getElementById("close-button");
-  const mobileMenu = document.getElementById("mobile-menu");
-  const overlay = document.getElementById("overlay") as HTMLDialogElement;
+  const menuBtn = document.getElementById('navMenuBtn');
+  const closeBtn = document.getElementById('navCloseBtn');
+  const overlay = document.getElementById('navOverlay');
 
-  function openMenu() {
-    mobileMenu?.classList.remove("closing");
-    mobileMenu?.classList.add("active");
-    overlay?.classList.remove("closing");
-    overlay?.showModal();
-  }
-
-  function closeMenu() {
-    // Add closing class to trigger animation
-    mobileMenu?.classList.add("closing");
-    mobileMenu?.classList.remove("active");
-    overlay?.classList.add("closing");
-
-    // Wait for animation to complete before actually closing
-    setTimeout(() => {
-      overlay?.close();
-    }, 300); // Match the CSS transition duration
-  }
-
-  hamburger?.addEventListener("click", openMenu);
-  closeButton?.addEventListener("click", closeMenu);
-
-  // Close dialog when clicking outside (on the backdrop)
-  overlay?.addEventListener("click", (e) => {
-    if (e.target === overlay) {
-      closeMenu();
-    }
+  menuBtn?.addEventListener('click', () => {
+    overlay?.classList.add('is-open');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    overlay?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   });
 
-  // Close menu when clicking a link
-  const menuLinks = mobileMenu?.querySelectorAll("a");
-  menuLinks?.forEach((link) => {
-    link.addEventListener("click", closeMenu);
+  closeBtn?.addEventListener('click', () => {
+    overlay?.classList.remove('is-open');
+    menuBtn?.setAttribute('aria-expanded', 'false');
+    overlay?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
   });
 </script>

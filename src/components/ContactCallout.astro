@@ -1,0 +1,111 @@
+---
+import Button from "./Button.astro";
+import helpingHand from "../assets/helping-hand.png";
+---
+
+<div class="contact-callout">
+  <div class="contact-callout-wrapper">
+    <img src={helpingHand.src} alt="" />
+    <div class="contact-callout-text-wrapper">
+      <p class="contact-callout-eyebrow eyebrow-text">Get in touch</p>
+      <h2 class="contact-callout-heading intro-text">
+        Have a partnership idea, want to contribute, or interested in learning
+        more about how to get involved?
+      </h2>
+      <p class="contact-callout-body intro-text">
+        Reach out and let us know what you're interested in.
+      </p>
+      <div class="contact-callout-cta">
+        <Button
+          href="mailto:admin@ljn.org.au"
+          label="admin@ljn.org.au"
+          variant="primary"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/variables" as *;
+
+  .contact-callout {
+    background-color: var(--nav-bg);
+    border-radius: 30px;
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+  }
+
+  .contact-callout-wrapper {
+    display: flex;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .contact-callout-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: var(--spacing-page-desktop);
+  }
+
+  .contact-callout-eyebrow {
+    color: var(--color-white);
+    margin: 0;
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contact-callout-heading {
+    color: var(--color-white);
+    margin: 0;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contact-callout-body {
+    color: var(--color-white);
+    margin: 0;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contact-callout-cta {
+    display: flex;
+  }
+
+  @media (max-width: $breakpoint-xl) and (min-width: $breakpoint-md) {
+    .contact-callout-wrapper img {
+      display: none;
+    }
+
+    .contact-callout-text-wrapper {
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    .contact-callout {
+      padding: var(--spacing-md);
+    }
+
+    .contact-callout-wrapper {
+      flex-direction: column;
+    }
+
+    .contact-callout-wrapper > img:first-child {
+      border-radius: var(--border-radius-xl);
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .contact-callout-text-wrapper {
+      margin-left: 0;
+    }
+  }
+</style>
