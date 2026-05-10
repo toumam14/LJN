@@ -1,16 +1,21 @@
 ---
 interface Props {
-  title: string;
-  body: string;
+  title?: string;
+  body?: string;
+  variant?: 'fixed' | 'flexible';
 }
 
-const { title, body } = Astro.props;
+const { title, body, variant = 'fixed' } = Astro.props;
+const hasSlot = Astro.slots.has('default');
 ---
 
-<div class="content-callout">
+<div class:list={['content-callout', `content-callout--${variant}`]}>
   <div class="content-callout-text">
-    <h4 class="small-title">{title}</h4>
-    <p class="body-text">{body}</p>
+    {title && <h4 class="small-title">{title}</h4>}
+    {hasSlot
+      ? <div class="content-callout-body"><slot /></div>
+      : body && <p class="body-text">{body}</p>
+    }
   </div>
 </div>
 
@@ -26,19 +31,64 @@ const { title, body } = Astro.props;
     gap: var(--spacing-lg);
     border-radius: var(--border-radius-xl);
     padding: var(--spacing-lg);
-    width: 260px;
-    height: 275px;
     margin-block: var(--spacing-md);
+  }
+
+  .content-callout--fixed {
+    width: 260px;
+    min-height: 275px;
+  }
+
+  .content-callout--flexible {
+    flex: 1 1 320px;
+    min-width: 0;
   }
 
   .content-callout-text {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-sm);
+    width: 100%;
 
     .small-title,
     .body-text {
       margin: 0;
+    }
+  }
+
+  .content-callout-body {
+    display: flex;
+    flex-direction: column;
+
+    :global(p) {
+      font-family: "Work Sans", system-ui, sans-serif;
+      font-size: var(--font-body-main);
+      font-weight: 400;
+      margin: 0;
+    }
+
+    :global(p strong),
+    :global(strong) {
+      font-weight: 700;
+    }
+
+    :global(.callout-strong) {
+      margin-top: var(--spacing-md);
+    }
+
+    :global(ul) {
+      list-style: disc;
+      padding-left: var(--spacing-lg);
+      margin: var(--spacing-xs) 0 0 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    :global(li) {
+      font-family: "Work Sans", system-ui, sans-serif;
+      font-size: var(--font-body-main);
+      font-weight: 400;
+      line-height: var(--line-height-body);
     }
   }
 

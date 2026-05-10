@@ -1,17 +1,177 @@
 ---
 import BaseComponent from "../../layouts/BaseComponent.astro";
 import ContactCallout from "../../components/ContactCallout.astro";
+import ContentCallout from "../../components/ContentCallout.astro";
 ---
 
-<BaseComponent theme="theme-brown">
+<style lang="scss">
+  @use "../../styles/variables" as *;
+
+  .content-callouts {
+    gap: var(--spacing-lg);
+  }
+
+  .notice-period-list {
+    list-style: disc;
+    padding-left: var(--spacing-xl);
+  }
+</style>
+
+<BaseComponent theme="theme-blue">
   <main class="services-page">
     <section class="content-section">
       <h2 class="eyebrow-text sidebar-entry" id="interpreting-and-translation">
-        Interpreting & Translation
+        Language services
       </h2>
-      <p class="intro-text">Content coming soon.</p>
+      <p class="heading-text">
+        Language Justice Network (LJN) provides interpreting and translation
+        services designed for settings where safety, dignity, and cultural
+        competence matter.
+      </p>
+      <p class="intro-text">
+        We work with organisations across legal, health, and social service
+        sectors to support culturally and linguistically diverse communities —
+        with a particular focus on LGBTIQA+ people from refugee and asylum
+        seeker backgrounds.
+      </p>
+      <p class="body-text">
+        Our approach recognises a simple reality: interpreter and translator
+        suitability isn’t a “nice to have” in sensitive work. It directly
+        impacts client safety, service quality, and trust.
+      </p>
+    </section>
+
+    <hr />
+
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="what-we-offer">
+        What we offer
+      </h2>
+      <div class="content-callouts">
+        <ContentCallout title="Interpreting" variant="flexible">
+          <p class="callout-strong"><strong>We support:</strong></p>
+          <ul>
+            <li>Telephone interpreting</li>
+            <li>Video interpreting</li>
+            <li>Onsite interpreting (where available)</li>
+          </ul>
+          <p class="callout-strong">
+            <strong>Common settings include:</strong>
+          </p>
+          <ul>
+            <li>counselling and psychosocial support</li>
+            <li>legal advice and casework</li>
+            <li>intake appointments and assessments</li>
+            <li>community consultations and service navigation</li>
+          </ul>
+        </ContentCallout>
+        <ContentCallout title="Translation" variant="flexible">
+          <p class="callout-strong">
+            <strong>We support translation of:</strong>
+          </p>
+          <ul>
+            <li>service information and resources</li>
+            <li>intake and consent materials</li>
+            <li>community-facing content</li>
+            <li>internal documents (policies, guides, forms)</li>
+          </ul>
+          <p class="callout-strong"><strong>We can also discuss:</strong></p>
+          <ul>
+            <li>plain-language / easy-English adaptations</li>
+            <li>
+              formatting options for bilingual resources (depending on scope)
+            </li>
+          </ul>
+        </ContentCallout>
+      </div>
+    </section>
+
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="what-we-offer">
+        What makes LJN different
+      </h2>
+      <p class="heading-text">
+        LJN was built to address gaps that standard language service providers
+        don't account for.
+      </p>
+      <div class="content-callouts">
+        <ContentCallout
+          title="Safer matching for sensitive contexts"
+          body="We take suitability seriously. We aim to work with practitioners who can deliver language support in a way that is affirming, respectful, and culturally safe, particularly when working with LGBTIQA+ clients and communities."
+        />
+        <ContentCallout
+          title="Clear processes and expectations"
+          body="You’ll receive a clear confirmation of booking details, and we aim to make the process straightforward for busy teams."
+        />
+        <ContentCallout
+          title="Support after complex work"
+          body="When needed, practitioners can access debrief / supervision support following complex or distressing appointments (on request). This strengthens quality and supports sustainability for practitioners doing high-stakes work."
+        />
+      </div>
+    </section>
+
+    <hr />
+
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="languages-and-dialects">
+        Languages and dialects
+      </h2>
+      <p class="heading-text">
+        LJN is actively expanding its practitioner network. Availability varies
+        by language, dialect/variant, and timing.
+      </p>
+      <p class="intro-text">
+        For dialect-sensitive languages, we ask you to specify the client’s
+        dialect/variant in the request so we can match appropriately and avoid
+        failed bookings.
+      </p>
+      <p class="body-text">
+        If you have recurring language needs, we can work with you to plan
+        coverage and build the network around demand.
+      </p>
     </section>
     <hr />
-    <ContactCallout />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="notice-periods">
+        Notice periods
+      </h2>
+      <p class="body-text">
+        <strong>As a general guide:</strong>
+      </p>
+      <ul class="notice-period-list body-text">
+        <li><strong>Preferred notice:</strong> one week where possible</li>
+        <li>
+          <strong>Confirmation timeframe:</strong> once a request is received, we
+          aim to confirm whether we can service it within 48 hours
+        </li>
+      </ul>
+      <p class="body-text">
+        Urgent requests are possible, but availability may be limited at short
+        notice.
+      </p>
+    </section>
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="fees">Fees and invoicing</h2>
+      <p class="body-text">
+        <strong
+          >LJN uses a transparent fee schedule that covers minimum booking
+          blocks, cancellation terms, and loadings where relevant (e.g.,
+          after-hours). We can invoice:</strong
+        >
+      </p>
+      <ul class="notice-period-list body-text">
+        <li>
+          <strong>per booking, or</strong>
+          <li>via fortnightly/monthly batch invoices</li>
+        </li>
+        <p class="body-text">
+          If you’d like a copy of our current fee schedule, contact us and we’ll
+          send it through.
+        </p>
+      </ul>
+      <hr />
+      <ContactCallout />
+    </section>
   </main>
 </BaseComponent>
