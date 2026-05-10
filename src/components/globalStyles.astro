@@ -242,7 +242,7 @@
     --border-radius-xl: 20px;
 
     // Max widths
-    --max-width-page: 1200px;
+    --max-width-page: 900px;
     --max-width-content: 800px;
 
     // Spacing — page layout (horizontal)
@@ -292,6 +292,7 @@
     --nav-bg: var(--brown-theme-primary);
     --page-bg: var(--brown-theme-pale);
     --heading-color: var(--brown-theme-secondary);
+    --primary-color: var(--brown-theme-primary);
     --tertiary-color: var(--brown-theme-tertiary);
     --light-color: var(--brown-theme-light);
   }
@@ -302,6 +303,7 @@
     --nav-bg: var(--blue-theme-primary);
     --page-bg: var(--blue-theme-pale);
     --heading-color: var(--blue-theme-secondary);
+    --primary-color: var(--blue-theme-primary);
     --tertiary-color: var(--blue-theme-tertiary);
     --light-color: var(--blue-theme-light);
   }
@@ -312,6 +314,7 @@
     --nav-bg: var(--green-theme-primary);
     --page-bg: var(--green-theme-pale);
     --heading-color: var(--green-theme-secondary);
+    --primary-color: var(--green-theme-primary);
     --tertiary-color: var(--green-theme-tertiary);
     --light-color: var(--green-theme-light);
   }
@@ -322,6 +325,7 @@
     --nav-bg: var(--purple-theme-primary);
     --page-bg: var(--purple-theme-pale);
     --heading-color: var(--purple-theme-secondary);
+    --primary-color: var(--purple-theme-primary);
     --tertiary-color: var(--purple-theme-tertiary);
     --light-color: var(--purple-theme-light);
   }
@@ -332,6 +336,7 @@
     --nav-bg: var(--red-theme-primary);
     --page-bg: var(--red-theme-pale);
     --heading-color: var(--red-theme-secondary);
+    --primary-color: var(--red-theme-primary);
     --tertiary-color: var(--red-theme-tertiary);
     --light-color: var(--red-theme-light);
   }
@@ -347,7 +352,7 @@
     font-size: var(--font-title-subheading);
     font-weight: 400;
     text-transform: uppercase;
-    margin-top: 0;
+    // margin-top: 0;
   }
 
   .heading-text {
@@ -355,6 +360,7 @@
     font-size: var(--font-title-heading);
     font-weight: 700;
     color: var(--heading-color);
+    margin-block: 0;
   }
 
   hr {
@@ -385,5 +391,9 @@
     font-weight: 400;
     text-transform: uppercase;
     border-bottom: 1px solid var(--heading-color);
+  }
+
+  .content-section {
+    margin-block: var(--spacing-section);
   }
 </style>

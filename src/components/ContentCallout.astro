@@ -5,14 +5,11 @@ interface Props {
 }
 
 const { title, body } = Astro.props;
-
-import helpingHand from "../assets/helping-hand.png";
 ---
 
 <div class="content-callout">
-  <img src={helpingHand.src} alt="" />
   <div class="content-callout-text">
-    <p class="small-title">{title}</p>
+    <h4 class="small-title">{title}</h4>
     <p class="body-text">{body}</p>
   </div>
 </div>
@@ -22,19 +19,16 @@ import helpingHand from "../assets/helping-hand.png";
 
   .content-callout {
     background-color: var(--light-color);
-    display: flex; 
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
     overflow: hidden;
     gap: var(--spacing-lg);
     border-radius: var(--border-radius-xl);
-    padding: var(--spacing-2xl) var(--spacing-lg);
-  }
-
-  .content-callout img {
-    width: 300px;
-    height: 150px;
-    flex-shrink: 0;
-    object-fit: cover;
-    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    width: 260px;
+    height: 275px;
+    margin-block: var(--spacing-md);
   }
 
   .content-callout-text {
@@ -52,12 +46,6 @@ import helpingHand from "../assets/helping-hand.png";
     .content-callout {
       flex-direction: column;
       align-items: flex-start;
-    }
-
-    .content-callout img {
-      width: 100%;
-      height: 180px;
-      border-radius: var(--border-radius-xl);
     }
   }
 </style>

@@ -11,7 +11,22 @@ import ContentCallout from "../components/ContentCallout.astro";
 <style lang="scss">
   @use "../styles/variables" as *;
 
-  // ---------- HERO ----------
+  .content-section {
+    display: flex;
+    flex-direction: column;
+
+    .content-callouts {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .button-wrapper {
+      margin-top: var(--spacing-xl);
+      align-self: center;
+    }
+  }
 </style>
 
 <BaseComponent theme="theme-brown">
@@ -51,14 +66,31 @@ import ContentCallout from "../components/ContentCallout.astro";
     <hr />
 
     <section class="content-section">
-      <h2 class="eyebrow-text sidebar-entry" id="services">What we do</h2>
+      <h2 class="eyebrow-text sidebar-entry" id="what-we-do">What we do</h2>
       <p class="intro-text">
         LJN works across several interconnected areas. Each part of our work
         strengthens the others, allowing us to support individual clients,
         organisations, practitioners, and the broader sector.
       </p>
 
-      <Button href="/services" label="Explore our Services" />
+      <div class="content-callouts">
+        <ContentCallout
+          title="Interpreting & Translation"
+          body="Professional language services delivered with care, context, and attention to safety."
+        />
+        <ContentCallout
+          title="Training, Consulting & Policy Development"
+          body="Practical & community-informed training that supports organisations seeking to strengthen inclusive communication practices, language access systems, & policies."
+        />
+        <ContentCallout
+          title="Community Capacity Building: Launchpad Program"
+          body="Pathways that support bilingual LGBTQIA+ forcibly displaced people into language work and leadership."
+        />
+      </div>
+
+      <div class="button-wrapper">
+        <Button href="/services" label="Explore our Services" />
+      </div>
     </section>
 
     <hr />
@@ -89,10 +121,53 @@ import ContentCallout from "../components/ContentCallout.astro";
         understanding? LJN works toward that vision by strengthening both the
         quality of language services and the systems around them.
       </p>
-      <!-- <ContentCallout
-      title="Interpreting & Translation"
-      body="Professional language services delivered with care, context, and attention to safety."
-    /> -->
     </section>
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="community-impact">
+        Community impact
+      </h2>
+      <h3 class="heading-text">
+        Building connection, one conversation at a time
+      </h3>
+      <p class="intro-text">
+        Our work supports safer communication in the places where it matters
+        most: health, legal, mental health, settlement, education, community
+        services, and organisational practice. Every time an interpreter is
+        matched carefully, every time a briefing is done well, every time a
+        service provider slows down to communicate clearly, and every time a
+        bilingual queer practitioner is supported into the sector, the effect is
+        bigger than one interaction.
+      </p>
+      <p class="body-text">
+        It means more people can ask questions, understand their options, speak
+        about what is happening in their lives, and access services on more
+        equal terms. It means organisations can build trust with multilingual
+        communities instead of expecting people to adapt to systems that were
+        not built for them. It also means the language services sector can
+        become more reflective, accountable, and representative over time.
+      </p>
+      <div class="button-wrapper">
+        <Button href="/services" label="Read our impact" />
+      </div>
+    </section>
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="get-involved">Get involved</h2>
+      <h3 class="heading-text">
+        Join us in building a world where everyone is heard
+      </h3>
+      <p class="intro-text">
+        LJN is built through collaboration. We work with practitioners,
+        community members, service providers, researchers, donors, and partner
+        organisations who share a commitment to safer multilingual
+        communication. Whether you want to book a service, partner on training,
+        support our programs, or get involved in shaping future work, there is a
+        place for you here.
+      </p>
+      <div class="button-wrapper">
+        <Button href="/get-involved" label="Learn more" />
+      </div>
+    </section>
+    <hr/>
+    <ContactCallout/>
   </main>
 </BaseComponent>
