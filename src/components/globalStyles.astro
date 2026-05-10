@@ -204,30 +204,35 @@
     --brown-theme-primary: #361a11;
     --brown-theme-secondary: #f29009;
     --brown-theme-tertiary: #e5e64b;
+    --brown-theme-light: #fbdeb5;
     --brown-theme-pale: #fef4e6;
 
     // Red theme
     --red-theme-primary: #740026;
     --red-theme-secondary: #eb5a5d;
     --red-theme-tertiary: #fcb5b2;
+    --red-theme-light: #fee9e8;
     --red-theme-pale: #fdeeef;
 
     // Purple theme
     --purple-theme-primary: #3d206d;
     --purple-theme-secondary: #6b57a5;
     --purple-theme-tertiary: #b4aaee;
+    --purple-theme-light: #e9e5fa;
     --purple-theme-pale: #e9e6f3;
 
     // Blue theme
     --blue-theme-primary: #01123e;
     --blue-theme-secondary: #2e75b3;
     --blue-theme-tertiary: #91d3eb;
+    --blue-theme-light: #def2f9;
     --blue-theme-pale: #f4fbfd;
 
     // Green theme
     --green-theme-primary: #022b23;
     --green-theme-secondary: #47a62c;
     --green-theme-tertiary: #afe680;
+    --green-theme-light: #c8e4c0;
     --green-theme-pale: #edf6ea;
 
     // Border radius
@@ -237,7 +242,7 @@
     --border-radius-xl: 20px;
 
     // Max widths
-    --max-width-page: 1200px;
+    --max-width-page: 900px;
     --max-width-content: 800px;
 
     // Spacing — page layout (horizontal)
@@ -286,6 +291,10 @@
     --button-text: var(--brown-theme-primary);
     --nav-bg: var(--brown-theme-primary);
     --page-bg: var(--brown-theme-pale);
+    --heading-color: var(--brown-theme-secondary);
+    --primary-color: var(--brown-theme-primary);
+    --tertiary-color: var(--brown-theme-tertiary);
+    --light-color: var(--brown-theme-light);
   }
 
   .theme-blue {
@@ -293,6 +302,10 @@
     --button-text: var(--blue-theme-primary);
     --nav-bg: var(--blue-theme-primary);
     --page-bg: var(--blue-theme-pale);
+    --heading-color: var(--blue-theme-secondary);
+    --primary-color: var(--blue-theme-primary);
+    --tertiary-color: var(--blue-theme-tertiary);
+    --light-color: var(--blue-theme-light);
   }
 
   .theme-green {
@@ -300,6 +313,10 @@
     --button-text: var(--green-theme-primary);
     --nav-bg: var(--green-theme-primary);
     --page-bg: var(--green-theme-pale);
+    --heading-color: var(--green-theme-secondary);
+    --primary-color: var(--green-theme-primary);
+    --tertiary-color: var(--green-theme-tertiary);
+    --light-color: var(--green-theme-light);
   }
 
   .theme-purple {
@@ -307,6 +324,10 @@
     --button-text: var(--purple-theme-primary);
     --nav-bg: var(--purple-theme-primary);
     --page-bg: var(--purple-theme-pale);
+    --heading-color: var(--purple-theme-secondary);
+    --primary-color: var(--purple-theme-primary);
+    --tertiary-color: var(--purple-theme-tertiary);
+    --light-color: var(--purple-theme-light);
   }
 
   .theme-red {
@@ -314,6 +335,10 @@
     --button-text: var(--red-theme-primary);
     --nav-bg: var(--red-theme-primary);
     --page-bg: var(--red-theme-pale);
+    --heading-color: var(--red-theme-secondary);
+    --primary-color: var(--red-theme-primary);
+    --tertiary-color: var(--red-theme-tertiary);
+    --light-color: var(--red-theme-light);
   }
 
   body {
@@ -327,7 +352,21 @@
     font-size: var(--font-title-subheading);
     font-weight: 400;
     text-transform: uppercase;
-    margin-top: 0;
+    // margin-top: 0;
+  }
+
+  .heading-text {
+    font-family: "Work Sans", system-ui, sans-serif;
+    font-size: var(--font-title-heading);
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-block: 0;
+  }
+
+  hr {
+    border: 2px solid var(--light-color);
+    width: 85%;
+    margin-block: var(--spacing-section);
   }
 
   .intro-text {
@@ -351,6 +390,10 @@
     font-size: var(--font-title-subheading);
     font-weight: 400;
     text-transform: uppercase;
-    border-bottom: 1px solid var(--brown-theme-secondary);
+    border-bottom: 1px solid var(--heading-color);
+  }
+
+  .content-section {
+    margin-block: var(--spacing-section);
   }
 </style>
