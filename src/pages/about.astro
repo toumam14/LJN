@@ -1,335 +1,158 @@
 ---
-import "../components/globalStyles.astro";
 import BaseComponent from "../layouts/BaseComponent.astro";
-import Nav from "../components/Nav.astro";
+import Button from "../components/Button.astro";
+import ContactCallout from "../components/ContactCallout.astro";
+import ContentCallout from "../components/ContentCallout.astro";
 ---
 
 <style lang="scss">
   @use "../styles/variables" as *;
 
-  // ---------- HERO ----------
-
-  .about-hero {
-    padding: 24px 22px;
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--secondary-color);
-    background: var(--tertiary-color);
+  .content-section {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-    }
-  }
-
-  // ---------- WHO WE ARE ----------
-
-  .who-we-are {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    @media (max-width: $breakpoint-xl) {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-    }
-  }
-
-  // ---------- OUR STORY ----------
-
-  .our-story {
-    display: flex;
-    flex-direction: column;
-  }
-
-  // ---------- OUR PRINCIPLES ----------
-
-  .our-principles {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-lg);
-    align-items: flex-start;
-
-    ul {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--gap-base);
-    }
-
-    li {
-      border-radius: var(--border-radius-lg);
-      border: 1px solid var(--secondary-color);
-      background: var(--tertiary-color);
-      padding: 16px 18px;
+    .content-callouts {
       display: flex;
-      flex-direction: column;
-      gap: var(--gap-xs);
-    }
-
-    .principle-icon {
-      font-size: 24px;
-    }
-
-    h4 {
-      font-size: var(--font-body-md);
-      font-weight: 600;
-    }
-
-    .button {
-      align-self: flex-start;
-    }
-
-    @media (max-width: $breakpoint-xl) {
-      ul {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: $breakpoint-lg) {
-      ul {
-        grid-template-columns: repeat(1, 1fr);
-      }
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-
-      .button {
-        align-self: center;
-      }
-    }
-  }
-
-  // ---------- OUR TEAM ----------
-
-  .our-team {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-base);
-    align-items: flex-start;
-
-    ul {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--gap-base);
-    }
-
-    li {
-      border-radius: var(--border-radius-lg);
-      border: 1px solid var(--secondary-color);
-      background: var(--tertiary-color);
-      padding: 16px 18px;
-      min-height: 120px;
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-xs);
-    }
-
-    .team-card-placeholder {
-      font-size: var(--font-body-sm);
-      opacity: 0.8;
-    }
-
-    a {
-      align-self: flex-start;
-    }
-
-    @media (max-width: $breakpoint-xl) {
-      ul {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: $breakpoint-lg) {
-      ul {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-
-      a {
-        align-self: center;
-      }
-    }
-  }
-
-  .about-page {
-    @media (max-width: $breakpoint-md) {
-      padding-inline: 16px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
     }
   }
 </style>
 
 <BaseComponent theme="theme-brown">
   <main class="about-page">
-    <!-- HERO -->
-    <section class="about-hero">
-      <div class="about-hero-heading">
-        <h1>
-          Building language equity through community, care, and connection.
-        </h1>
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="our-purpose">Our purpose</h2>
+      <h3 class="heading-text">
+        Building language access through community, care, and accountability.
+      </h3>
+      <p class="intro-text">
+        LJN is a community-led organisation reshaping how language services are
+        understood and delivered across health, legal, migration, and community
+        settings.
+      </p>
+    </section>
+
+    <hr />
+
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="who-we-are">Who we are</h2>
+      <p class="intro-text">
+        The Language Justice Network is a not-for-profit organisation providing
+        language services, training, consulting, and capacity-building
+        initiatives that centre LGBTQIA+ forcibly displaced people and
+        multilingual communities more broadly.
+      </p>
+      <p class="body-text">
+        We bring together interpreters, translators, educators, advocates, and
+        community members who understand that language access is never just a
+        technical matter. Communication shapes whether people feel safe, whether
+        they are taken seriously, whether services can respond well, and whether
+        systems reproduce harm or become more accessible.
+      </p>
+      <p class="body-text">
+        LJN works nationally from Naarm (Melbourne), supporting clients and
+        partner organisations across Australia. Our approach is community-led,
+        trauma-informed, and grounded in lived experience. We are particularly
+        focused on contexts where communication has high stakes and where
+        language support must be more than simply available, it must also be
+        safe, respectful, and fit for purpose.
+      </p>
+    </section>
+
+    <hr />
+
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="our-story">Our story</h2>
+      <p class="heading-text">
+        LJN was born from a simple but urgent recognition: language services can
+        cause harm when they ignore context, culture, and identity.
+      </p>
+      <p class="intro-text">
+        LJN emerged from the experiences of interpreters and community members
+        who saw, again and again, what happens when language services are
+        treated as neutral, interchangeable, or disconnected from context.
+      </p>
+      <p class="body-text">
+        Across health, legal, migration, mental health, and settlement systems,
+        there were clear gaps: unsafe interpreter matching, poor briefing
+        practices, limited LGBTQIA+ competency, and a broader failure to
+        recognise the relationship between language, power, trauma, and
+        identity.
+      </p>
+      <p class="body-text">
+        What began as conversations among practitioners and community members
+        evolved into a more structured response. Those conversations were shaped
+        by lived experience, professional practice, and a shared refusal to
+        accept language harm as inevitable. Over time, this work developed into
+        a broader organisational vision: one that could provide direct services,
+        support better organisational practice, strengthen the sector, and build
+        pathways for bilingual LGBTQIA+ forcibly displaced people to enter
+        language work themselves.
+      </p>
+      <p class="body-text">
+        LJN is therefore both practical and ambitious. It exists to meet
+        immediate needs, but also to change the conditions that produce those
+        needs in the first place.
+      </p>
+    </section>
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="our-principles">
+        Our principles
+      </h2>
+      <p class="heading-text">
+        Our work is guided by a set of principles that shape how we deliver
+        services, build programs, and work with others.
+      </p>
+      <div class="content-callouts">
+        <ContentCallout
+          title="Language Justice"
+          body="We believe everyone has the right to communicate in the language they know best, and to be heard with dignity, clarity, and respect."
+        />
+        <ContentCallout
+          title="Community Leadership"
+          body="Our work is informed by the knowledge, priorities, and lived realities of the communities most affected by language barriers and unsafe systems."
+        />
+        <ContentCallout
+          title=" Trauma-Informed Practice"
+          body="We understand that communication happens in contexts shaped by stress, power, identity, memory, and risk. We aim to create practices that reduce harm and support safety."
+        />
+        <ContentCallout
+          title=" Queer and Feminist Ethics"
+          body="We value care, complexity, accountability, and the importance of respecting how people name themselves and their experiences."
+        />
+        <ContentCallout
+          title=" Solidarity Over Extraction"
+          body="We collaborate with communities and organisations in ways that value shared work, reciprocity, and sustained relationship-building, rather than one-off consultation or tokenism."
+        />
+        <ContentCallout
+          title="Practice That Leads to Change"
+          body="We want our work to improve immediate communication, but also to strengthen the systems, standards, and pathways that shape language access over time."
+        />
       </div>
-
-      <p class="hero-subheading">
-        We are a collective of queer and trans interpreters, translators, and
-        community members working to ensure that language is never a barrier to
-        safety, healing, or belonging.
-      </p>
-
-      <a href="/about#our-team" class="button button-primary">Meet Our Team</a>
     </section>
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="our-people">Our people</h2>
 
-    <!-- WHO WE ARE -->
-    <section class="who-we-are" id="who-we-are">
-      <h2>Who We Are</h2>
-      <p>
-        The Language Justice Network (LJN) is a not-for-profit organisation
-        providing safe, queer-affirming, and culturally appropriate language
-        services, capacity building, training, and consulting. Our work is led
-        by and for LGBTQIA+ individuals from culturally and linguistically
-        diverse (CALD) backgrounds — especially forcibly displaced people and
-        trans and gender diverse communities.
+      <p class="intro-text">
+        LJN is powered by a growing network of practitioners, trainers,
+        advisors, and community members. Our broader ecosystem includes
+        NAATI-certified interpreters and translators, educators, lived
+        experience advisors, board members, volunteers, and collaborators who
+        bring different types of expertise to the work.
       </p>
-      <p>
-        We exist to bridge the gap between language access and inclusion. By
-        offering specialised interpreting and translation services, and by
-        training service providers and interpreters to work affirmatively and
-        ethically, we’re building a world where communication is rooted in
-        dignity, solidarity, and justice.
-      </p>
-
-      <a href="/services" class="button button-primary"
-        >Learn More About Our Work</a
-      >
-    </section>
-
-    <!-- OUR STORY -->
-    <section class="our-story" id="our-story">
-      <h2>Our Story</h2>
-      <p>
-        LJN emerged from the lived experience of interpreters and community
-        members who witnessed the harm caused by unsafe or uninformed language
-        practices — particularly for queer refugees and people seeking asylum.
-        Too often, interpreters lacked training to navigate intersectional
-        realities of gender, sexuality, and trauma, leaving community members
-        vulnerable to misrepresentation or retraumatisation.
-      </p>
-      <p>
-        What began as a grassroots network of interpreters sharing ethical
-        reflections and solidarity practices has evolved into a structured
-        organisation dedicated to systemic change.
-      </p>
-      <p>
-        Through partnerships, training, and co-designed initiatives, LJN
-        continues to reimagine what language access can look like: not
-        transactional, but relational; not neutral, but grounded in justice and
-        care.
+      <p class="body-text">
+        This mix matters. LJN’s strength comes not only from professional
+        qualifications, but from the ability to hold practice knowledge,
+        community accountability, and strategic vision together. As the
+        organisation grows, we continue building structures that support this —
+        including governance, lived experience leadership, practitioner
+        pathways, and long-term sector development.
       </p>
     </section>
-
-    <!-- OUR PRINCIPLES -->
-    <section class="our-principles" id="our-principles">
-      <h2>Our Principles</h2>
-      <p class="principles-intro">
-        Our work is grounded in a set of interwoven principles that reflect our
-        ethics, methodology, and community roots.
-      </p>
-
-      <ul>
-        <li>
-          <span class="principle-icon" aria-hidden="true">⚖️</span>
-          <h4>Language Justice</h4>
-          <p class="principle-text">
-            Everyone has the right to communicate in the language they know best
-            — with respect, dignity, and understanding.
-          </p>
-        </li>
-
-        <li>
-          <span class="principle-icon" aria-hidden="true">🌈</span>
-          <h4>Queer &amp; Feminist Ethics</h4>
-          <p class="principle-text">
-            We honour fluidity, intersectionality, and collective care in our
-            practice.
-          </p>
-        </li>
-
-        <li>
-          <span class="principle-icon" aria-hidden="true">🌏</span>
-          <h4>Decolonial Practice</h4>
-          <p class="principle-text">
-            We challenge systems that privilege English and centre Western
-            knowledge, uplifting community-based and multilingual wisdoms.
-          </p>
-        </li>
-
-        <li>
-          <span class="principle-icon" aria-hidden="true">🤝</span>
-          <h4>Solidarity, Not Charity</h4>
-          <p class="principle-text">
-            We collaborate across differences and work with, not for,
-            communities.
-          </p>
-        </li>
-
-        <li>
-          <span class="principle-icon" aria-hidden="true">🧠</span>
-          <h4>Trauma-Informed Practice</h4>
-          <p class="principle-text">
-            We prioritise emotional safety, transparency, and accountability in
-            every interaction.
-          </p>
-        </li>
-
-        <li>
-          <span class="principle-icon" aria-hidden="true">🗣️</span>
-          <h4>Lived Experience Leadership</h4>
-          <p class="principle-text">
-            Our programs are co-designed with community members through our
-            Lived Experience Advisory Group (LEAG).
-          </p>
-        </li>
-      </ul>
-
-      <a href="/services" class="button button-primary">Explore Our Services</a>
-    </section>
-
-    <!-- OUR TEAM -->
-    <section class="our-team" id="our-team">
-      <h2>Our Team</h2>
-      <p>
-        LJN is powered by interpreters, community advocates, and allies with
-        lived experience of forced displacement, queerness, and multilingualism.
-        Our team includes NAATI-certified practitioners, cultural consultants,
-        and language justice trainers who bring compassion and professional
-        expertise to every space.
-      </p>
-
-      <ul>
-        <li>
-          <p class="team-card-placeholder">
-            Team member profile coming soon — board, staff, or LEAG member.
-          </p>
-        </li>
-        <li>
-          <p class="team-card-placeholder">
-            Team member profile coming soon — board, staff, or LEAG member.
-          </p>
-        </li>
-        <li>
-          <p class="team-card-placeholder">
-            Team member profile coming soon — board, staff, or LEAG member.
-          </p>
-        </li>
-      </ul>
-
-      <a href="/get-involved" class="button button-primary">Join Our Network</a>
-    </section>
+    <hr />
+    <ContactCallout />
   </main>
 </BaseComponent>
