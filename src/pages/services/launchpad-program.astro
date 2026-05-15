@@ -1,17 +1,165 @@
 ---
 import BaseComponent from "../../layouts/BaseComponent.astro";
+import Button from "../../components/Button.astro";
 import ContactCallout from "../../components/ContactCallout.astro";
+import ContentCallout from "../../components/ContentCallout.astro";
 ---
 
-<BaseComponent theme="theme-brown">
+<style lang="scss">
+  @use "../../styles/variables" as *;
+
+  .launchpad-callouts {
+    justify-content: center;
+  }
+
+  .booking-card {
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    margin-top: var(--spacing-2xl);
+  }
+
+  .booking-card-heading {
+    color: var(--color-white);
+    margin: 0;
+  }
+
+  .booking-card-email {
+    align-self: flex-start;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    .booking-card {
+      padding: var(--spacing-lg);
+    }
+  }
+</style>
+
+<BaseComponent theme="theme-green">
   <main class="services-page">
     <section class="content-section">
       <h2 class="eyebrow-text sidebar-entry" id="launchpad-program">
-        Launchpad Program
+        Community Capacity Building: Launchpad Program
       </h2>
-      <p class="intro-text">Content coming soon.</p>
+      <p class="heading-text">
+        Certification support and workforce development for bilingual LGBTQIA+
+        practitioners
+      </p>
+      <p class="intro-text">
+        Launchpad is Language Justice Network’s capacity-building stream. It
+        brings together structured certification support and broader workforce
+        development, with one goal: to grow a stronger, safer, and more
+        sustainable community of bilingual LGBTQIA+ language practitioners.
+      </p>
+      <p class="body-text">
+        Our certification capacity-building program, Launchpad, supports
+        participants with supplementary workshops, reflective spaces, mentoring,
+        and practical guidance navigating training and certification processes.
+        It is designed not only to help people gain credentials, but to
+        strengthen confidence, ethics, and long-term sustainability in practice.
+      </p>
+      <p class="body-text">
+        Launchpad also connects to our wider vision: building an ecosystem where
+        bilingual LGBTQIA+ practitioners can develop skills, access peer
+        support, and participate in shaping the future of language justice work.
+        This means investing not only in individual practitioners, but in the
+        support structures around them.
+      </p>
+    </section>
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="what-launchpad-includes">
+        What Launchpad includes
+      </h2>
+      <p class="heading-text">
+        Launchpad is delivered through a mix of learning, support, and practical
+        navigation.
+      </p>
+      <p class="intro-text">
+        Depending on the stage you’re at, this work includes:
+      </p>
+      <div class="content-callouts launchpad-callouts">
+        <ContentCallout
+          title="Information sessions and outreach"
+          body="Clear, practical guidance on pathways into interpreting and translation, including how training and certification works and what options exist across different states."
+        />
+        <ContentCallout
+          title="Mentoring and peer support"
+          body="Connection with practitioners who understand the work and the realities of being queer and bilingual in complex service systems."
+        />
+        <ContentCallout
+          title="Supervision and reflective practice spaces"
+          body="Structured spaces to debrief, reflect, and strengthen practice. These are professional support spaces focused on ethics, boundaries, and sustainability, not therapy."
+        />
+        <ContentCallout
+          title="Workshops on ethics, trauma, and practice"
+          body="Supplementary workshops that cover what traditional training often leaves out: working with identity and disclosure, interpreting in small communities, trauma-informed decision-making, and real-world ethical dilemmas."
+        />
+        <ContentCallout
+          title="Assistance navigating course and certification pathways"
+          body="Support understanding eligibility requirements, choosing the right training pathway, preparing for certification steps, and transitioning into early-career practice."
+        />
+      </div>
     </section>
     <hr />
+
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="who-this-is-for">
+        Who this is for
+      </h2>
+      <p class="heading-text">
+        Launchpad is designed for bilingual LGBTQIA+ people.
+      </p>
+      <p class="intro-text">
+        Particularly those from refugee, asylum seeker, and other migrant
+        backgrounds, who are considering or already pursuing interpreting and
+        translation as a professional pathway.
+      </p>
+      <p class="body-text">
+        It may also be relevant for practitioners who want stronger reflective
+        support and specialised learning grounded in language justice.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="why-it-matters">
+        Why Launchpad matters
+      </h2>
+      <p class="heading-text">
+        For LJN, capacity building is not an add-on, it's essential to long-term
+        change.
+      </p>
+      <p class="intro-text">
+        If we want safer and more representative language services, we need to
+        build pathways into the profession, not just critique the systems that
+        currently exist.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <p class="heading-text">Ready to get involved?</p>
+      <div class="booking-card">
+        <p class="intro-text booking-card-heading">
+          If you’re interested in Launchpad, whether as a participant, mentor,
+          supervisor, facilitator, or partner organisation, reach out to us to
+          learn what’s coming next and how to register your interest.
+        </p>
+        <div class="booking-card-email">
+          <Button
+            href="mailto:request@ljn.org.au"
+            label="request@ljn.org.au"
+            variant="primary"
+          />
+        </div>
+      </div>
+    </section>
+
+    <hr />
+
     <ContactCallout />
   </main>
 </BaseComponent>

@@ -7,6 +7,43 @@ import ContactCallout from "../components/ContactCallout.astro";
 <style lang="scss">
   @use "../styles/variables" as *;
 
+  .booking-card {
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    margin-top: var(--spacing-2xl);
+  }
+
+  .booking-card-heading {
+    color: var(--color-white);
+    margin: 0;
+  }
+
+  .booking-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+  }
+
+  .booking-card-email {
+    align-self: flex-start;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    .booking-card {
+      padding: var(--spacing-lg);
+    }
+
+    .booking-card-actions {
+      justify-content: flex-start;
+    }
+  }
 </style>
 
 <BaseComponent theme="theme-brown">
@@ -106,6 +143,35 @@ import ContactCallout from "../components/ContactCallout.astro";
         <Button href="/services/launchpad-program" label="Learn more" />
       </div>
     </section>
+    <hr />
+
+    <section class="content-section">
+      <p class="heading-text">Ready to work with us?</p>
+      <div class="booking-card">
+        <p class="intro-text booking-card-heading">
+          Whether you need language support, tailored training, policy advice,
+          or a conversation about how to improve communication in your
+          organisation, we'd love to hear from you.
+        </p>
+        <p class="intro-text booking-card-heading">
+          For bookings, workshop enquiries, or general service requests, please
+          contact:
+        </p>
+        <div class="booking-card-email">
+          <Button
+            href="mailto:request@ljn.org.au"
+            label="request@ljn.org.au"
+            variant="primary"
+          />
+        </div>
+        <div class="booking-card-actions">
+          <Button href="#" label="Request a Booking" variant="primary" />
+          <Button href="#" label="Book a Workshop" variant="primary" />
+          <Button href="#" label="Work With Us" variant="primary" />
+        </div>
+      </div>
+    </section>
+
     <hr />
     <ContactCallout />
   </main>

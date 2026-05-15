@@ -1,5 +1,6 @@
 ---
 import BaseComponent from "../../layouts/BaseComponent.astro";
+import Button from "../../components/Button.astro";
 import ContactCallout from "../../components/ContactCallout.astro";
 import ContentCallout from "../../components/ContentCallout.astro";
 ---
@@ -11,9 +12,42 @@ import ContentCallout from "../../components/ContentCallout.astro";
     gap: var(--spacing-lg);
   }
 
-  .notice-period-list {
-    list-style: disc;
-    padding-left: var(--spacing-xl);
+  .booking-card {
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    margin-top: var(--spacing-2xl);
+  }
+
+  .booking-card-heading {
+    color: var(--color-white);
+    margin: 0;
+  }
+
+  .booking-card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+  }
+
+  .booking-card-email {
+    align-self: flex-start;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    .booking-card {
+      padding: var(--spacing-lg);
+    }
+
+    .booking-card-actions {
+      justify-content: flex-start;
+    }
   }
 </style>
 
@@ -88,7 +122,7 @@ import ContentCallout from "../../components/ContentCallout.astro";
 
     <hr />
     <section class="content-section">
-      <h2 class="eyebrow-text sidebar-entry" id="what-we-offer">
+      <h2 class="eyebrow-text sidebar-entry" id="ljn-different">
         What makes LJN different
       </h2>
       <p class="heading-text">
@@ -139,7 +173,7 @@ import ContentCallout from "../../components/ContentCallout.astro";
       <p class="body-text">
         <strong>As a general guide:</strong>
       </p>
-      <ul class="notice-period-list body-text">
+      <ul class="list-layout body-text">
         <li><strong>Preferred notice:</strong> one week where possible</li>
         <li>
           <strong>Confirmation timeframe:</strong> once a request is received, we
@@ -160,7 +194,7 @@ import ContentCallout from "../../components/ContentCallout.astro";
           after-hours). We can invoice:</strong
         >
       </p>
-      <ul class="notice-period-list body-text">
+      <ul class="list-layout body-text">
         <li>
           <strong>per booking, or</strong>
           <li>via fortnightly/monthly batch invoices</li>
@@ -170,8 +204,35 @@ import ContentCallout from "../../components/ContentCallout.astro";
           send it through.
         </p>
       </ul>
-      <hr />
-      <ContactCallout />
     </section>
+
+    <hr />
+
+    <section class="content-section">
+      <p class="heading-text">Ready to request our services?</p>
+      <div class="booking-card">
+        <p class="intro-text booking-card-heading">
+          To request interpreting or translation, use our booking/request form:
+        </p>
+        <div class="booking-card-actions">
+          <Button href="#" label="Request Interpreter" variant="primary" />
+          <Button href="#" label="Request Translation" variant="primary" />
+        </div>
+        <p class="intro-text booking-card-heading">
+          If you're unsure what to select, or want to discuss your needs before
+          lodging a request, email us at:
+        </p>
+        <div class="booking-card-email">
+          <Button
+            href="mailto:request@ljn.org.au"
+            label="request@ljn.org.au"
+            variant="primary"
+          />
+        </div>
+      </div>
+    </section>
+
+    <hr />
+    <ContactCallout />
   </main>
 </BaseComponent>
