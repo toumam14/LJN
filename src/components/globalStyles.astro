@@ -211,7 +211,7 @@
     --red-theme-primary: #740026;
     --red-theme-secondary: #eb5a5d;
     --red-theme-tertiary: #fcb5b2;
-    --red-theme-light: #fee9e8;
+    --red-theme-light: #ffc0cb;
     --red-theme-pale: #fdeeef;
 
     // Purple theme
@@ -332,7 +332,7 @@
 
   .theme-red {
     --button-bg: var(--red-theme-secondary);
-    --button-text: var(--red-theme-primary);
+    --button-text: var(--color-black);
     --nav-bg: var(--red-theme-primary);
     --page-bg: var(--red-theme-pale);
     --heading-color: var(--red-theme-secondary);
@@ -395,5 +395,27 @@
 
   .content-section {
     margin-block: var(--spacing-section);
+    display: flex;
+    flex-direction: column;
   }
+
+  .content-callouts {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: var(--spacing-lg);
+  }
+
+  .button-wrapper {
+    margin-top: var(--spacing-xl);
+    align-self: center;
+  }
+
+  .list-layout {
+    list-style: disc;
+    padding-left: var(--spacing-xl);
+  }
+
+  
 </style>

@@ -1,0 +1,329 @@
+---
+import BaseComponent from "../../layouts/BaseComponent.astro";
+import Button from "../../components/Button.astro";
+import ContactCallout from "../../components/ContactCallout.astro";
+import ContentCallout from "../../components/ContentCallout.astro";
+---
+
+<style lang="scss">
+  @use "../../styles/variables" as *;
+
+  .core-areas-callouts {
+    justify-content: center;
+  }
+
+  .booking-card {
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    margin-top: var(--spacing-2xl);
+  }
+
+  .booking-card-heading {
+    color: var(--color-white);
+    margin: 0;
+  }
+
+  .booking-card-email {
+    align-self: flex-start;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    .booking-card {
+      padding: var(--spacing-lg);
+    }
+  }
+</style>
+
+<BaseComponent theme="theme-red">
+  <main class="services-page">
+    <section class="content-section">
+      <h2
+        class="eyebrow-text sidebar-entry"
+        id="training-consulting-development"
+      >
+        Training, Consulting & Policy Development
+      </h2>
+      <p class="heading-text">
+        Building safer communication through practice, not assumptions.
+      </p>
+      <p class="intro-text">
+        We work with organisations to strengthen how they engage interpreters,
+        communicate across languages, and build systems that support safe,
+        inclusive, and accountable language practices.
+      </p>
+      <p class="body-text">
+        At LJN, training is not separate from practice, it is grounded in it.
+        Our workshops, consulting, and policy development work draw directly
+        from lived experience, professional interpreting knowledge, community
+        feedback, and ongoing reflection on how language operates in real-world
+        settings. We work in spaces where communication carries risk, and where
+        small shifts in practice can have a significant impact on safety,
+        access, and outcomes.
+      </p>
+      <p class="body-text">
+        Our goal is not only to build individual capability, but to support
+        organisations to rethink how language access is approached, implemented,
+        and sustained across systems.
+      </p>
+    </section>
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="training-and-workshops">
+        Training & Workshops
+      </h2>
+      <p class="heading-text">
+        We deliver training that supports teams to work more effectively,
+        safely, and thoughtfully in multilingual environments.
+      </p>
+      <p class="intro-text">
+        Our sessions are designed to be practical, reflective, and immediately
+        applicable. They create space for teams to examine current practices,
+        understand where risks sit, and develop clearer, more intentional ways
+        of working with interpreters and multilingual communities.
+      </p>
+      <div class="content-callouts">
+        <ContentCallout title="Translation" variant="flexible">
+          <p class="callout-strong">
+            <strong>Training can be delivered:</strong>
+          </p>
+          <ul>
+            <li>Online or in person</li>
+            <li>As stand-alone workshops or multi-session programs</li>
+            <li>Tailored to your sector, team size, and level of experience</li>
+          </ul>
+        </ContentCallout>
+        <ContentCallout title="Translation" variant="flexible">
+          <p class="callout-strong">
+            <strong>We work with:</strong>
+          </p>
+          <ul>
+            <li>Health and mental health services</li>
+            <li>Legal and migration services</li>
+            <li>Community and settlement organisations</li>
+            <li>Educational institutions</li>
+            <li>Interpreter and translator groups</li>
+          </ul>
+        </ContentCallout>
+      </div>
+    </section>
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="workshop-areas">
+        Key workshop areas
+      </h2>
+      <p class="heading-text">
+        Our training can be adapted, combined, or expanded depending on
+        organisational needs.
+      </p>
+      <p class="intro-text">Core areas include:</p>
+      <div class="content-callouts core-areas-callouts">
+        <ContentCallout
+          title="Working effectively with interpreters in high-stakes settings"
+          body="Building practical skills for communication where accuracy, safety, and clarity are critical."
+        />
+        <ContentCallout
+          title="Trauma-informed communication and briefing practices"
+          body="Understanding how language, trauma, and context intersect, and how to prepare for interpreted interactions."
+        />
+        <ContentCallout
+          title="Queer, feminist, and community-led ethics in language work"
+          body="Exploring how identity, power, and lived experience shape communication."
+        />
+        <ContentCallout
+          title="Cultural humility, intersectionality, and multilingual practice"
+          body="Strengthening awareness of how language operates across cultures, communities, and systems."
+        />
+        <ContentCallout
+          title="Translation co-design and inclusive resource development"
+          body="Moving beyond “translation at the end” toward more inclusive and effective communication design."
+        />
+      </div>
+      <p class="body-text">
+        Sessions can be introductory or more in-depth, depending on your team’s
+        starting point and goals.
+      </p>
+    </section>
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="workshop-feature">
+        Workshop feature
+      </h2>
+      <p class="heading-text">
+        From Tools to Allies is one of our core training offerings.
+      </p>
+      <p class="intro-text">
+        This workshop supports teams to move beyond transactional approaches to
+        language support and develop more thoughtful, collaborative ways of
+        working with interpreters and translators.
+      </p>
+      <p class="body-text">It focuses on:</p>
+      <ul class="body-text list-layout">
+        <li>understanding interpreter roles and responsibilities</li>
+        <li>improving pre-briefing and debriefing practices</li>
+        <li>identifying risks in on-demand language support</li>
+        <li>recognising power dynamics in interpreted interactions</li>
+        <li>
+          strengthening communication practices for multilingual LGBTQIA+
+          communities
+        </li>
+      </ul>
+      <p class="body-text">
+        The session is practical, reflective, and grounded in real scenarios.
+        Participants leave with clearer frameworks for engaging interpreters in
+        ways that support safer, more effective communication.
+      </p>
+    </section>
+
+    <hr />
+
+    <section class="content-section">
+      <h2
+        class="eyebrow-text sidebar-entry"
+        id="consulting-and-policity-development"
+      >
+        Consulting & Policy Development
+      </h2>
+      <p class="heading-text">
+        LJN works with organisations that want to strengthen the quality,
+        safety, and inclusivity of their communication practices, not just at an
+        individual level, but across systems.
+      </p>
+      <p class="intro-text">
+        Our consulting and policy work supports organisations to move from
+        recognising that language access matters, to understanding how to
+        implement it in practice.
+      </p>
+      <p class="body-text">
+        This often begins with a close look at what is already happening:
+      </p>
+      <ul class="body-text list-layout">
+        <li>how language needs are assessed</li>
+        <li>how interpreters are booked and allocated</li>
+        <li>what assumptions shape current practice</li>
+        <li>where risk sits within workflows</li>
+        <li>what communities are experiencing on the receiving end</li>
+      </ul>
+
+      <p class="body-text">
+        From there, we support organisations to develop more intentional,
+        consistent, and accountable approaches.
+      </p>
+
+      <div class="content-callouts">
+        <ContentCallout title="What This Work Can Include" variant="flexible">
+          <p class="eyebrow-text"></p>
+          <ul>
+            <li>Reviewing current language access processes</li>
+            <li>
+              Designing safer and more context-aware interpreter engagement
+              workflows
+            </li>
+            <li>
+              Developing or refining policies, procedures, and internal guidance
+            </li>
+            <li>Co-designing training linked to implementation needs</li>
+            <li>
+              Supporting teams to improve how they brief, debrief, and
+              collaborate with interpreters
+            </li>
+            <li>
+              Advising on communication risks and inclusive resource development
+            </li>
+          </ul>
+        </ContentCallout>
+      </div>
+      <p class="body-text">
+        This work is always tailored to the organisation, its context, and the
+        communities it serves.
+      </p>
+    </section>
+
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="why-it-matters">
+        Why this work matters
+      </h2>
+      <p class="heading-text">
+        Many organisations recognise the importance of language access, but
+        struggle to operationalise it in ways that are consistent, safe, and
+        effective.
+      </p>
+      <div class="content-callouts">
+        <ContentCallout
+          title="Without clear processes, training, and accountability, language support can become:"
+          variant="flexible"
+        >
+          <p class="eyebrow-text"></p>
+          <ul>
+            <li>inconsistent across teams</li>
+            <li>dependent on individual staff knowledge</li>
+            <li>disconnected from community realities</li>
+            <li>or reactive rather than planned</li>
+          </ul>
+        </ContentCallout>
+        <ContentCallout
+          title="Our work helps organisations move toward:"
+          variant="flexible"
+        >
+          <p class="eyebrow-text"></p>
+          <ul>
+            <li>clearer expectations and shared practices</li>
+            <li>stronger collaboration with interpreters</li>
+            <li>improved safety for multilingual clients</li>
+            <li>and more confident, informed staff</li>
+          </ul>
+        </ContentCallout>
+      </div>
+    </section>
+
+    <hr />
+
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="who-its-for">
+        Who this is for
+      </h2>
+      <p class="intro-text">
+        This work is particularly valuable for organisations that:
+      </p>
+      <ul class="body-text list-layout">
+        <li>regularly work with interpreters but want to improve practice</li>
+        <li>support multilingual or culturally diverse communities</li>
+        <li>operate in high-stakes environments (health, legal, migration)</li>
+        <li>are reviewing or developing internal policies</li>
+        <li>
+          want to embed more inclusive and accountable communication practices
+        </li>
+      </ul>
+    </section>
+    <hr />
+
+    <section class="content-section">
+      <p class="heading-text">Ready to work with us?</p>
+      <div class="booking-card">
+        <p class="intro-text booking-card-heading">
+          We offer tailored training, consulting, and policy support based on
+          your organisation's needs, context, and priorities.
+        </p>
+        <p class="intro-text booking-card-heading">
+          Get in touch to start the conversation:
+        </p>
+        <div class="booking-card-email">
+          <Button
+            href="mailto:request@ljn.org.au"
+            label="request@ljn.org.au"
+            variant="primary"
+          />
+        </div>
+      </div>
+    </section>
+
+    <hr />
+    <ContactCallout />
+  </main>
+</BaseComponent>
