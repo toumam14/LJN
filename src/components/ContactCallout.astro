@@ -38,6 +38,10 @@ import helpingHand from "../assets/helping-hand.png";
     gap: var(--spacing-xl);
     max-width: var(--max-width-content);
     margin: 0 auto;
+
+    :global(.button--primary:focus-visible) {
+      outline-color: var(--color-white);
+    }
   }
 
   .contact-callout-wrapper {

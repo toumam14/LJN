@@ -22,6 +22,10 @@ import ContentCallout from "../../components/ContentCallout.astro";
     max-width: var(--max-width-content);
     margin: 0 auto;
     margin-top: var(--spacing-2xl);
+
+    :global(.button--primary:focus-visible) {
+      outline-color: var(--color-white);
+    }
   }
 
   .booking-card-heading {
