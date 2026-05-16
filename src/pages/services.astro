@@ -16,6 +16,10 @@ import ContactCallout from "../components/ContactCallout.astro";
     gap: var(--spacing-md);
     max-width: var(--max-width-content);
     margin: 0 auto;
+
+    :global(.button--primary:focus-visible) {
+      outline-color: var(--color-white);
+    }
     margin-top: var(--spacing-2xl);
   }
 
