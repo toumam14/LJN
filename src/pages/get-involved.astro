@@ -1,666 +1,180 @@
 ---
-import "../components/globalStyles.astro";
 import BaseComponent from "../layouts/BaseComponent.astro";
+import Button from "../components/Button.astro";
+import ContactCallout from "../components/ContactCallout.astro";
+import ContentCallout from "../components/ContentCallout.astro";
 ---
 
 <style lang="scss">
-  @use "../styles/variables" as *;
-
-  // ---------- HERO BANNER ----------
-
-  .get-involved-hero {
-    padding: 24px 22px;
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--secondary-color);
-    background: var(--tertiary-color);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--gap-base);
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--gap-md);
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-    }
-  }
-
-  // ---------- WHY GET INVOLVED ----------
-
-  .why-get-involved {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-    }
-  }
-
-  // ---------- WAYS TO CONTRIBUTE ----------
-
-  .ways-to-contribute {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-lg);
-    align-items: flex-start;
-
-    .contribution-cards {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--gap-base);
-      width: 100%;
-    }
-
-    .contribution-card {
-      border-radius: var(--border-radius-lg);
-      border: 1px solid var(--secondary-color);
-      background: var(--tertiary-color);
-      padding: 20px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-md);
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-
-      .card-icon {
-        font-size: 32px;
-      }
-
-      h3 {
-        font-size: var(--font-title-sm);
-        margin: 4px 0;
-      }
-
-      p {
-        font-size: var(--font-body-md);
-        margin: 4px 0;
-      }
-
-      .button {
-        align-self: flex-start;
-        margin-top: 8px;
-      }
-    }
-
-    @media (max-width: $breakpoint-lg) {
-      .contribution-cards {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-    }
-  }
-
-  // ---------- PARTNERSHIP ENQUIRY ----------
-
-  .partnership-enquiry {
-    display: grid;
-    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-    gap: var(--gap-2xl);
-    align-items: stretch;
-
-    .partnership-text {
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-md);
-
-      .button {
-        align-self: flex-start;
-      }
-    }
-
-    .partnership-visual {
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-
-      .partnership-image-placeholder {
-        width: 100%;
-        min-height: 240px;
-        border-radius: var(--border-radius-lg);
-        border: 1px dashed var(--secondary-color);
-        background: var(--tertiary-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 16px;
-        text-align: center;
-        font-size: var(--font-body-sm);
-      }
-    }
-
-    @media (max-width: $breakpoint-xl) {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      .button {
-        align-self: center;
-      }
-    }
-  }
-
-  // ---------- VOLUNTEER / LEAG SECTION ----------
-
-  .volunteer-leag {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
-    gap: var(--gap-2xl);
-    align-items: stretch;
-
-    .leag-visual {
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-
-      .leag-image-placeholder {
-        width: 100%;
-        min-height: 240px;
-        border-radius: var(--border-radius-lg);
-        border: 1px dashed var(--secondary-color);
-        background: var(--tertiary-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 16px;
-        text-align: center;
-        font-size: var(--font-body-sm);
-      }
-    }
-
-    .leag-text {
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-md);
-
-      .leag-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--gap-md);
-        margin-top: var(--gap-sm);
-      }
-    }
-
-    @media (max-width: $breakpoint-xl) {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      .leag-buttons {
-        flex-direction: column;
-        width: 100%;
-
-        .button {
-          width: 100%;
-          text-align: center;
-          justify-content: center;
-        }
-      }
-    }
-  }
-
-  // ---------- DONATE CTA ----------
-
-  .donate-cta {
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--secondary-color);
-    background: var(--tertiary-color);
-    padding: 24px 22px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-base);
-    align-items: flex-start;
-
-    .donate-benefits {
-      list-style: disc;
-      padding-left: 20px;
-      font-size: var(--font-body-md);
-      line-height: 1.5;
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-xs);
-    }
-
-    .button {
-      align-self: flex-start;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-
-      .button {
-        align-self: center;
-      }
-    }
-  }
-
-  // ---------- CONTACT FORM ----------
-
-  .contact-form-section {
-    display: grid;
-    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-    gap: var(--gap-2xl);
-    align-items: flex-start;
-
-    .form-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-base);
-
-      .hidden {
-        clip: rect(0 0 0 0);
-        clip-path: inset(50%);
-        height: 1px;
-        overflow: hidden;
-        position: absolute;
-        white-space: nowrap;
-        width: 1px;
-      }
-
-      .form-field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--gap-xs);
-        margin-top: 18px;
-
-        label {
-          font-weight: 600;
-          font-size: var(--font-body-md);
-        }
-
-        input,
-        textarea {
-          padding: 12px 14px;
-          border-radius: var(--border-radius-md);
-          border: 1px solid var(--secondary-color);
-          background: var(--page-background);
-          font-family: inherit;
-          font-size: var(--font-body-md);
-          transition: border-color 0.2s ease;
-
-          &:focus {
-            outline: none;
-            border-color: var(--primary-color);
-          }
-        }
-
-        textarea {
-          min-height: 120px;
-          resize: vertical;
-        }
-      }
-
-      .checkbox-field {
-        display: flex;
-        gap: var(--gap-md);
-        align-items: flex-start;
-
-        input[type="checkbox"] {
-          margin-top: var(--gap-xs);
-          cursor: pointer;
-        }
-
-        label {
-          font-weight: 400;
-          font-size: var(--font-body-sm);
-          cursor: pointer;
-        }
-      }
-
-      .button {
-        align-self: flex-start;
-        margin-top: var(--gap-sm);
-      }
-
-      .success-message {
-        padding: 16px 18px;
-        border-radius: var(--border-radius-md);
-        background: var(--success-green);
-        border: 2px solid var(--success-green-border);
-        // color: #155724;
-        font-size: var(--font-body-md);
-        margin-top: var(--gap-base);
-        display: none;
-        align-items: center;
-        gap: var(--gap-sm);
-
-        &.show {
-          display: flex;
-        }
-      }
-    }
-
-    .contact-details {
-      border-radius: var(--border-radius-lg);
-      border: 1px solid var(--secondary-color);
-      background: var(--tertiary-color);
-      padding: 20px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-base);
-      height: fit-content;
-
-      .contact-item {
-        display: flex;
-        flex-direction: column;
-        gap: var(--gap-xs);
-
-        .contact-label {
-          font-size: var(--font-body-sm);
-          opacity: 0.7;
-        }
-
-        .contact-value {
-          font-size: var(--font-body-md);
-
-          a {
-            color: var(--link-color);
-            text-decoration: none;
-
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-        }
-      }
-
-      .quote-box {
-        margin-top: 12px;
-        padding: 14px 16px;
-        border-left: 4px solid var(--primary-color);
-        background: var(--page-background);
-        border-radius: var(--border-radius-md);
-        font-style: italic;
-        font-size: var(--font-body-sm);
-      }
-    }
-
-    @media (max-width: $breakpoint-xl) {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      .form-wrapper .button {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-      }
-    }
-  }
-
-  .get-involved-page {
-    @media (max-width: $breakpoint-md) {
-      padding-inline: 16px;
-    }
+  .get-involved-callouts {
+    justify-content: center;
   }
 </style>
 
-<BaseComponent theme="theme-green">
+<BaseComponent theme="theme-brown">
   <main class="get-involved-page">
-    <!-- HERO BANNER -->
-    <section class="get-involved-hero">
-      <h1>Join us in building a world where everyone can be heard.</h1>
-      <p class="hero-subheading">
-        Language Justice Network (LJN) thrives on collaboration — from community
-        members and volunteers to service providers and partners. Together, we
-        can make language access safe, affirming, and just.
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="get-involved">Get involved</h2>
+      <p class="heading-text">
+        Join us in building a world where everyone can be heard.
       </p>
-      <div class="hero-buttons">
-        <a href="#ways-to-contribute" class="button button-primary"
-          >Join the Movement</a
-        >
-        <a href="#contact-form" class="button button-secondary">Contact Us</a>
-      </div>
+      <p class="intro-text">
+        LJN grows through collaboration, with practitioners, community members,
+        partner organisations, supporters, and people who want to help reshape
+        language access in meaningful ways.
+      </p>
     </section>
-
-    <!-- WHY GET INVOLVED -->
-    <section class="why-get-involved">
-      <h2>Why Your Involvement Matters</h2>
-      <p>
-        Language Justice is not something one organisation can achieve alone —
-        it's a shared commitment to dignity, access, and inclusion.
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="why-get-involved">
+        Why get involved
+      </h2>
+      <p class="heading-text">Why your involvement matters</p>
+      <p class="intro-text">
+        Language justice is collective work. It cannot be built by one
+        practitioner, one organisation, or one service alone. It requires people
+        willing to rethink how communication happens, support those doing the
+        work, and help create systems that are safer and more inclusive.
       </p>
-      <p>
-        By joining our network, you help ensure that LGBTQIA+ forcibly displaced
-        people, migrants, and trans and gender diverse individuals are heard and
-        supported in their own languages.
-      </p>
-      <p>
-        Whether you're a community member, interpreter, student, or
-        professional, there's a role for you to play in advancing language
-        justice.
+      <p class="body-text">
+        When you get involved with LJN, you are not only supporting one
+        organisation. You are investing in a broader shift: better language
+        practices, stronger multilingual leadership, more representative
+        pathways into the sector, and better outcomes for communities who are
+        too often expected to adapt to systems that were not built with them in
+        mind.
       </p>
     </section>
 
-    <!-- WAYS TO CONTRIBUTE -->
-    <section class="ways-to-contribute" id="ways-to-contribute">
-      <h2>How You Can Contribute</h2>
+    <hr />
 
-      <div class="contribution-cards">
-        <div class="contribution-card">
-          <span class="card-icon" aria-hidden="true">🤝</span>
-          <h3>Partner With Us</h3>
-          <p>
-            Collaborate on training, policy development, or inclusive language
-            frameworks for your organisation.
-          </p>
-          <a href="#partnership" class="button button-secondary"
-            >Partner With Us</a
-          >
-        </div>
-
-        <div class="contribution-card">
-          <span class="card-icon" aria-hidden="true">🌈</span>
-          <h3>Join the Lived Experience Advisory Group (LEAG)</h3>
-          <p>
-            Co-design programs and share insights that shape affirming language
-            services.
-          </p>
-          <a href="#leag" class="button button-secondary">Join LEAG</a>
-        </div>
-
-        <div class="contribution-card">
-          <span class="card-icon" aria-hidden="true">🗣️</span>
-          <h3>Volunteer or Mentor</h3>
-          <p>
-            Support bilingual LGBTQIA+ community members working toward NAATI
-            certification through peer mentorship or training.
-          </p>
-          <a href="#leag" class="button button-secondary">Volunteer</a>
-        </div>
-
-        <div class="contribution-card">
-          <span class="card-icon" aria-hidden="true">💜</span>
-          <h3>Donate or Fundraise</h3>
-          <p>
-            Help sustain our capacity-building programs and operational
-            infrastructure through regular giving or community fundraising.
-          </p>
-          <a href="#donate" class="button button-secondary">Donate Now</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- PARTNERSHIP ENQUIRY -->
-    <section class="partnership-enquiry" id="partnership">
-      <div class="partnership-text">
-        <h2>Partnerships and Collaboration</h2>
-        <p>
-          We collaborate with service providers, universities, and community
-          organisations to deliver tailored training, research, and consultation
-          on queer-affirming and trauma-informed language practice.
-        </p>
-        <p>
-          Partnering with LJN means embedding equity, safety, and cultural
-          responsiveness into your organisational systems and service delivery.
-        </p>
-        <a href="#contact-form" class="button button-primary">Partner With Us</a
-        >
-      </div>
-
-      <div class="partnership-visual">
-        <div class="partnership-image-placeholder">
-          <p>Training session or team collaboration — image coming soon</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- VOLUNTEER / LEAG SECTION -->
-    <section class="volunteer-leag" id="leag">
-      <div class="leag-visual">
-        <div class="leag-image-placeholder">
-          <p>Group photo or connection illustration — image coming soon</p>
-        </div>
-      </div>
-
-      <div class="leag-text">
-        <h2>Join the Lived Experience Advisory Group</h2>
-        <p>
-          Our Lived Experience Advisory Group (LEAG) ensures that our programs
-          remain grounded in the realities of community members. The group
-          includes LGBTQIA+ refugees, asylum seekers, and multilingual
-          professionals who co-design our training, resources, and advocacy
-          priorities.
-        </p>
-        <p>
-          If you want to contribute your experience, skills, or insight, we
-          welcome your voice.
-        </p>
-        <div class="leag-buttons">
-          <a href="#contact-form" class="button button-primary">Join the LEAG</a
-          >
-          <a href="#contact-form" class="button button-secondary">Volunteer</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- DONATE CTA -->
-    <section class="donate-cta" id="donate">
-      <h2>Support Language Justice</h2>
-      <p>
-        Every dollar contributes directly to building safer communication
-        pathways for LGBTQIA+ forcibly displaced people.
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="ways-to-get-involved">
+        Ways to get involved
+      </h2>
+      <p class="heading-text">How you can contribute</p>
+      <p class="intro-text">
+        Our interpreting and translation services are delivered by
+        NAATI-certified practitioners who are trained in queer-affirming,
+        trauma-informed, and culturally responsive practice. We support
+        communication across a range of settings, including health, legal,
+        migration, community, settlement, and mental health contexts.
       </p>
-      <p>Donations help us:</p>
-      <ul class="donate-benefits">
-        <li>Support bilingual queer refugees through NAATI certification.</li>
-        <li>Develop community-led training and advocacy tools.</li>
-        <li>Sustain our core operations and language services.</li>
-      </ul>
-      <a href="#" class="button button-primary">Donate Now</a>
-    </section>
-
-    <!-- CONTACT FORM -->
-    <section class="contact-form-section" id="contact-form">
-      <div class="form-wrapper">
-        <h2>Get in Touch</h2>
-        <p>
-          Have a question, collaboration idea, or media inquiry? We'd love to
-          hear from you.
-        </p>
-
-        <!-- Netlify form information: https://www.netlify.com/blog/deploy-an-astro-site-with-forms-serverless-functions-and-redirects/#netlify-forms -->
-        <form
-          method="POST"
-          name="contact-us"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          action="/get-involved?success=true#contact-form"
-        >
-          <input type="hidden" name="redirect" value="/get-involved?success=true#contact-form" />
-          <input type="hidden" name="form-name" value="Contact us form submission from ljn.org.au" />
-
-          <p class="hidden">
-            <label>
-              Don't fill this out if you're human: <input name="bot-field" />
-            </label>
-          </p>
-          <div class="form-field">
-            <label for="name">Name <span aria-label="required">*</span></label>
-            <input type="text" id="name" name="name" required />
-          </div>
-
-          <div class="form-field">
-            <label for="email">Email <span aria-label="required">*</span></label
-            >
-            <input type="email" id="email" name="email" required />
-          </div>
-
-          <div class="form-field">
-            <label for="organisation">Organisation (optional)</label>
-            <input type="text" id="organisation" name="organisation" />
-          </div>
-
-          <div class="form-field">
-            <label for="message"
-              >Message <span aria-label="required">*</span></label
-            >
-            <textarea id="message" name="message" required></textarea>
-          </div>
-
-          <div class="checkbox-field">
-            <input type="checkbox" id="contact-type" name="contact-type" />
-            <label for="contact-type">
-              I'm contacting as a service provider / community member /
-              volunteer / other
-            </label>
-          </div>
-
-          <button type="submit" class="button button-primary"> Submit </button>
-        </form>
-
-        <div class="success-message" id="success-message">
-          <span>✓</span>
-          <p>Your form has been submitted! We'll get back to you soon.</p>
-        </div>
-      </div>
-
-      <div class="contact-details">
-        <h3>Contact Details</h3>
-
-        <div class="contact-item">
-          <p class="contact-label">Email</p>
-          <p class="contact-value">
-            <a href="mailto:admin@ljn.org.au"
-              >admin@ljn.org.au</a
-            >
-          </p>
-        </div>
-
-        <div class="contact-item">
-          <p class="contact-label">Location</p>
-          <p class="contact-value">
-            Based in Naarm / Melbourne — working nationally across Australia
-          </p>
-        </div>
-
-        <div class="quote-box">
-          <p>"Language justice begins when we listen."</p>
-        </div>
+      <div class="content-callouts get-involved-callouts">
+        <ContentCallout
+          title="Partner With Us"
+          body="Collaborate with LJN on training, policy development, service design, research, or community-facing projects. We work with organisations that want to improve multilingual communication in thoughtful and practical ways."
+        />
+        <ContentCallout
+          title="Join the Lived Experience Advisory Group (LEAG)"
+          body="Contribute to the development of programs, resources, and strategic priorities through lived experience leadership and community accountability."
+        />
+        <ContentCallout
+          title="Volunteer or Mentor"
+          body="Support LJN’s programs through practical contribution, mentoring, outreach, administration, or sector support. This may include supporting bilingual practitioners progressing through pathways such as Launchpad or certification programs."
+        />
+        <ContentCallout
+          title="Work With Us"
+          body="Respond to calls for interpreters, translators, project staff, trainers, and collaborators as opportunities arise. We are building a growing network of practitioners and partners aligned with LJN’s values."
+        />
+        <ContentCallout
+          title="Donate or Fundraise"
+          body="Provide financial support that helps sustain core operations, subsidise training pathways, strengthen capacity-building programs, and support community-led work."
+        />
       </div>
     </section>
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="partnerships">Partnerships</h2>
+      <p class="heading-text">Partnerships and collaboration.</p>
+      <p class="intro-text">
+        We collaborate with community organisations, health and legal services,
+        educational institutions, funders, researchers, and practitioner
+        networks. These partnerships may involve training, consulting,
+        co-design, resource development, project delivery, or broader strategic
+        collaboration.
+      </p>
+      <p class="body-text">
+        We are particularly interested in partnerships that value community
+        leadership, shared learning, and long-term change. If your organisation
+        is looking to strengthen language access, support multilingual
+        communities more effectively, or develop safer interpreting and
+        translation practices, we would love to hear from you.
+      </p>
+      <div class="button-wrapper">
+        <Button href="" label="Partner with us" />
+      </div>
+    </section>
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="leag">
+        LEAG / community leadership
+      </h2>
+      <p class="heading-text">Join the Lived Experience Advisory Group</p>
+      <p class="intro-text">
+        Our Lived Experience Advisory Group helps ensure that LJN’s work remains
+        grounded in the realities of the communities we exist to support. LEAG
+        members bring lived experience, insight, and critical perspective to the
+        design of our programs, resources, and priorities.
+      </p>
+      <p class="body-text">
+        This is not a symbolic role. It is part of how we build accountability
+        into the organisation. Members contribute to shaping training, reviewing
+        resources, identifying risks and gaps, and making sure our work remains
+        connected to community realities.
+      </p>
+      <p class="body-text">
+        If you are interested in contributing your experience, skills, or
+        perspective, we would love to hear from you.
+      </p>
+      <div class="button-wrapper">
+        <Button href="" label="Join the LEAG" />
+        <Button href="" label="Express interest" />
+      </div>
+    </section>
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="volunteer-mentor">
+        Volunteer / mentor
+      </h2>
+      <p class="heading-text">Supporting LJN beyond formal employment.</p>
+      <p class="intro-text">
+        There are many ways to support LJN beyond formal employment. Depending
+        on your experience and capacity, involvement might include mentoring
+        bilingual community members, supporting event delivery, assisting with
+        communications, contributing technical or professional skills, or
+        helping strengthen our operational systems.
+      </p>
+      <p class="body-text">
+        We value practical, thoughtful contributions and are especially
+        interested in people who want to work in ways that are collaborative,
+        community-aware, and values-aligned.
+      </p>
+      <div class="button-wrapper">
+        <Button href="" label="Volunteer with us" />
+      </div>
+    </section>
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="donate">Donate</h2>
+      <p class="heading-text">Support language justice.</p>
+      <p class="intro-text">
+        Donations help LJN build the infrastructure and programs needed for
+        long-term change. This includes supporting bilingual LGBTQIA+ people
+        through training and certification pathways, developing community-led
+        resources, sustaining workshops and forums, and strengthening the
+        operational foundations that allow the organisation to grow responsibly.
+      </p>
+      <p class="body-text">
+        Every contribution supports more than a service. It supports a future
+        where multilingual communication is safer, more representative, and more
+        accountable.
+      </p>
+      <p class="body-text">Send us an email if you'd like to donate to us!</p>
+      <div class="button-wrapper">
+        <Button href="mailto:admin@ljn.org.au" label="Donate now" />
+      </div>
+    </section>    
+    <hr />
+    <ContactCallout />
   </main>
-
-  <script>
-    // Check if the URL has the success parameter and show the message
-    if (window.location.search.includes("success=true")) {
-      const successMessage = document.getElementById("success-message");
-      if (successMessage) {
-        successMessage.classList.add("show");
-      }
-    }
-  </script>
 </BaseComponent>
