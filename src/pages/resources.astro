@@ -1,602 +1,149 @@
 ---
-import "../components/globalStyles.astro";
 import BaseComponent from "../layouts/BaseComponent.astro";
+import Button from "../components/Button.astro";
+import ContactCallout from "../components/ContactCallout.astro";
+import ContentCallout from "../components/ContentCallout.astro";
 ---
 
 <style lang="scss">
   @use "../styles/variables" as *;
 
-  // ---------- HERO ----------
-
-  .resources-hero {
-    padding: 24px 22px;
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--secondary-color);
-    background: var(--tertiary-color);
+  .featured-resource-card {
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    padding: var(--spacing-xl);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--gap-base);
+    gap: var(--spacing-md);
+    max-width: var(--max-width-content);
+    margin: 0 auto;
+    color: var(--color-white);
 
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
+    :global(.button--primary:focus-visible) {
+      outline-color: var(--color-white);
     }
   }
 
-  // ---------- QUICK ACCESS CATEGORIES ----------
-
-  .quick-access {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-lg);
-    align-items: flex-start;
-
-    .categories-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--gap-base);
-      width: 100%;
-    }
-
-    .category-card {
-      border-radius: var(--border-radius-lg);
-      border: 1px solid var(--secondary-color);
-      background: var(--tertiary-color);
-      padding: 20px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-md);
-
-      .category-icon {
-        font-size: 32px;
-      }
-
-      h3 {
-        font-size: var(--font-title-sm);
-        margin: 4px 0;
-      }
-
-      p {
-        font-size: var(--font-body-sm);
-        margin: 4px 0;
-      }
-
-      .button {
-        align-self: flex-start;
-        margin-top: 8px;
-      }
-    }
-
-    @media (max-width: $breakpoint-lg) {
-      .categories-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-    }
+  .featured-resource-eyebrow,
+  .featured-resource-heading,
+  .featured-resource-body {
+    color: var(--color-white);
+    margin: 0;
   }
 
-  // ---------- FEATURED RESOURCE ----------
-
-  .featured-resource {
-    display: grid;
-    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-    gap: var(--gap-2xl);
-    align-items: stretch;
-
-    .featured-text {
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-md);
-
-      .button {
-        align-self: flex-start;
-      }
-    }
-
-    .featured-visual {
-      display: flex;
-      align-items: stretch;
-      justify-content: center;
-
-      .featured-image-placeholder {
-        width: 100%;
-        min-height: 240px;
-        border-radius: var(--border-radius-lg);
-        border: 1px dashed var(--secondary-color);
-        background: var(--tertiary-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 16px;
-        text-align: center;
-        font-size: var(--font-body-sm);
-      }
-    }
-
-    @media (max-width: $breakpoint-xl) {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      .button {
-        align-self: center;
-      }
-    }
+  .featured-resource-action {
+    align-self: flex-start;
+    margin-top: var(--spacing-sm);
   }
 
-  // ---------- RESOURCE SECTIONS ----------
-
-  .resource-section {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-lg);
-    align-items: flex-start;
-
-    .resources-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--gap-base);
-      width: 100%;
-    }
-
-    .resource-card {
-      border-radius: var(--border-radius-lg);
-      border: 1px solid var(--secondary-color);
-      background: var(--tertiary-color);
-      padding: 18px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-sm);
-
-      h4 {
-        margin: 0;
-      }
-
-      .resource-description {
-        font-size: var(--font-body-sm);
-        margin: 4px 0;
-      }
-
-      .resource-meta {
-        font-size: var(--font-body-sm);
-        opacity: 0.7;
-        margin: 4px 0;
-      }
-
-      .button {
-        align-self: flex-start;
-        padding: 10px 20px;
-        font-size: var(--font-body-sm);
-      }
-    }
-
-    .button {
-      align-self: flex-start;
-    }
-
-    @media (max-width: $breakpoint-lg) {
-      .resources-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-
-      .button {
-        align-self: center;
-      }
-    }
-  }
-
-  // ---------- RESEARCH & PUBLICATIONS ----------
-
-  .research-publications {
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-lg);
-    align-items: flex-start;
-
-    .publications-list {
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-base);
-      width: 100%;
-    }
-
-    .publication-item {
-      border-radius: var(--border-radius-lg);
-      border: 1px solid var(--secondary-color);
-      background: var(--tertiary-color);
-      padding: 18px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: var(--gap-xs);
-
-      h4 {
-        font-size: var(--font-body-md);
-        margin: 0;
-      }
-
-      .publication-authors {
-        font-size: var(--font-body-sm);
-        font-style: italic;
-        margin: 2px 0;
-      }
-
-      .publication-abstract {
-        font-size: var(--font-body-sm);
-        margin: 4px 0;
-      }
-
-      .button {
-        align-self: flex-start;
-        padding: 8px 18px;
-        font-size: var(--font-body-sm);
-        margin-top: 4px;
-      }
-    }
-
-    .button {
-      align-self: flex-start;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-
-      .button {
-        align-self: center;
-      }
-    }
-  }
-
-  // ---------- CONTRIBUTE ----------
-
-  .contribute {
-    border-radius: var(--border-radius-lg);
-    border: 1px solid var(--secondary-color);
-    background: var(--tertiary-color);
-    padding: 24px 22px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--gap-md);
-    align-items: flex-start;
-
-    .button {
-      align-self: flex-start;
-    }
-
-    @media (max-width: $breakpoint-sm) {
-      align-items: center;
-
-      .button {
-        align-self: center;
-      }
-    }
-  }
-
-  .resources-page {
-    @media (max-width: $breakpoint-md) {
-      padding-inline: 16px;
+  @media (max-width: $breakpoint-md) {
+    .featured-resource-card {
+      padding: var(--spacing-lg);
     }
   }
 </style>
 
 <BaseComponent theme="theme-purple">
   <main class="resources-page">
-    <!-- HERO BANNER -->
-    <section class="resources-hero">
-      <h1>Tools, knowledge, and resources for language justice in action.</h1>
-      <p class="hero-subheading">
-        This page gathers resources developed by and for the community —
-        practical guides, academic insights, and templates to help build safe,
-        inclusive language practices across sectors.
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="resources">Resources</h2>
+      <p class="heading-text">
+        Tools, knowledge, and resources for language justice in action
       </p>
-      <a href="#quick-access" class="button button-primary">Explore Resources</a
-      >
+      <p class="intro-text">
+        Practical guides, reflections, reports, and community-informed materials
+        to support safer multilingual practice across sectors.
+      </p>
     </section>
-
-    <!-- QUICK ACCESS CATEGORIES -->
-    <section class="quick-access" id="quick-access">
-      <h2>Browse by Category</h2>
-
-      <div class="categories-grid">
-        <div class="category-card">
-          <span class="category-icon" aria-hidden="true">🧑‍💼</span>
-          <h3>For Service Providers</h3>
-          <p>
-            Guidelines and training materials for organisations and
-            practitioners working with LGBTQIA+ refugees and people seeking
-            asylum.
-          </p>
-          <a href="#service-providers" class="button button-secondary"
-            >View Resources</a
-          >
-        </div>
-
-        <div class="category-card">
-          <span class="category-icon" aria-hidden="true">🌏</span>
-          <h3>For Interpreters &amp; Translators</h3>
-          <p>
-            Toolkits, ethical frameworks, and glossaries for interpreters and
-            translators.
-          </p>
-          <a href="#practitioners" class="button button-secondary"
-            >View Resources</a
-          >
-        </div>
-
-        <div class="category-card">
-          <span class="category-icon" aria-hidden="true">🌈</span>
-          <h3>For Community Members</h3>
-          <p>
-            Information, advocacy, and multilingual resources for LGBTQIA+
-            forcibly displaced people.
-          </p>
-          <a href="#community" class="button button-secondary">View Resources</a
-          >
-        </div>
-
-        <div class="category-card">
-          <span class="category-icon" aria-hidden="true">📚</span>
-          <h3>Research &amp; Reports</h3>
-          <p>
-            Key studies and policy papers informing our work on language
-            justice.
-          </p>
-          <a href="#research" class="button button-secondary">View Resources</a>
-        </div>
-      </div>
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="resource-hub">Resource hub</h2>
+      <p class="heading-text">A resource hub grounded in practice</p>
+      <p class="intro-text">
+        Some resources are practical and immediate while others are reflective
+        or strategic, such as articles, reports, practice frameworks, and
+        publications that help name the deeper issues shaping language work.
+      </p>
+      <p class="body-text">
+        Across all of them, the aim is the same: to support communication that
+        is safer, clearer, and more grounded in the realities of the communities
+        most affected by language barriers.
+      </p>
     </section>
-
-    <!-- FEATURED RESOURCE -->
-    <section class="featured-resource" id="featured">
-      <div class="featured-text">
-        <h2>Featured: Language Justice Practice Framework</h2>
-        <p>
-          The <strong>Language Justice Practice Framework</strong> outlines the guiding
-          principles behind LJN's model of affirming communication. It draws from
-          queer, feminist, and decolonial ethics, and includes practical checklists
-          for service providers and interpreters alike.
+    <hr />
+    <section class="content-section">
+      <div class="featured-resource-card">
+        <p class="eyebrow-text featured-resource-eyebrow">Featured resource</p>
+        <p class="intro-text featured-resource-heading">
+          Towards Language Justice: Queering Solidarities Between Interpreters,
+          Service Providers, and Community Members
         </p>
-        <a href="#" class="button button-primary">Download Framework (PDF)</a>
-      </div>
-
-      <div class="featured-visual">
-        <div class="featured-image-placeholder">
-          <p>Document preview – image coming soon</p>
+        <p class="body-text featured-resource-body">
+          This paper sits at the heart of our work at the Language Justice
+          Network. It brings together lived experience, practice-based insight,
+          and critical reflection to explore how language operates within
+          systems that support, and at times fail, LGBTQIA+ forcibly displaced
+          people.
+        </p>
+        <div class="featured-resource-action">
+          <Button href="#" label="Download the paper" variant="primary" />
         </div>
       </div>
     </section>
-
-    <!-- PRACTITIONER RESOURCES -->
-    <section class="resource-section" id="practitioners">
-      <h2>For Interpreters &amp; Translators</h2>
-      <p>
-        Resources to support ethical, reflective, and affirming interpreting and
-        translation. All materials are created or reviewed by NAATI-certified
-        practitioners with lived experience in LGBTQIA+ and CALD communities.
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="practitioner-resources">
+        Practitioner resources
+      </h2>
+      <p class="heading-text">For Interpreters & Translators</p>
+      <p class="intro-text">
+        Language practitioners often work in complex, high-stakes settings where
+        communication carries cultural, emotional, and ethical weight. These
+        resources are designed to support reflective, accountable, and
+        community-informed practice.
       </p>
-
-      <div class="resources-grid">
-        <div class="resource-card">
-          <h4>Queer &amp; Trauma-Informed Ethics for Interpreters</h4>
-          <p class="resource-description">
-            Comprehensive toolkit for ethical interpreting practice.
-          </p>
-          <p class="resource-meta">PDF • 2.4 MB</p>
-          <a href="#" class="button button-secondary">Download</a>
-        </div>
-
-        <div class="resource-card">
-          <h4>Glossary of LGBTQIA+ Terms</h4>
-          <p class="resource-description">
-            Arabic–English, Spanish–English multilingual glossary.
-          </p>
-          <p class="resource-meta">PDF • 1.8 MB</p>
-          <a href="#" class="button button-secondary">Download</a>
-        </div>
-
-        <div class="resource-card">
-          <h4>Peer Supervision Template</h4>
-          <p class="resource-description">
-            Structured template for reflective peer supervision sessions.
-          </p>
-          <p class="resource-meta">DOCX • 245 KB</p>
-          <a href="#" class="button button-secondary">Download</a>
-        </div>
-
-        <div class="resource-card">
-          <h4>Interpreting in Mental Health Settings</h4>
-          <p class="resource-description">
-            Ethical scenarios guide for complex mental health contexts.
-          </p>
-          <p class="resource-meta">PDF • 1.2 MB</p>
-          <a href="#" class="button button-secondary">Download</a>
-        </div>
-      </div>
-
-      <a href="/get-involved#contact-form" class="button button-primary"
-        >Access Practitioner Resources</a
-      >
     </section>
-
-    <!-- SERVICE PROVIDER RESOURCES -->
-    <section class="resource-section" id="service-providers">
-      <h2>For Service Providers &amp; Organisations</h2>
-      <p>
-        Guidelines and templates to help services engage interpreters safely,
-        brief and debrief effectively, and build organisational systems that
-        respect language rights.
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="service-provider-resources">
+        Service provider resources
+      </h2>
+      <p class="heading-text">For Service Providers & Organisations</p>
+      <p class="intro-text">
+        These resources support services to move beyond minimum language access
+        and toward communication practices that are more thoughtful, more
+        relational, and more responsive to the communities they serve.
       </p>
-
-      <div class="resources-grid">
-        <div class="resource-card">
-          <h4>How to Work with Interpreters Supporting Queer Refugees</h4>
-          <p class="resource-description">Policy template for organisations.</p>
-          <p class="resource-meta">DOCX • 320 KB</p>
-          <a href="#" class="button button-secondary">Download</a>
-        </div>
-
-        <div class="resource-card">
-          <h4>Briefing &amp; Debriefing Checklist</h4>
-          <p class="resource-description">
-            Essential checklist for interpreted encounters.
-          </p>
-          <p class="resource-meta">PDF • 450 KB</p>
-          <a href="#" class="button button-secondary">Download</a>
-        </div>
-
-        <div class="resource-card">
-          <h4>Inclusive Booking System Guidelines</h4>
-          <p class="resource-description">
-            Framework for ethical interpreter booking systems.
-          </p>
-          <p class="resource-meta">PDF • 890 KB</p>
-          <a href="#" class="button button-secondary">Download</a>
-        </div>
-
-        <div class="resource-card">
-          <h4>Trauma-Informed Communication Practices</h4>
-          <p class="resource-description">
-            Workshop slides and facilitator guide.
-          </p>
-          <p class="resource-meta">PDF • 3.1 MB</p>
-          <a href="#" class="button button-secondary">Download</a>
-        </div>
-      </div>
-
-      <a href="/get-involved#contact-form" class="button button-primary"
-        >Access Service Resources</a
-      >
     </section>
-
-    <!-- COMMUNITY RESOURCES -->
-    <section class="resource-section" id="community">
-      <h2>For Community Members</h2>
-      <p>
-        Accessible, multilingual resources co-designed with our <strong>
-          Lived Experience Advisory Group (LEAG)
-        </strong> to help LGBTQIA+ refugees and asylum seekers understand their rights
-        when working with interpreters, and navigate key services.
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="community-resources">
+        Community resources
+      </h2>
+      <p class="heading-text">For Community Members</p>
+      <p class="intro-text">
+        These resources are designed to support people navigating services
+        across languages. They aim to make communication safer and more
+        transparent, especially for those who may already feel excluded,
+        uncertain, or unheard in institutional settings.
       </p>
-
-      <div class="resources-grid">
-        <div class="resource-card">
-          <h4>Know Your Rights: Working with Interpreters</h4>
-          <p class="resource-description">
-            Available in Arabic, Dari, and Spanish.
-          </p>
-          <p class="resource-meta">PDF • 1.5 MB</p>
-          <a href="#" class="button button-secondary">Download</a>
-        </div>
-
-        <div class="resource-card">
-          <h4>How to Access Language Services in Australia</h4>
-          <p class="resource-description">
-            Practical guide to navigating language access.
-          </p>
-          <p class="resource-meta">PDF • 980 KB</p>
-          <a href="#" class="button button-secondary">Download</a>
-        </div>
-
-        <div class="resource-card">
-          <h4>Your Voice Matters: Tips for Safer Communication</h4>
-          <p class="resource-description">
-            Community-developed guide for safer communication.
-          </p>
-          <p class="resource-meta">PDF • 750 KB</p>
-          <a href="#" class="button button-secondary">Download</a>
-        </div>
-      </div>
-
-      <a href="/get-involved#contact-form" class="button button-primary"
-        >View Community Resources</a
-      >
     </section>
-
-    <!-- RESEARCH & PUBLICATIONS -->
-    <section class="research-publications" id="research">
-      <h2>Research &amp; Publications</h2>
-      <p>
-        Our work is grounded in a growing body of scholarship on language
-        justice, migration, trauma, and queer inclusion. Explore selected
-        readings and LJN's research collaborations.
+    <hr />
+    <section class="content-section">
+      <h2 class="eyebrow-text sidebar-entry" id="contribute-collaborate">
+        Contribute / collaborate
+      </h2>
+      <p class="heading-text">Contribute a resource</p>
+      <p class="intro-text">
+        We welcome collaboration with practitioners, community organisations,
+        researchers, and educators who share our commitment to language justice.
       </p>
-
-      <div class="publications-list">
-        <div class="publication-item">
-          <h4>
-            Queering Solidarities Between Interpreters, Service Providers, and
-            Community Members
-          </h4>
-          <p class="publication-authors">Language Justice Network, 2025</p>
-          <p class="publication-abstract">
-            Exploring intersectional approaches to solidarity and care in
-            language services for LGBTQIA+ forcibly displaced communities.
-          </p>
-          <a href="#" class="button button-secondary">View Reference</a>
-        </div>
-
-        <div class="publication-item">
-          <h4>Inhabiting Two Worlds at Once: LGBTIQA+ Settlement Outcomes</h4>
-          <p class="publication-authors">
-            Forcibly Displaced People Network, 2023
-          </p>
-          <p class="publication-abstract">
-            Research examining the unique challenges faced by LGBTIQA+
-            individuals navigating settlement processes in Australia.
-          </p>
-          <a href="#" class="button button-secondary">View Reference</a>
-        </div>
-
-        <div class="publication-item">
-          <h4>Decolonizing Linguistics</h4>
-          <p class="publication-authors">Charity Hudley et al., 2024</p>
-          <p class="publication-abstract">
-            Critical perspectives on language, power, and colonial legacies in
-            linguistic practice and scholarship.
-          </p>
-          <a href="#" class="button button-secondary">View Reference</a>
-        </div>
-
-        <div class="publication-item">
-          <h4>Queer and Trans Migrations</h4>
-          <p class="publication-authors">Luibhéid et al., 2020</p>
-          <p class="publication-abstract">
-            Interdisciplinary collection examining LGBTQ+ migration experiences
-            and the politics of mobility, borders, and belonging.
-          </p>
-          <a href="#" class="button button-secondary">View Reference</a>
-        </div>
-
-        <div class="publication-item">
-          <h4>Community Translation: Research and Practice</h4>
-          <p class="publication-authors">González et al., 2023</p>
-          <p class="publication-abstract">
-            Comprehensive examination of community translation practices and
-            their role in social justice and inclusion.
-          </p>
-          <a href="#" class="button button-secondary">View Reference</a>
-        </div>
-      </div>
-
-      <a href="#" class="button button-primary">View Full Reading List</a>
-    </section>
-
-    <!-- CONTRIBUTE OR COLLABORATE -->
-    <section class="contribute" id="contribute">
-      <h2>Contribute a Resource</h2>
-      <p>
-        We welcome contributions from interpreters, service providers,
-        researchers, and community organisations who share our commitment to
-        language justice. If you have a resource, training tool, or report that
-        could support our work, we'd love to collaborate.
+      <p class="body-text">
+        If you have a resource, training tool, report, or publication that
+        aligns with this work, we’d love to hear from you.
       </p>
-      <a href="/get-involved#contact-form" class="button button-primary">Submit a Resource</a>
     </section>
+    <hr />
+    <ContactCallout />
   </main>
 </BaseComponent>
