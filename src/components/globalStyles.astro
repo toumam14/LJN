@@ -192,6 +192,7 @@
 
     // Body fonts
     --font-body-intro: 24px;
+    --font-body-intro-mobile: 21px;
     --font-body-main: 18px;
     --font-body-button: 14px;
 
@@ -347,6 +348,7 @@
 
   body {
     background-color: var(--page-bg);
+    overflow-x: hidden;
   }
 
   // ---- Typography utility classes ----
@@ -379,7 +381,7 @@
     font-weight: 700;
 
     @media (max-width: $breakpoint-md) {
-      font-size: var(--font-body-main);
+      font-size: var(--font-body-intro-mobile);
     }
   }
 
