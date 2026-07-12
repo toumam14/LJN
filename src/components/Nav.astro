@@ -1,6 +1,9 @@
 ---
 import iconLogo from '../assets/icon-logo.svg';
+import Button from './Button.astro';
 const iconLogoUrl = iconLogo.src;
+
+const donateHref = 'https://www.zeffy.com/en-AU/donation-form/donate-to-change-lives-16969';
 
 interface Props {
   logo?: string;
@@ -35,36 +38,39 @@ const navLinks = [
     <a href="/" class="nav-logo-link">
       {logo && <img src={logo} alt="Language Justice Network" class="nav-logo" />}
     </a>
-    <nav aria-label="Main navigation">
-      <ul class="nav-links">
-        {navLinks.map(link => (
-          <li class:list={['nav-item', { 'nav-item--has-dropdown': link.children }]}>
-            <a
-              href={link.href}
-              class:list={['nav-link', { 'nav-link--active': isActive(link.href) }]}
-              aria-haspopup={link.children ? 'true' : undefined}
-            >
-              {link.label}
-            </a>
-            {link.children && (
-              <ul class="nav-dropdown" role="menu">
-                {link.children.map(child => (
-                  <li role="none">
-                    <a
-                      href={child.href}
-                      role="menuitem"
-                      class:list={['nav-dropdown-link', { 'nav-dropdown-link--active': isExactActive(child.href) }]}
-                    >
-                      {child.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div class="nav-right">
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          {navLinks.map(link => (
+            <li class:list={['nav-item', { 'nav-item--has-dropdown': link.children }]}>
+              <a
+                href={link.href}
+                class:list={['nav-link', { 'nav-link--active': isActive(link.href) }]}
+                aria-haspopup={link.children ? 'true' : undefined}
+              >
+                {link.label}
+              </a>
+              {link.children && (
+                <ul class="nav-dropdown" role="menu">
+                  {link.children.map(child => (
+                    <li role="none">
+                      <a
+                        href={child.href}
+                        role="menuitem"
+                        class:list={['nav-dropdown-link', { 'nav-dropdown-link--active': isExactActive(child.href) }]}
+                      >
+                        {child.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <Button href={donateHref} label="Donate" variant="primary" external />
+    </div>
   </div>
 
   <!-- Mobile bar -->
@@ -164,6 +170,12 @@ const navLinks = [
     @media (max-width: $breakpoint-lg) {
       display: none;
     }
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2xl);
   }
 
   .nav-links {
