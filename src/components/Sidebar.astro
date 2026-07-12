@@ -20,8 +20,8 @@ const { soundwave } = Astro.props;
     position: sticky;
     top: var(--spacing-xl);
     padding-left: var(--spacing-page-desktop);
-    margin: var(--spacing-2xl);
-    margin-right: 0;
+    margin-block: var(--spacing-section);
+    margin-inline: var(--spacing-2xl) 0;
     background-image: var(--soundwave-url);
     height: 100vh;
     width: 400px;
@@ -43,6 +43,7 @@ const { soundwave } = Astro.props;
     gap: var(--spacing-sm);
     position: sticky;
     top: 120px;
+    margin-block: var(--spacing-section);
   }
   
 </style>

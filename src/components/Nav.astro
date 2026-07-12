@@ -27,7 +27,16 @@ const navLinks = [
     ],
   },
   // { href: '/resources', label: 'Resources' },
-  { href: '/get-involved', label: 'Get Involved' },
+  {
+    href: '/get-involved',
+    label: 'Get Involved',
+    children: [
+      { href: '/get-involved#partnerships', label: 'Partnerships' },
+      { href: '/get-involved#leag', label: 'LEAG' },
+      { href: '/get-involved#volunteer-mentor', label: 'Volunteer' },
+      { href: '/get-involved#donate', label: 'Donate' },
+    ],
+  },
 ];
 ---
 
@@ -140,7 +149,7 @@ const navLinks = [
   .nav-logo-link {
     display: flex;
     align-items: center;
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-sm) 0;
 
     @media (max-width: $breakpoint-lg) {
       padding: unset;
@@ -148,7 +157,7 @@ const navLinks = [
   }
 
   .nav-logo {
-    height: 60px;
+    height: 75px;
     width: auto;
     display: block;
   }
@@ -165,7 +174,7 @@ const navLinks = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 var(--spacing-3xl);
+    padding: 0 calc(var(--spacing-2xl) + var(--spacing-page-desktop));
 
     @media (max-width: $breakpoint-lg) {
       display: none;
